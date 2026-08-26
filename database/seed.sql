@@ -25,7 +25,31 @@ VALUES
 ('Rwanda', 'Africa', 'https://flagcdn.com/w320/rw.png'),
 ('Sudan', 'Africa', 'https://flagcdn.com/w320/sd.png'),
 ('Somalia', 'Africa', 'https://flagcdn.com/w320/so.png'),
-('Madagascar', 'Africa', 'https://flagcdn.com/w320/mg.png');
+('Madagascar', 'Africa', 'https://flagcdn.com/w320/mg.png'),
+
+-- Asiatiska länder
+('Japan', 'Asia', 'https://flagcdn.com/w320/jp.png'),
+('China', 'Asia', 'https://flagcdn.com/w320/cn.png'),
+('India', 'Asia', 'https://flagcdn.com/w320/in.png'),
+('South Korea', 'Asia', 'https://flagcdn.com/w320/kr.png'),
+('Thailand', 'Asia', 'https://flagcdn.com/w320/th.png'),
+('Vietnam', 'Asia', 'https://flagcdn.com/w320/vn.png'),
+('Indonesia', 'Asia', 'https://flagcdn.com/w320/id.png'),
+('Philippines', 'Asia', 'https://flagcdn.com/w320/ph.png'),
+('Malaysia', 'Asia', 'https://flagcdn.com/w320/my.png'),
+('Turkey', 'Asia', 'https://flagcdn.com/w320/tr.png'),
+('Iran', 'Asia', 'https://flagcdn.com/w320/ir.png'),
+('Iraq', 'Asia', 'https://flagcdn.com/w320/iq.png'),
+('Saudi Arabia', 'Asia', 'https://flagcdn.com/w320/sa.png'),
+('Israel', 'Asia', 'https://flagcdn.com/w320/il.png'),
+('Lebanon', 'Asia', 'https://flagcdn.com/w320/lb.png'),
+('Pakistan', 'Asia', 'https://flagcdn.com/w320/pk.png'),
+('Bangladesh', 'Asia', 'https://flagcdn.com/w320/bd.png'),
+('Sri Lanka', 'Asia', 'https://flagcdn.com/w320/lk.png'),
+('Nepal', 'Asia', 'https://flagcdn.com/w320/np.png'),
+('Mongolia', 'Asia', 'https://flagcdn.com/w320/mn.png'),
+
+;
 
 INSERT INTO dishes (
   country_id,
@@ -36,6 +60,7 @@ INSERT INTO dishes (
   hint
 )
 VALUES
+-- AFRIKANSKA LÄNDER
 ((SELECT country_id FROM countries WHERE country_name = 'Nigeria'), 'Jollof Rice', 1, '/images/dishes/jollof-rice.jpg', 'Jollof rice är en mycket populär västafrikansk risrätt med tomat, kryddor och ofta kött eller grönsaker.', 'En röd risrätt som är mycket känd i Västafrika.'),
 ((SELECT country_id FROM countries WHERE country_name = 'Nigeria'), 'Egusi Soup', 0, NULL, NULL, NULL),
 ((SELECT country_id FROM countries WHERE country_name = 'Nigeria'), 'Suya', 0, NULL, NULL, NULL),
@@ -134,4 +159,106 @@ VALUES
 ((SELECT country_id FROM countries WHERE country_name = 'Madagascar'), 'Romazava', 1, '/images/dishes/romazava.jpg', 'Romazava är en traditionell gryta från Madagaskar med kött, bladgrönsaker och kryddor.', 'En gryta med kött och bladgrönsaker.'),
 ((SELECT country_id FROM countries WHERE country_name = 'Madagascar'), 'Ravitoto', 0, NULL, NULL, NULL),
 ((SELECT country_id FROM countries WHERE country_name = 'Madagascar'), 'Mofo Gasy', 0, NULL, NULL, NULL),
-((SELECT country_id FROM countries WHERE country_name = 'Madagascar'), 'Akoho Sy Voanio', 0, NULL, NULL, NULL);
+((SELECT country_id FROM countries WHERE country_name = 'Madagascar'), 'Akoho Sy Voanio', 0, NULL, NULL, NULL),
+
+-- ASIATISKA LÄNDER
+((SELECT country_id FROM countries WHERE country_name = 'Japan'), 'Sushi', 1, '/images/dishes/sushi.jpg', 'Sushi är en japansk maträtt med vinägerkryddat ris och ofta fisk, skaldjur eller grönsaker.', 'Rätten innehåller ofta ris och fisk.'),
+((SELECT country_id FROM countries WHERE country_name = 'Japan'), 'Ramen', 0, NULL, NULL, NULL),
+((SELECT country_id FROM countries WHERE country_name = 'Japan'), 'Tempura', 0, NULL, NULL, NULL),
+((SELECT country_id FROM countries WHERE country_name = 'Japan'), 'Okonomiyaki', 0, NULL, NULL, NULL),
+
+((SELECT country_id FROM countries WHERE country_name = 'China'), 'Peking Duck', 1, '/images/dishes/peking-duck.jpg', 'Pekinganka är en klassisk kinesisk rätt känd för sitt krispiga skinn och serveras ofta med tunna pannkakor.', 'Rätten är känd för krispigt ank-skinn.'),
+((SELECT country_id FROM countries WHERE country_name = 'China'), 'Mapo Tofu', 0, NULL, NULL, NULL),
+((SELECT country_id FROM countries WHERE country_name = 'China'), 'Kung Pao Chicken', 0, NULL, NULL, NULL),
+((SELECT country_id FROM countries WHERE country_name = 'China'), 'Dumplings', 0, NULL, NULL, NULL),
+
+((SELECT country_id FROM countries WHERE country_name = 'India'), 'Biryani', 1, '/images/dishes/biryani.jpg', 'Biryani är en kryddig risrätt från Sydasien som ofta lagas med kött, grönsaker och aromatiska kryddor.', 'En kryddig risrätt med många aromatiska kryddor.'),
+((SELECT country_id FROM countries WHERE country_name = 'India'), 'Butter Chicken', 0, NULL, NULL, NULL),
+((SELECT country_id FROM countries WHERE country_name = 'India'), 'Samosa', 0, NULL, NULL, NULL),
+((SELECT country_id FROM countries WHERE country_name = 'India'), 'Masala Dosa', 0, NULL, NULL, NULL),
+
+((SELECT country_id FROM countries WHERE country_name = 'South Korea'), 'Kimchi', 1, '/images/dishes/kimchi.jpg', 'Kimchi är en koreansk fermenterad grönsaksrätt, oftast gjord på kål och chili.', 'En fermenterad och kryddig grönsaksrätt.'),
+((SELECT country_id FROM countries WHERE country_name = 'South Korea'), 'Bibimbap', 0, NULL, NULL, NULL),
+((SELECT country_id FROM countries WHERE country_name = 'South Korea'), 'Bulgogi', 0, NULL, NULL, NULL),
+((SELECT country_id FROM countries WHERE country_name = 'South Korea'), 'Tteokbokki', 0, NULL, NULL, NULL),
+
+((SELECT country_id FROM countries WHERE country_name = 'Thailand'), 'Pad Thai', 1, '/images/dishes/pad-thai.jpg', 'Pad Thai är en thailändsk wokad nudelrätt med risnudlar, ägg, tofu eller räkor och tamarindsås.', 'En wokad nudelrätt med sötsyrlig smak.'),
+((SELECT country_id FROM countries WHERE country_name = 'Thailand'), 'Tom Yum', 0, NULL, NULL, NULL),
+((SELECT country_id FROM countries WHERE country_name = 'Thailand'), 'Green Curry', 0, NULL, NULL, NULL),
+((SELECT country_id FROM countries WHERE country_name = 'Thailand'), 'Som Tam', 0, NULL, NULL, NULL),
+
+((SELECT country_id FROM countries WHERE country_name = 'Vietnam'), 'Pho', 1, '/images/dishes/pho.jpg', 'Pho är en vietnamesisk nudelsoppa med buljong, risnudlar, örter och ofta nötkött eller kyckling.', 'En nudelsoppa med klar buljong och örter.'),
+((SELECT country_id FROM countries WHERE country_name = 'Vietnam'), 'Banh Mi', 0, NULL, NULL, NULL),
+((SELECT country_id FROM countries WHERE country_name = 'Vietnam'), 'Goi Cuon', 0, NULL, NULL, NULL),
+((SELECT country_id FROM countries WHERE country_name = 'Vietnam'), 'Bun Cha', 0, NULL, NULL, NULL),
+
+((SELECT country_id FROM countries WHERE country_name = 'Indonesia'), 'Nasi Goreng', 1, '/images/dishes/nasi-goreng.jpg', 'Nasi goreng är indonesiskt stekt ris med kryddor, grönsaker och ofta ägg eller kyckling.', 'Rätten är stekt ris med kryddor.'),
+((SELECT country_id FROM countries WHERE country_name = 'Indonesia'), 'Satay', 0, NULL, NULL, NULL),
+((SELECT country_id FROM countries WHERE country_name = 'Indonesia'), 'Rendang', 0, NULL, NULL, NULL),
+((SELECT country_id FROM countries WHERE country_name = 'Indonesia'), 'Gado-Gado', 0, NULL, NULL, NULL),
+
+((SELECT country_id FROM countries WHERE country_name = 'Philippines'), 'Adobo', 1, '/images/dishes/adobo.jpg', 'Adobo är en filippinsk rätt där kött marineras och kokas med soja, vinäger, vitlök och kryddor.', 'Rätten kokas ofta med soja och vinäger.'),
+((SELECT country_id FROM countries WHERE country_name = 'Philippines'), 'Sinigang', 0, NULL, NULL, NULL),
+((SELECT country_id FROM countries WHERE country_name = 'Philippines'), 'Lechon', 0, NULL, NULL, NULL),
+((SELECT country_id FROM countries WHERE country_name = 'Philippines'), 'Pancit', 0, NULL, NULL, NULL),
+
+((SELECT country_id FROM countries WHERE country_name = 'Malaysia'), 'Nasi Lemak', 1, '/images/dishes/nasi-lemak.jpg', 'Nasi lemak är en malaysisk rätt med kokosris, sambal, jordnötter, ägg och ofta ansjovis eller kyckling.', 'Rätten innehåller kokosris och sambal.'),
+((SELECT country_id FROM countries WHERE country_name = 'Malaysia'), 'Laksa', 0, NULL, NULL, NULL),
+((SELECT country_id FROM countries WHERE country_name = 'Malaysia'), 'Roti Canai', 0, NULL, NULL, NULL),
+((SELECT country_id FROM countries WHERE country_name = 'Malaysia'), 'Char Kway Teow', 0, NULL, NULL, NULL),
+
+((SELECT country_id FROM countries WHERE country_name = 'Turkey'), 'Kebab', 1, '/images/dishes/kebab.jpg', 'Kebab är en välkänd turkisk kötträtt med många regionala varianter och lång matkulturell historia.', 'En grillad eller stekt kötträtt med många varianter.'),
+((SELECT country_id FROM countries WHERE country_name = 'Turkey'), 'Lahmacun', 0, NULL, NULL, NULL),
+((SELECT country_id FROM countries WHERE country_name = 'Turkey'), 'Menemen', 0, NULL, NULL, NULL),
+((SELECT country_id FROM countries WHERE country_name = 'Turkey'), 'Manti', 0, NULL, NULL, NULL),
+((SELECT country_id FROM countries WHERE country_name = 'Iran'), 'Chelo Kebab', 1, '/images/dishes/chelo-kebab.jpg', 'Chelo kebab är en klassisk iransk rätt med grillat kött som serveras med ris, smör och ibland grillad tomat.', 'Rätten består ofta av grillat kött och ris.'),
+((SELECT country_id FROM countries WHERE country_name = 'Iran'), 'Ghormeh Sabzi', 0, NULL, NULL, NULL),
+((SELECT country_id FROM countries WHERE country_name = 'Iran'), 'Fesenjan', 0, NULL, NULL, NULL),
+((SELECT country_id FROM countries WHERE country_name = 'Iran'), 'Tahdig', 0, NULL, NULL, NULL),
+
+((SELECT country_id FROM countries WHERE country_name = 'Iraq'), 'Masgouf', 1, '/images/dishes/masgouf.jpg', 'Masgouf är en irakisk fiskrätt där fisken grillas långsamt och ofta serveras med ris, citron och grönsaker.', 'En grillad fiskrätt som ofta serveras med ris.'),
+((SELECT country_id FROM countries WHERE country_name = 'Iraq'), 'Dolma', 0, NULL, NULL, NULL),
+((SELECT country_id FROM countries WHERE country_name = 'Iraq'), 'Kubba', 0, NULL, NULL, NULL),
+((SELECT country_id FROM countries WHERE country_name = 'Iraq'), 'Tashreeb', 0, NULL, NULL, NULL),
+
+((SELECT country_id FROM countries WHERE country_name = 'Saudi Arabia'), 'Kabsa', 1, '/images/dishes/kabsa.jpg', 'Kabsa är en saudisk risrätt med kryddor och ofta kyckling, lamm eller annat kött.', 'En kryddig risrätt med kött.'),
+((SELECT country_id FROM countries WHERE country_name = 'Saudi Arabia'), 'Mandi', 0, NULL, NULL, NULL),
+((SELECT country_id FROM countries WHERE country_name = 'Saudi Arabia'), 'Jareesh', 0, NULL, NULL, NULL),
+((SELECT country_id FROM countries WHERE country_name = 'Saudi Arabia'), 'Saleeg', 0, NULL, NULL, NULL),
+
+((SELECT country_id FROM countries WHERE country_name = 'Israel'), 'Falafel', 1, '/images/dishes/falafel.jpg', 'Falafel är friterade bollar av kikärtor eller bondbönor och är mycket vanlig i israelisk och mellanösternsk matkultur.', 'Små friterade bollar gjorda på baljväxter.'),
+((SELECT country_id FROM countries WHERE country_name = 'Israel'), 'Shakshuka', 0, NULL, NULL, NULL),
+((SELECT country_id FROM countries WHERE country_name = 'Israel'), 'Sabich', 0, NULL, NULL, NULL),
+((SELECT country_id FROM countries WHERE country_name = 'Israel'), 'Hummus', 0, NULL, NULL, NULL),
+
+((SELECT country_id FROM countries WHERE country_name = 'Lebanon'), 'Kibbeh', 1, '/images/dishes/kibbeh.jpg', 'Kibbeh är en libanesisk rätt gjord med bulgur, kryddor och ofta kött, formad som bollar eller bakad i form.', 'Rätten görs ofta med bulgur och kryddat kött.'),
+((SELECT country_id FROM countries WHERE country_name = 'Lebanon'), 'Tabbouleh', 0, NULL, NULL, NULL),
+((SELECT country_id FROM countries WHERE country_name = 'Lebanon'), 'Manakish', 0, NULL, NULL, NULL),
+((SELECT country_id FROM countries WHERE country_name = 'Lebanon'), 'Fattoush', 0, NULL, NULL, NULL),
+
+((SELECT country_id FROM countries WHERE country_name = 'Pakistan'), 'Nihari', 1, '/images/dishes/nihari.jpg', 'Nihari är en pakistansk långkokt gryta med kött och kryddor, ofta serverad till frukost eller vid högtider.', 'En långkokt kryddig köttgryta.'),
+((SELECT country_id FROM countries WHERE country_name = 'Pakistan'), 'Chicken Karahi', 0, NULL, NULL, NULL),
+((SELECT country_id FROM countries WHERE country_name = 'Pakistan'), 'Seekh Kebab', 0, NULL, NULL, NULL),
+((SELECT country_id FROM countries WHERE country_name = 'Pakistan'), 'Haleem', 0, NULL, NULL, NULL),
+
+((SELECT country_id FROM countries WHERE country_name = 'Bangladesh'), 'Hilsa Curry', 1, '/images/dishes/hilsa-curry.jpg', 'Hilsa curry är en välkänd bangladeshisk fiskrätt gjord med hilsa, senap och kryddor.', 'En fiskrätt med senap och kryddor.'),
+((SELECT country_id FROM countries WHERE country_name = 'Bangladesh'), 'Bhuna Khichuri', 0, NULL, NULL, NULL),
+((SELECT country_id FROM countries WHERE country_name = 'Bangladesh'), 'Panta Bhat', 0, NULL, NULL, NULL),
+((SELECT country_id FROM countries WHERE country_name = 'Bangladesh'), 'Fuchka', 0, NULL, NULL, NULL),
+
+((SELECT country_id FROM countries WHERE country_name = 'Sri Lanka'), 'Rice and Curry', 1, '/images/dishes/rice-and-curry.jpg', 'Rice and curry är en central rätt i Sri Lanka och består ofta av ris med flera kryddiga curryrätter och samboler.', 'Rätten består av ris med flera curryrätter.'),
+((SELECT country_id FROM countries WHERE country_name = 'Sri Lanka'), 'Kottu', 0, NULL, NULL, NULL),
+((SELECT country_id FROM countries WHERE country_name = 'Sri Lanka'), 'Hoppers', 0, NULL, NULL, NULL),
+((SELECT country_id FROM countries WHERE country_name = 'Sri Lanka'), 'Lamprais', 0, NULL, NULL, NULL),
+
+((SELECT country_id FROM countries WHERE country_name = 'Nepal'), 'Dal Bhat', 1, '/images/dishes/dal-bhat.jpg', 'Dal bhat är en nepalesisk basrätt med linsgryta och ris, ofta serverad med grönsaker och pickles.', 'Rätten består av linser och ris.'),
+((SELECT country_id FROM countries WHERE country_name = 'Nepal'), 'Momo', 0, NULL, NULL, NULL),
+((SELECT country_id FROM countries WHERE country_name = 'Nepal'), 'Thukpa', 0, NULL, NULL, NULL),
+((SELECT country_id FROM countries WHERE country_name = 'Nepal'), 'Sel Roti', 0, NULL, NULL, NULL),
+
+((SELECT country_id FROM countries WHERE country_name = 'Mongolia'), 'Buuz', 1, '/images/dishes/buuz.jpg', 'Buuz är mongoliska ångade dumplings fyllda med kött och är vanliga vid högtider.', 'Ångade dumplings fyllda med kött.'),
+((SELECT country_id FROM countries WHERE country_name = 'Mongolia'), 'Khuushuur', 0, NULL, NULL, NULL),
+((SELECT country_id FROM countries WHERE country_name = 'Mongolia'), 'Tsuivan', 0, NULL, NULL, NULL),
+((SELECT country_id FROM countries WHERE country_name = 'Mongolia'), 'Bansh', 0, NULL, NULL, NULL),
+
+;
