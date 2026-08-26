@@ -12,9 +12,9 @@ CREATE TABLE dishes (
     country_id INTEGER NOT NULL,
     dish_name VARCHAR(100) NOT NULL,
     is_correct BOOLEAN NOT NULL DEFAULT 0,
-    dish_image_url TEXT NOT NULL,
-    dish_history TEXT NOT NULL,
-    hint TEXT NOT NULL,
+    dish_image_url TEXT,
+    dish_history TEXT,
+    hint TEXT,
     FOREIGN KEY (country_id) REFERENCES countries(country_id),
     UNIQUE (country_id, dish_name)
 );
