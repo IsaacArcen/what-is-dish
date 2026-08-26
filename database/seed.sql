@@ -1,6 +1,6 @@
 PRAGMA foreign_keys = ON;
 
-INSERT INTO countries (country_name, continent, flagurl)
+INSERT INTO countries (country_name, continent, flag_url)
 VALUES
 ('Japan', 'Asia', 'https://flagcdn.com/w320/jp.png'),
 ('Italy', 'Europe', 'https://flagcdn.com/w320/it.png'),
