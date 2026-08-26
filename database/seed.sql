@@ -92,7 +92,20 @@ VALUES
 ('Grenada', 'North America', 'https://flagcdn.com/w320/gd.png'),
 ('Saint Lucia', 'North America', 'https://flagcdn.com/w320/lc.png'),
 ('Dominica', 'North America', 'https://flagcdn.com/w320/dm.png'),
-;
+
+sydamerikanska länder
+('Argentina', 'South America', 'https://flagcdn.com/w320/ar.png'),
+('Bolivia', 'South America', 'https://flagcdn.com/w320/bo.png'),
+('Brazil', 'South America', 'https://flagcdn.com/w320/br.png'),
+('Chile', 'South America', 'https://flagcdn.com/w320/cl.png'),
+('Colombia', 'South America', 'https://flagcdn.com/w320/co.png'),
+('Ecuador', 'South America', 'https://flagcdn.com/w320/ec.png'),
+('Guyana', 'South America', 'https://flagcdn.com/w320/gy.png'),
+('Paraguay', 'South America', 'https://flagcdn.com/w320/py.png'),
+('Peru', 'South America', 'https://flagcdn.com/w320/pe.png'),
+('Suriname', 'South America', 'https://flagcdn.com/w320/sr.png'),
+('Uruguay', 'South America', 'https://flagcdn.com/w320/uy.png'),
+('Venezuela', 'South America', 'https://flagcdn.com/w320/ve.png');
 
 INSERT INTO dishes (
   country_id,
@@ -505,5 +518,65 @@ Nordamerikanska länder
 ((SELECT country_id FROM countries WHERE country_name = 'Dominica'), 'Callaloo', 1, '/images/dishes/callaloo.jpg', 'Callaloo är en dominicansk soppa eller gryta med bladgrönsaker, kokosmjölk och ofta kött eller fisk.', 'En grön soppa eller gryta med bladgrönsaker.'),
 ((SELECT country_id FROM countries WHERE country_name = 'Dominica'), 'Mountain Chicken', 0, NULL, NULL, NULL),
 ((SELECT country_id FROM countries WHERE country_name = 'Dominica'), 'Codfish and Bakes', 0, NULL, NULL, NULL),
-((SELECT country_id FROM countries WHERE country_name = 'Dominica'), 'Sancocho', 0, NULL, NULL, NULL);
-;
+((SELECT country_id FROM countries WHERE country_name = 'Dominica'), 'Sancocho', 0, NULL, NULL, NULL),
+
+sydamerikanska länder
+((SELECT country_id FROM countries WHERE country_name = 'Argentina'), 'Asado', 1, '/images/dishes/asado.jpg', 'Asado är argentinsk grilltradition med olika sorters kött som tillagas långsamt över eld eller glöd.', 'En rätt starkt kopplad till grillat kött.'),
+((SELECT country_id FROM countries WHERE country_name = 'Argentina'), 'Empanadas', 0, NULL, NULL, NULL),
+((SELECT country_id FROM countries WHERE country_name = 'Argentina'), 'Milanesa', 0, NULL, NULL, NULL),
+((SELECT country_id FROM countries WHERE country_name = 'Argentina'), 'Locro', 0, NULL, NULL, NULL),
+
+((SELECT country_id FROM countries WHERE country_name = 'Bolivia'), 'Salteñas', 1, '/images/dishes/saltenas.jpg', 'Salteñas är bolivianska fyllda degknyten med saftig fyllning av kött, potatis, ägg, oliver och kryddor.', 'Fyllda degknyten med saftig fyllning.'),
+((SELECT country_id FROM countries WHERE country_name = 'Bolivia'), 'Silpancho', 0, NULL, NULL, NULL),
+((SELECT country_id FROM countries WHERE country_name = 'Bolivia'), 'Pique Macho', 0, NULL, NULL, NULL),
+((SELECT country_id FROM countries WHERE country_name = 'Bolivia'), 'Anticucho', 0, NULL, NULL, NULL),
+
+((SELECT country_id FROM countries WHERE country_name = 'Brazil'), 'Feijoada', 1, '/images/dishes/feijoada.jpg', 'Feijoada är en brasiliansk gryta med svarta bönor och kött, ofta serverad med ris och tillbehör.', 'En mörk gryta med bönor och kött.'),
+((SELECT country_id FROM countries WHERE country_name = 'Brazil'), 'Pão de Queijo', 0, NULL, NULL, NULL),
+((SELECT country_id FROM countries WHERE country_name = 'Brazil'), 'Moqueca', 0, NULL, NULL, NULL),
+((SELECT country_id FROM countries WHERE country_name = 'Brazil'), 'Coxinha', 0, NULL, NULL, NULL),
+
+((SELECT country_id FROM countries WHERE country_name = 'Chile'), 'Pastel de Choclo', 1, '/images/dishes/pastel-de-choclo.jpg', 'Pastel de choclo är en chilensk majsgratäng med köttfärs, kyckling, ägg, oliver och majsmassa.', 'En ugnsrätt med majs som viktig ingrediens.'),
+((SELECT country_id FROM countries WHERE country_name = 'Chile'), 'Empanadas de Pino', 0, NULL, NULL, NULL),
+((SELECT country_id FROM countries WHERE country_name = 'Chile'), 'Cazuela', 0, NULL, NULL, NULL),
+((SELECT country_id FROM countries WHERE country_name = 'Chile'), 'Completo', 0, NULL, NULL, NULL),
+
+((SELECT country_id FROM countries WHERE country_name = 'Colombia'), 'Bandeja Paisa', 1, '/images/dishes/bandeja-paisa.jpg', 'Bandeja paisa är en colombiansk tallrik med bönor, ris, kött, ägg, avokado, matbanan och chicharrón.', 'En stor tallrik med ris, bönor, kött och flera tillbehör.'),
+((SELECT country_id FROM countries WHERE country_name = 'Colombia'), 'Arepas', 0, NULL, NULL, NULL),
+((SELECT country_id FROM countries WHERE country_name = 'Colombia'), 'Ajiaco', 0, NULL, NULL, NULL),
+((SELECT country_id FROM countries WHERE country_name = 'Colombia'), 'Sancocho', 0, NULL, NULL, NULL),
+
+((SELECT country_id FROM countries WHERE country_name = 'Ecuador'), 'Encebollado', 1, '/images/dishes/encebollado.jpg', 'Encebollado är en ecuadoriansk fisksoppa med yucca, lök, tomat och kryddor.', 'En fisksoppa med yucca och lök.'),
+((SELECT country_id FROM countries WHERE country_name = 'Ecuador'), 'Llapingachos', 0, NULL, NULL, NULL),
+((SELECT country_id FROM countries WHERE country_name = 'Ecuador'), 'Fanesca', 0, NULL, NULL, NULL),
+((SELECT country_id FROM countries WHERE country_name = 'Ecuador'), 'Seco de Chivo', 0, NULL, NULL, NULL),
+
+((SELECT country_id FROM countries WHERE country_name = 'Guyana'), 'Pepperpot', 1, '/images/dishes/pepperpot.jpg', 'Pepperpot är en guyanesisk köttgryta med cassareep, kryddor och ofta nötkött eller fläsk.', 'En mörk kryddig köttgryta.'),
+((SELECT country_id FROM countries WHERE country_name = 'Guyana'), 'Cook-up Rice', 0, NULL, NULL, NULL),
+((SELECT country_id FROM countries WHERE country_name = 'Guyana'), 'Metemgee', 0, NULL, NULL, NULL),
+((SELECT country_id FROM countries WHERE country_name = 'Guyana'), 'Bake and Saltfish', 0, NULL, NULL, NULL),
+
+((SELECT country_id FROM countries WHERE country_name = 'Paraguay'), 'Sopa Paraguaya', 1, '/images/dishes/sopa-paraguaya.jpg', 'Sopa paraguaya är trots namnet ett fast majsbröd med ost och lök, mycket känt i Paraguay.', 'Trots namnet är det inte soppa utan ett majsbröd.'),
+((SELECT country_id FROM countries WHERE country_name = 'Paraguay'), 'Chipa', 0, NULL, NULL, NULL),
+((SELECT country_id FROM countries WHERE country_name = 'Paraguay'), 'Mbejú', 0, NULL, NULL, NULL),
+((SELECT country_id FROM countries WHERE country_name = 'Paraguay'), 'Bori Bori', 0, NULL, NULL, NULL),
+
+((SELECT country_id FROM countries WHERE country_name = 'Peru'), 'Ceviche', 1, '/images/dishes/ceviche.jpg', 'Ceviche är en peruansk rätt med rå fisk som marineras i citrusjuice och blandas med lök, chili och koriander.', 'Rå fisk marinerad i citrusjuice.'),
+((SELECT country_id FROM countries WHERE country_name = 'Peru'), 'Lomo Saltado', 0, NULL, NULL, NULL),
+((SELECT country_id FROM countries WHERE country_name = 'Peru'), 'Aji de Gallina', 0, NULL, NULL, NULL),
+((SELECT country_id FROM countries WHERE country_name = 'Peru'), 'Anticuchos', 0, NULL, NULL, NULL),
+
+((SELECT country_id FROM countries WHERE country_name = 'Suriname'), 'Pom', 1, '/images/dishes/pom.jpg', 'Pom är en surinamesisk ugnsrätt med pomtajer, kyckling och citrusliknande smak från pomerans.', 'En ugnsrätt med kyckling och rotfrukt.'),
+((SELECT country_id FROM countries WHERE country_name = 'Suriname'), 'Roti', 0, NULL, NULL, NULL),
+((SELECT country_id FROM countries WHERE country_name = 'Suriname'), 'Moksi Alesi', 0, NULL, NULL, NULL),
+((SELECT country_id FROM countries WHERE country_name = 'Suriname'), 'Saoto Soup', 0, NULL, NULL, NULL),
+
+((SELECT country_id FROM countries WHERE country_name = 'Uruguay'), 'Chivito', 1, '/images/dishes/chivito.jpg', 'Chivito är en uruguayansk smörgås med nötkött, skinka, ost, ägg, sallad och andra tillbehör.', 'En stor smörgås med kött, ost och flera tillbehör.'),
+((SELECT country_id FROM countries WHERE country_name = 'Uruguay'), 'Asado', 0, NULL, NULL, NULL),
+((SELECT country_id FROM countries WHERE country_name = 'Uruguay'), 'Milanesa', 0, NULL, NULL, NULL),
+((SELECT country_id FROM countries WHERE country_name = 'Uruguay'), 'Capeletis a la Caruso', 0, NULL, NULL, NULL),
+
+((SELECT country_id FROM countries WHERE country_name = 'Venezuela'), 'Pabellón Criollo', 1, '/images/dishes/pabellon-criollo.jpg', 'Pabellón criollo är en venezuelansk rätt med ris, svarta bönor, strimlat nötkött och ofta matbanan.', 'En tallrik med ris, svarta bönor och strimlat kött.'),
+((SELECT country_id FROM countries WHERE country_name = 'Venezuela'), 'Arepas', 0, NULL, NULL, NULL),
+((SELECT country_id FROM countries WHERE country_name = 'Venezuela'), 'Hallacas', 0, NULL, NULL, NULL),
+((SELECT country_id FROM countries WHERE country_name = 'Venezuela'), 'Cachapas', 0, NULL, NULL, NULL);
