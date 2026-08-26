@@ -49,6 +49,49 @@ VALUES
 ('Nepal', 'Asia', 'https://flagcdn.com/w320/np.png'),
 ('Mongolia', 'Asia', 'https://flagcdn.com/w320/mn.png'),
 
+-- Eurpeiska länder
+('Italy', 'Europe', 'https://flagcdn.com/w320/it.png'),
+('France', 'Europe', 'https://flagcdn.com/w320/fr.png'),
+('Spain', 'Europe', 'https://flagcdn.com/w320/es.png'),
+('Germany', 'Europe', 'https://flagcdn.com/w320/de.png'),
+('Greece', 'Europe', 'https://flagcdn.com/w320/gr.png'),
+('Sweden', 'Europe', 'https://flagcdn.com/w320/se.png'),
+('Norway', 'Europe', 'https://flagcdn.com/w320/no.png'),
+('Denmark', 'Europe', 'https://flagcdn.com/w320/dk.png'),
+('Poland', 'Europe', 'https://flagcdn.com/w320/pl.png'),
+('Portugal', 'Europe', 'https://flagcdn.com/w320/pt.png'),
+('United Kingdom', 'Europe', 'https://flagcdn.com/w320/gb.png'),
+('Ireland', 'Europe', 'https://flagcdn.com/w320/ie.png'),
+('Netherlands', 'Europe', 'https://flagcdn.com/w320/nl.png'),
+('Belgium', 'Europe', 'https://flagcdn.com/w320/be.png'),
+('Austria', 'Europe', 'https://flagcdn.com/w320/at.png'),
+('Switzerland', 'Europe', 'https://flagcdn.com/w320/ch.png'),
+('Hungary', 'Europe', 'https://flagcdn.com/w320/hu.png'),
+('Czech Republic', 'Europe', 'https://flagcdn.com/w320/cz.png'),
+('Ukraine', 'Europe', 'https://flagcdn.com/w320/ua.png'),
+('Romania', 'Europe', 'https://flagcdn.com/w320/ro.png'),
+
+-- Nordamerikanska länder
+('United States', 'North America', 'https://flagcdn.com/w320/us.png'),
+('Canada', 'North America', 'https://flagcdn.com/w320/ca.png'),
+('Mexico', 'North America', 'https://flagcdn.com/w320/mx.png'),
+('Cuba', 'North America', 'https://flagcdn.com/w320/cu.png'),
+('Jamaica', 'North America', 'https://flagcdn.com/w320/jm.png'),
+('Haiti', 'North America', 'https://flagcdn.com/w320/ht.png'),
+('Dominican Republic', 'North America', 'https://flagcdn.com/w320/do.png'),
+('Guatemala', 'North America', 'https://flagcdn.com/w320/gt.png'),
+('Honduras', 'North America', 'https://flagcdn.com/w320/hn.png'),
+('El Salvador', 'North America', 'https://flagcdn.com/w320/sv.png'),
+('Nicaragua', 'North America', 'https://flagcdn.com/w320/ni.png'),
+('Costa Rica', 'North America', 'https://flagcdn.com/w320/cr.png'),
+('Panama', 'North America', 'https://flagcdn.com/w320/pa.png'),
+('Bahamas', 'North America', 'https://flagcdn.com/w320/bs.png'),
+('Barbados', 'North America', 'https://flagcdn.com/w320/bb.png'),
+('Trinidad and Tobago', 'North America', 'https://flagcdn.com/w320/tt.png'),
+('Belize', 'North America', 'https://flagcdn.com/w320/bz.png'),
+('Grenada', 'North America', 'https://flagcdn.com/w320/gd.png'),
+('Saint Lucia', 'North America', 'https://flagcdn.com/w320/lc.png'),
+('Dominica', 'North America', 'https://flagcdn.com/w320/dm.png'),
 ;
 
 INSERT INTO dishes (
@@ -211,6 +254,7 @@ VALUES
 ((SELECT country_id FROM countries WHERE country_name = 'Turkey'), 'Lahmacun', 0, NULL, NULL, NULL),
 ((SELECT country_id FROM countries WHERE country_name = 'Turkey'), 'Menemen', 0, NULL, NULL, NULL),
 ((SELECT country_id FROM countries WHERE country_name = 'Turkey'), 'Manti', 0, NULL, NULL, NULL),
+
 ((SELECT country_id FROM countries WHERE country_name = 'Iran'), 'Chelo Kebab', 1, '/images/dishes/chelo-kebab.jpg', 'Chelo kebab är en klassisk iransk rätt med grillat kött som serveras med ris, smör och ibland grillad tomat.', 'Rätten består ofta av grillat kött och ris.'),
 ((SELECT country_id FROM countries WHERE country_name = 'Iran'), 'Ghormeh Sabzi', 0, NULL, NULL, NULL),
 ((SELECT country_id FROM countries WHERE country_name = 'Iran'), 'Fesenjan', 0, NULL, NULL, NULL),
@@ -261,4 +305,205 @@ VALUES
 ((SELECT country_id FROM countries WHERE country_name = 'Mongolia'), 'Tsuivan', 0, NULL, NULL, NULL),
 ((SELECT country_id FROM countries WHERE country_name = 'Mongolia'), 'Bansh', 0, NULL, NULL, NULL),
 
+europeiska länder
+((SELECT country_id FROM countries WHERE country_name = 'Italy'), 'Pizza', 1, '/images/dishes/pizza.jpg', 'Pizza är en italiensk maträtt som framför allt kopplas till Neapel och består ofta av deg, tomatsås och ost.', 'Rätten bakas i ugn och har ofta tomatsås och ost.'),
+((SELECT country_id FROM countries WHERE country_name = 'Italy'), 'Pasta Carbonara', 0, NULL, NULL, NULL),
+((SELECT country_id FROM countries WHERE country_name = 'Italy'), 'Risotto', 0, NULL, NULL, NULL),
+((SELECT country_id FROM countries WHERE country_name = 'Italy'), 'Lasagna', 0, NULL, NULL, NULL),
+
+((SELECT country_id FROM countries WHERE country_name = 'France'), 'Crêpes', 1, '/images/dishes/crepes.jpg', 'Crêpes är tunna franska pannkakor som kan serveras både söta och matiga.', 'En tunn pannkaka som kan fyllas på många sätt.'),
+((SELECT country_id FROM countries WHERE country_name = 'France'), 'Ratatouille', 0, NULL, NULL, NULL),
+((SELECT country_id FROM countries WHERE country_name = 'France'), 'Coq au Vin', 0, NULL, NULL, NULL),
+((SELECT country_id FROM countries WHERE country_name = 'France'), 'Bouillabaisse', 0, NULL, NULL, NULL),
+
+((SELECT country_id FROM countries WHERE country_name = 'Spain'), 'Paella', 1, '/images/dishes/paella.jpg', 'Paella är en spansk risrätt från Valencia som ofta innehåller saffran, grönsaker, kyckling eller skaldjur.', 'En gul risrätt som ofta lagas i en bred panna.'),
+((SELECT country_id FROM countries WHERE country_name = 'Spain'), 'Tortilla Española', 0, NULL, NULL, NULL),
+((SELECT country_id FROM countries WHERE country_name = 'Spain'), 'Gazpacho', 0, NULL, NULL, NULL),
+((SELECT country_id FROM countries WHERE country_name = 'Spain'), 'Churros', 0, NULL, NULL, NULL),
+
+((SELECT country_id FROM countries WHERE country_name = 'Germany'), 'Sauerbraten', 1, '/images/dishes/sauerbraten.jpg', 'Sauerbraten är en tysk marinerad stek som ofta serveras med sås, kål och potatis.', 'En marinerad stek som serveras med kraftig sås.'),
+((SELECT country_id FROM countries WHERE country_name = 'Germany'), 'Bratwurst', 0, NULL, NULL, NULL),
+((SELECT country_id FROM countries WHERE country_name = 'Germany'), 'Schnitzel', 0, NULL, NULL, NULL),
+((SELECT country_id FROM countries WHERE country_name = 'Germany'), 'Spätzle', 0, NULL, NULL, NULL),
+
+((SELECT country_id FROM countries WHERE country_name = 'Greece'), 'Moussaka', 1, '/images/dishes/moussaka.jpg', 'Moussaka är en grekisk ugnsrätt med aubergine, köttfärs och béchamelsås.', 'En ugnsbakad rätt med aubergine och sås.'),
+((SELECT country_id FROM countries WHERE country_name = 'Greece'), 'Souvlaki', 0, NULL, NULL, NULL),
+((SELECT country_id FROM countries WHERE country_name = 'Greece'), 'Gyros', 0, NULL, NULL, NULL),
+((SELECT country_id FROM countries WHERE country_name = 'Greece'), 'Greek Salad', 0, NULL, NULL, NULL),
+
+((SELECT country_id FROM countries WHERE country_name = 'Sweden'), 'Swedish Meatballs', 1, '/images/dishes/swedish-meatballs.jpg', 'Svenska köttbullar är en klassisk svensk rätt som ofta serveras med potatis, gräddsås och lingonsylt.', 'Rätten serveras ofta med potatis, sås och lingonsylt.'),
+((SELECT country_id FROM countries WHERE country_name = 'Sweden'), 'Gravlax', 0, NULL, NULL, NULL),
+((SELECT country_id FROM countries WHERE country_name = 'Sweden'), 'Janssons Frestelse', 0, NULL, NULL, NULL),
+((SELECT country_id FROM countries WHERE country_name = 'Sweden'), 'Toast Skagen', 0, NULL, NULL, NULL),
+
+((SELECT country_id FROM countries WHERE country_name = 'Norway'), 'Fårikål', 1, '/images/dishes/farikal.jpg', 'Fårikål är en norsk gryta med fårkött och kål och ses ofta som en traditionell nationalrätt.', 'En gryta med fårkött och kål.'),
+((SELECT country_id FROM countries WHERE country_name = 'Norway'), 'Lutefisk', 0, NULL, NULL, NULL),
+((SELECT country_id FROM countries WHERE country_name = 'Norway'), 'Rømmegrøt', 0, NULL, NULL, NULL),
+((SELECT country_id FROM countries WHERE country_name = 'Norway'), 'Kjøttkaker', 0, NULL, NULL, NULL),
+
+((SELECT country_id FROM countries WHERE country_name = 'Denmark'), 'Smørrebrød', 1, '/images/dishes/smorrebrod.jpg', 'Smørrebrød är danska öppna smörgåsar med pålägg som fisk, kött, ägg eller grönsaker.', 'En öppen smörgås med olika pålägg.'),
+((SELECT country_id FROM countries WHERE country_name = 'Denmark'), 'Frikadeller', 0, NULL, NULL, NULL),
+((SELECT country_id FROM countries WHERE country_name = 'Denmark'), 'Stegt Flæsk', 0, NULL, NULL, NULL),
+((SELECT country_id FROM countries WHERE country_name = 'Denmark'), 'Æbleskiver', 0, NULL, NULL, NULL),
+
+((SELECT country_id FROM countries WHERE country_name = 'Poland'), 'Pierogi', 1, '/images/dishes/pierogi.jpg', 'Pierogi är polska dumplings fyllda med exempelvis potatis, ost, kött eller kål.', 'Fyllda degknyten som kokas eller steks.'),
+((SELECT country_id FROM countries WHERE country_name = 'Poland'), 'Bigos', 0, NULL, NULL, NULL),
+((SELECT country_id FROM countries WHERE country_name = 'Poland'), 'Żurek', 0, NULL, NULL, NULL),
+((SELECT country_id FROM countries WHERE country_name = 'Poland'), 'Gołąbki', 0, NULL, NULL, NULL),
+
+((SELECT country_id FROM countries WHERE country_name = 'Portugal'), 'Bacalhau', 1, '/images/dishes/bacalhau.jpg', 'Bacalhau är portugisisk saltad torsk och förekommer i många traditionella portugisiska rätter.', 'Rätten bygger på saltad torsk.'),
+((SELECT country_id FROM countries WHERE country_name = 'Portugal'), 'Caldo Verde', 0, NULL, NULL, NULL),
+((SELECT country_id FROM countries WHERE country_name = 'Portugal'), 'Francesinha', 0, NULL, NULL, NULL),
+((SELECT country_id FROM countries WHERE country_name = 'Portugal'), 'Pastel de Nata', 0, NULL, NULL, NULL),
+
+((SELECT country_id FROM countries WHERE country_name = 'United Kingdom'), 'Fish and Chips', 1, '/images/dishes/fish-and-chips.jpg', 'Fish and chips är en brittisk rätt med friterad fisk och pommes frites, ofta serverad med maltvinäger eller ärtor.', 'Rätten består av friterad fisk och pommes frites.'),
+((SELECT country_id FROM countries WHERE country_name = 'United Kingdom'), 'Shepherd’s Pie', 0, NULL, NULL, NULL),
+((SELECT country_id FROM countries WHERE country_name = 'United Kingdom'), 'Sunday Roast', 0, NULL, NULL, NULL),
+((SELECT country_id FROM countries WHERE country_name = 'United Kingdom'), 'Full English Breakfast', 0, NULL, NULL, NULL),
+
+((SELECT country_id FROM countries WHERE country_name = 'Ireland'), 'Irish Stew', 1, '/images/dishes/irish-stew.jpg', 'Irish stew är en traditionell irländsk gryta med lamm eller fårkött, potatis, lök och morötter.', 'En gryta med kött, potatis och rotfrukter.'),
+((SELECT country_id FROM countries WHERE country_name = 'Ireland'), 'Boxty', 0, NULL, NULL, NULL),
+((SELECT country_id FROM countries WHERE country_name = 'Ireland'), 'Colcannon', 0, NULL, NULL, NULL),
+((SELECT country_id FROM countries WHERE country_name = 'Ireland'), 'Soda Bread', 0, NULL, NULL, NULL),
+
+((SELECT country_id FROM countries WHERE country_name = 'Netherlands'), 'Stamppot', 1, '/images/dishes/stamppot.jpg', 'Stamppot är en nederländsk rätt med mosad potatis blandad med grönsaker och ofta serverad med korv.', 'En potatisrätt som ofta serveras med korv.'),
+((SELECT country_id FROM countries WHERE country_name = 'Netherlands'), 'Bitterballen', 0, NULL, NULL, NULL),
+((SELECT country_id FROM countries WHERE country_name = 'Netherlands'), 'Haring', 0, NULL, NULL, NULL),
+((SELECT country_id FROM countries WHERE country_name = 'Netherlands'), 'Poffertjes', 0, NULL, NULL, NULL),
+
+((SELECT country_id FROM countries WHERE country_name = 'Belgium'), 'Moules-Frites', 1, '/images/dishes/moules-frites.jpg', 'Moules-frites är en belgisk rätt med musslor och pommes frites, ofta serverad med buljong eller sås.', 'Rätten består av musslor och pommes frites.'),
+((SELECT country_id FROM countries WHERE country_name = 'Belgium'), 'Carbonade Flamande', 0, NULL, NULL, NULL),
+((SELECT country_id FROM countries WHERE country_name = 'Belgium'), 'Waterzooi', 0, NULL, NULL, NULL),
+((SELECT country_id FROM countries WHERE country_name = 'Belgium'), 'Belgian Waffles', 0, NULL, NULL, NULL),
+
+((SELECT country_id FROM countries WHERE country_name = 'Austria'), 'Wiener Schnitzel', 1, '/images/dishes/wiener-schnitzel.jpg', 'Wiener schnitzel är en österrikisk rätt med panerat och stekt kalvkött eller annat kött.', 'En panerad och stekt tunn köttbit.'),
+((SELECT country_id FROM countries WHERE country_name = 'Austria'), 'Tafelspitz', 0, NULL, NULL, NULL),
+((SELECT country_id FROM countries WHERE country_name = 'Austria'), 'Käsespätzle', 0, NULL, NULL, NULL),
+((SELECT country_id FROM countries WHERE country_name = 'Austria'), 'Apfelstrudel', 0, NULL, NULL, NULL),
+
+((SELECT country_id FROM countries WHERE country_name = 'Switzerland'), 'Fondue', 1, '/images/dishes/fondue.jpg', 'Fondue är en schweizisk rätt där smält ost serveras i en gryta och äts med brödbitar.', 'Rätten bygger på smält ost.'),
+((SELECT country_id FROM countries WHERE country_name = 'Switzerland'), 'Rösti', 0, NULL, NULL, NULL),
+((SELECT country_id FROM countries WHERE country_name = 'Switzerland'), 'Raclette', 0, NULL, NULL, NULL),
+((SELECT country_id FROM countries WHERE country_name = 'Switzerland'), 'Zürcher Geschnetzeltes', 0, NULL, NULL, NULL),
+
+((SELECT country_id FROM countries WHERE country_name = 'Hungary'), 'Goulash', 1, '/images/dishes/goulash.jpg', 'Goulash är en ungersk gryta eller soppa med paprika, kött och grönsaker.', 'En kryddig gryta med paprika.'),
+((SELECT country_id FROM countries WHERE country_name = 'Hungary'), 'Lángos', 0, NULL, NULL, NULL),
+((SELECT country_id FROM countries WHERE country_name = 'Hungary'), 'Chicken Paprikash', 0, NULL, NULL, NULL),
+((SELECT country_id FROM countries WHERE country_name = 'Hungary'), 'Dobos Torte', 0, NULL, NULL, NULL),
+
+((SELECT country_id FROM countries WHERE country_name = 'Czech Republic'), 'Svíčková', 1, '/images/dishes/svickova.jpg', 'Svíčková är en tjeckisk rätt med nötkött i krämig grönsakssås, ofta serverad med knödel.', 'Nötkött med krämig sås och knödel.'),
+((SELECT country_id FROM countries WHERE country_name = 'Czech Republic'), 'Guláš', 0, NULL, NULL, NULL),
+((SELECT country_id FROM countries WHERE country_name = 'Czech Republic'), 'Vepřo Knedlo Zelo', 0, NULL, NULL, NULL),
+((SELECT country_id FROM countries WHERE country_name = 'Czech Republic'), 'Trdelník', 0, NULL, NULL, NULL),
+
+((SELECT country_id FROM countries WHERE country_name = 'Ukraine'), 'Borscht', 1, '/images/dishes/borscht.jpg', 'Borscht är en ukrainsk rödbetssoppa som ofta serveras med gräddfil och bröd.', 'En röd soppa gjord med rödbetor.'),
+((SELECT country_id FROM countries WHERE country_name = 'Ukraine'), 'Varenyky', 0, NULL, NULL, NULL),
+((SELECT country_id FROM countries WHERE country_name = 'Ukraine'), 'Holubtsi', 0, NULL, NULL, NULL),
+((SELECT country_id FROM countries WHERE country_name = 'Ukraine'), 'Chicken Kyiv', 0, NULL, NULL, NULL),
+
+((SELECT country_id FROM countries WHERE country_name = 'Romania'), 'Sarmale', 1, '/images/dishes/sarmale.jpg', 'Sarmale är rumänska kåldolmar fyllda med kött och ris, ofta serverade med gräddfil.', 'Fyllda kålblad med kött och ris.'),
+((SELECT country_id FROM countries WHERE country_name = 'Romania'), 'Mămăligă', 0, NULL, NULL, NULL),
+((SELECT country_id FROM countries WHERE country_name = 'Romania'), 'Ciorbă de Burtă', 0, NULL, NULL, NULL),
+((SELECT country_id FROM countries WHERE country_name = 'Romania'), 'Mici', 0, NULL, NULL, NULL),
+
+Nordamerikanska länder
+((SELECT country_id FROM countries WHERE country_name = 'United States'), 'Hamburger', 1, '/images/dishes/hamburger.jpg', 'Hamburgaren blev starkt förknippad med USA under 1900-talet och är idag en av landets mest kända maträtter.', 'En rund brödrätt med kött, sallad och sås.'),
+((SELECT country_id FROM countries WHERE country_name = 'United States'), 'Mac and Cheese', 0, NULL, NULL, NULL),
+((SELECT country_id FROM countries WHERE country_name = 'United States'), 'BBQ Ribs', 0, NULL, NULL, NULL),
+((SELECT country_id FROM countries WHERE country_name = 'United States'), 'Clam Chowder', 0, NULL, NULL, NULL),
+
+((SELECT country_id FROM countries WHERE country_name = 'Canada'), 'Poutine', 1, '/images/dishes/poutine.jpg', 'Poutine är en kanadensisk rätt från Quebec med pommes frites, ostmassa och brun sås.', 'Pommes frites med ostmassa och brun sås.'),
+((SELECT country_id FROM countries WHERE country_name = 'Canada'), 'Butter Tarts', 0, NULL, NULL, NULL),
+((SELECT country_id FROM countries WHERE country_name = 'Canada'), 'Tourtière', 0, NULL, NULL, NULL),
+((SELECT country_id FROM countries WHERE country_name = 'Canada'), 'Nanaimo Bars', 0, NULL, NULL, NULL),
+
+((SELECT country_id FROM countries WHERE country_name = 'Mexico'), 'Tacos', 1, '/images/dishes/tacos.jpg', 'Tacos är en mexikansk maträtt med tortilla och fyllningar som kött, grönsaker, salsa och andra tillbehör.', 'Rätten serveras ofta i en tortilla.'),
+((SELECT country_id FROM countries WHERE country_name = 'Mexico'), 'Enchiladas', 0, NULL, NULL, NULL),
+((SELECT country_id FROM countries WHERE country_name = 'Mexico'), 'Tamales', 0, NULL, NULL, NULL),
+((SELECT country_id FROM countries WHERE country_name = 'Mexico'), 'Quesadillas', 0, NULL, NULL, NULL),
+
+((SELECT country_id FROM countries WHERE country_name = 'Cuba'), 'Ropa Vieja', 1, '/images/dishes/ropa-vieja.jpg', 'Ropa vieja är en kubansk rätt med långkokt strimlat nötkött i tomatbaserad sås.', 'Strimlat nötkött i en kryddig tomatsås.'),
+((SELECT country_id FROM countries WHERE country_name = 'Cuba'), 'Moros y Cristianos', 0, NULL, NULL, NULL),
+((SELECT country_id FROM countries WHERE country_name = 'Cuba'), 'Lechón Asado', 0, NULL, NULL, NULL),
+((SELECT country_id FROM countries WHERE country_name = 'Cuba'), 'Tostones', 0, NULL, NULL, NULL),
+
+((SELECT country_id FROM countries WHERE country_name = 'Jamaica'), 'Jerk Chicken', 1, '/images/dishes/jerk-chicken.jpg', 'Jerk chicken är en jamaicansk rätt där kyckling kryddas starkt och grillas eller röks.', 'Starkt kryddad grillad kyckling.'),
+((SELECT country_id FROM countries WHERE country_name = 'Jamaica'), 'Ackee and Saltfish', 0, NULL, NULL, NULL),
+((SELECT country_id FROM countries WHERE country_name = 'Jamaica'), 'Curry Goat', 0, NULL, NULL, NULL),
+((SELECT country_id FROM countries WHERE country_name = 'Jamaica'), 'Rice and Peas', 0, NULL, NULL, NULL),
+
+((SELECT country_id FROM countries WHERE country_name = 'Haiti'), 'Griot', 1, '/images/dishes/griot.jpg', 'Griot är en haitisk rätt med marinerat och friterat fläskkött, ofta serverad med pikliz.', 'Marinerat och friterat fläskkött.'),
+((SELECT country_id FROM countries WHERE country_name = 'Haiti'), 'Soup Joumou', 0, NULL, NULL, NULL),
+((SELECT country_id FROM countries WHERE country_name = 'Haiti'), 'Diri Kole', 0, NULL, NULL, NULL),
+((SELECT country_id FROM countries WHERE country_name = 'Haiti'), 'Tassot', 0, NULL, NULL, NULL),
+
+((SELECT country_id FROM countries WHERE country_name = 'Dominican Republic'), 'La Bandera', 1, '/images/dishes/la-bandera.jpg', 'La bandera är en dominikansk rätt med ris, bönor och kött och namnet betyder flaggan.', 'Rätten består ofta av ris, bönor och kött.'),
+((SELECT country_id FROM countries WHERE country_name = 'Dominican Republic'), 'Mangú', 0, NULL, NULL, NULL),
+((SELECT country_id FROM countries WHERE country_name = 'Dominican Republic'), 'Sancocho', 0, NULL, NULL, NULL),
+((SELECT country_id FROM countries WHERE country_name = 'Dominican Republic'), 'Tostones', 0, NULL, NULL, NULL),
+
+((SELECT country_id FROM countries WHERE country_name = 'Guatemala'), 'Pepián', 1, '/images/dishes/pepian.jpg', 'Pepián är en guatemalansk gryta med rostade kryddor, kött och grönsaker.', 'En kryddig gryta med rostade smaker.'),
+((SELECT country_id FROM countries WHERE country_name = 'Guatemala'), 'Kak’ik', 0, NULL, NULL, NULL),
+((SELECT country_id FROM countries WHERE country_name = 'Guatemala'), 'Tamales Colorados', 0, NULL, NULL, NULL),
+((SELECT country_id FROM countries WHERE country_name = 'Guatemala'), 'Jocón', 0, NULL, NULL, NULL),
+
+((SELECT country_id FROM countries WHERE country_name = 'Honduras'), 'Baleadas', 1, '/images/dishes/baleadas.jpg', 'Baleadas är en honduransk rätt med mjöltortilla fylld med bönor, ost och ofta grädde eller ägg.', 'En mjöltortilla fylld med bönor och ost.'),
+((SELECT country_id FROM countries WHERE country_name = 'Honduras'), 'Sopa de Caracol', 0, NULL, NULL, NULL),
+((SELECT country_id FROM countries WHERE country_name = 'Honduras'), 'Pastelitos', 0, NULL, NULL, NULL),
+((SELECT country_id FROM countries WHERE country_name = 'Honduras'), 'Carne Asada', 0, NULL, NULL, NULL),
+
+((SELECT country_id FROM countries WHERE country_name = 'El Salvador'), 'Pupusas', 1, '/images/dishes/pupusas.jpg', 'Pupusas är tjocka majstortillor från El Salvador fyllda med ost, bönor, kött eller andra ingredienser.', 'Tjocka fyllda majstortillor.'),
+((SELECT country_id FROM countries WHERE country_name = 'El Salvador'), 'Yuca Frita', 0, NULL, NULL, NULL),
+((SELECT country_id FROM countries WHERE country_name = 'El Salvador'), 'Sopa de Pata', 0, NULL, NULL, NULL),
+((SELECT country_id FROM countries WHERE country_name = 'El Salvador'), 'Pastelitos', 0, NULL, NULL, NULL),
+
+((SELECT country_id FROM countries WHERE country_name = 'Nicaragua'), 'Gallo Pinto', 1, '/images/dishes/gallo-pinto.jpg', 'Gallo pinto är en vanlig nicaraguansk rätt med ris och bönor som ofta äts till frukost.', 'Rätten består främst av ris och bönor.'),
+((SELECT country_id FROM countries WHERE country_name = 'Nicaragua'), 'Nacatamal', 0, NULL, NULL, NULL),
+((SELECT country_id FROM countries WHERE country_name = 'Nicaragua'), 'Vigorón', 0, NULL, NULL, NULL),
+((SELECT country_id FROM countries WHERE country_name = 'Nicaragua'), 'Indio Viejo', 0, NULL, NULL, NULL),
+
+((SELECT country_id FROM countries WHERE country_name = 'Costa Rica'), 'Casado', 1, '/images/dishes/casado.jpg', 'Casado är en costaricansk tallrik med ris, bönor, sallad, kött eller fisk och ofta matbanan.', 'En tallrik med ris, bönor och flera tillbehör.'),
+((SELECT country_id FROM countries WHERE country_name = 'Costa Rica'), 'Olla de Carne', 0, NULL, NULL, NULL),
+((SELECT country_id FROM countries WHERE country_name = 'Costa Rica'), 'Tamales', 0, NULL, NULL, NULL),
+((SELECT country_id FROM countries WHERE country_name = 'Costa Rica'), 'Chifrijo', 0, NULL, NULL, NULL),
+
+((SELECT country_id FROM countries WHERE country_name = 'Panama'), 'Sancocho', 1, '/images/dishes/sancocho.jpg', 'Sancocho är en panamansk soppa eller gryta med kyckling, rotfrukter och örter.', 'En kycklingsoppa med rotfrukter.'),
+((SELECT country_id FROM countries WHERE country_name = 'Panama'), 'Ropa Vieja', 0, NULL, NULL, NULL),
+((SELECT country_id FROM countries WHERE country_name = 'Panama'), 'Carimañolas', 0, NULL, NULL, NULL),
+((SELECT country_id FROM countries WHERE country_name = 'Panama'), 'Hojaldras', 0, NULL, NULL, NULL),
+
+((SELECT country_id FROM countries WHERE country_name = 'Bahamas'), 'Conch Salad', 1, '/images/dishes/conch-salad.jpg', 'Conch salad är en bahamansk rätt med rå snäcka, citrus, lök, paprika och kryddor.', 'En frisk sallad med snäcka och citrus.'),
+((SELECT country_id FROM countries WHERE country_name = 'Bahamas'), 'Cracked Conch', 0, NULL, NULL, NULL),
+((SELECT country_id FROM countries WHERE country_name = 'Bahamas'), 'Peas and Rice', 0, NULL, NULL, NULL),
+((SELECT country_id FROM countries WHERE country_name = 'Bahamas'), 'Johnnycake', 0, NULL, NULL, NULL),
+
+((SELECT country_id FROM countries WHERE country_name = 'Barbados'), 'Cou-Cou and Flying Fish', 1, '/images/dishes/cou-cou-and-flying-fish.jpg', 'Cou-cou and flying fish är en barbadisk rätt med majsmjölsröra och fisk, ofta kallad nationalrätt.', 'Rätten kombinerar majsbaserad röra och fisk.'),
+((SELECT country_id FROM countries WHERE country_name = 'Barbados'), 'Pudding and Souse', 0, NULL, NULL, NULL),
+((SELECT country_id FROM countries WHERE country_name = 'Barbados'), 'Fish Cakes', 0, NULL, NULL, NULL),
+((SELECT country_id FROM countries WHERE country_name = 'Barbados'), 'Macaroni Pie', 0, NULL, NULL, NULL),
+
+((SELECT country_id FROM countries WHERE country_name = 'Trinidad and Tobago'), 'Doubles', 1, '/images/dishes/doubles.jpg', 'Doubles är en populär rätt från Trinidad och Tobago med friterat bröd och kryddiga kikärtor.', 'Friterat bröd fyllt med kryddiga kikärtor.'),
+((SELECT country_id FROM countries WHERE country_name = 'Trinidad and Tobago'), 'Callaloo', 0, NULL, NULL, NULL),
+((SELECT country_id FROM countries WHERE country_name = 'Trinidad and Tobago'), 'Bake and Shark', 0, NULL, NULL, NULL),
+((SELECT country_id FROM countries WHERE country_name = 'Trinidad and Tobago'), 'Pelau', 0, NULL, NULL, NULL),
+
+((SELECT country_id FROM countries WHERE country_name = 'Belize'), 'Rice and Beans', 1, '/images/dishes/rice-and-beans-belize.jpg', 'Rice and beans är en vanlig belizisk rätt kokad med kokosmjölk och serverad med kött, sallad eller matbanan.', 'Ris och bönor som ofta kokas med kokosmjölk.'),
+((SELECT country_id FROM countries WHERE country_name = 'Belize'), 'Fry Jacks', 0, NULL, NULL, NULL),
+((SELECT country_id FROM countries WHERE country_name = 'Belize'), 'Hudut', 0, NULL, NULL, NULL),
+((SELECT country_id FROM countries WHERE country_name = 'Belize'), 'Garnaches', 0, NULL, NULL, NULL),
+
+((SELECT country_id FROM countries WHERE country_name = 'Grenada'), 'Oil Down', 1, '/images/dishes/oil-down.jpg', 'Oil down är Grenadas nationalrätt, en gryta med brödfrukt, kokosmjölk, kött eller fisk och kryddor.', 'En gryta med brödfrukt och kokosmjölk.'),
+((SELECT country_id FROM countries WHERE country_name = 'Grenada'), 'Callaloo Soup', 0, NULL, NULL, NULL),
+((SELECT country_id FROM countries WHERE country_name = 'Grenada'), 'Fried Bake', 0, NULL, NULL, NULL),
+((SELECT country_id FROM countries WHERE country_name = 'Grenada'), 'Lambie Souse', 0, NULL, NULL, NULL),
+
+((SELECT country_id FROM countries WHERE country_name = 'Saint Lucia'), 'Green Fig and Saltfish', 1, '/images/dishes/green-fig-and-saltfish.jpg', 'Green fig and saltfish är en rätt från Saint Lucia med gröna bananer och saltad fisk.', 'Rätten görs med gröna bananer och saltad fisk.'),
+((SELECT country_id FROM countries WHERE country_name = 'Saint Lucia'), 'Callaloo Soup', 0, NULL, NULL, NULL),
+((SELECT country_id FROM countries WHERE country_name = 'Saint Lucia'), 'Bouyon', 0, NULL, NULL, NULL),
+((SELECT country_id FROM countries WHERE country_name = 'Saint Lucia'), 'Accra', 0, NULL, NULL, NULL),
+
+((SELECT country_id FROM countries WHERE country_name = 'Dominica'), 'Callaloo', 1, '/images/dishes/callaloo.jpg', 'Callaloo är en dominicansk soppa eller gryta med bladgrönsaker, kokosmjölk och ofta kött eller fisk.', 'En grön soppa eller gryta med bladgrönsaker.'),
+((SELECT country_id FROM countries WHERE country_name = 'Dominica'), 'Mountain Chicken', 0, NULL, NULL, NULL),
+((SELECT country_id FROM countries WHERE country_name = 'Dominica'), 'Codfish and Bakes', 0, NULL, NULL, NULL),
+((SELECT country_id FROM countries WHERE country_name = 'Dominica'), 'Sancocho', 0, NULL, NULL, NULL);
 ;
