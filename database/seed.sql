@@ -93,7 +93,7 @@ VALUES
 ('Saint Lucia', 'North America', 'https://flagcdn.com/w320/lc.png'),
 ('Dominica', 'North America', 'https://flagcdn.com/w320/dm.png'),
 
-sydamerikanska länder
+-- sydamerikanska länder
 ('Argentina', 'South America', 'https://flagcdn.com/w320/ar.png'),
 ('Bolivia', 'South America', 'https://flagcdn.com/w320/bo.png'),
 ('Brazil', 'South America', 'https://flagcdn.com/w320/br.png'),
@@ -105,7 +105,23 @@ sydamerikanska länder
 ('Peru', 'South America', 'https://flagcdn.com/w320/pe.png'),
 ('Suriname', 'South America', 'https://flagcdn.com/w320/sr.png'),
 ('Uruguay', 'South America', 'https://flagcdn.com/w320/uy.png'),
-('Venezuela', 'South America', 'https://flagcdn.com/w320/ve.png');
+('Venezuela', 'South America', 'https://flagcdn.com/w320/ve.png'),
+
+-- oceanien länder
+('Australia', 'Oceania', 'https://flagcdn.com/w320/au.png'),
+('New Zealand', 'Oceania', 'https://flagcdn.com/w320/nz.png'),
+('Fiji', 'Oceania', 'https://flagcdn.com/w320/fj.png'),
+('Papua New Guinea', 'Oceania', 'https://flagcdn.com/w320/pg.png'),
+('Samoa', 'Oceania', 'https://flagcdn.com/w320/ws.png'),
+('Tonga', 'Oceania', 'https://flagcdn.com/w320/to.png'),
+('Vanuatu', 'Oceania', 'https://flagcdn.com/w320/vu.png'),
+('Solomon Islands', 'Oceania', 'https://flagcdn.com/w320/sb.png'),
+('Kiribati', 'Oceania', 'https://flagcdn.com/w320/ki.png'),
+('Micronesia', 'Oceania', 'https://flagcdn.com/w320/fm.png'),
+('Marshall Islands', 'Oceania', 'https://flagcdn.com/w320/mh.png'),
+('Palau', 'Oceania', 'https://flagcdn.com/w320/pw.png'),
+('Nauru', 'Oceania', 'https://flagcdn.com/w320/nr.png'),
+('Tuvalu', 'Oceania', 'https://flagcdn.com/w320/tv.png');
 
 INSERT INTO dishes (
   country_id,
@@ -579,4 +595,75 @@ sydamerikanska länder
 ((SELECT country_id FROM countries WHERE country_name = 'Venezuela'), 'Pabellón Criollo', 1, '/images/dishes/pabellon-criollo.jpg', 'Pabellón criollo är en venezuelansk rätt med ris, svarta bönor, strimlat nötkött och ofta matbanan.', 'En tallrik med ris, svarta bönor och strimlat kött.'),
 ((SELECT country_id FROM countries WHERE country_name = 'Venezuela'), 'Arepas', 0, NULL, NULL, NULL),
 ((SELECT country_id FROM countries WHERE country_name = 'Venezuela'), 'Hallacas', 0, NULL, NULL, NULL),
-((SELECT country_id FROM countries WHERE country_name = 'Venezuela'), 'Cachapas', 0, NULL, NULL, NULL);
+((SELECT country_id FROM countries WHERE country_name = 'Venezuela'), 'Cachapas', 0, NULL, NULL, NULL),
+
+-- oceanien länder
+((SELECT country_id FROM countries WHERE country_name = 'Australia'), 'Meat Pie', 1, '/images/dishes/meat-pie.jpg', 'Meat pie är en klassisk australisk rätt med pajskal fyllt med köttfärs eller köttgryta.', 'En liten paj fylld med kött.'),
+((SELECT country_id FROM countries WHERE country_name = 'Australia'), 'Chicken Parmigiana', 0, NULL, NULL, NULL),
+((SELECT country_id FROM countries WHERE country_name = 'Australia'), 'Barramundi', 0, NULL, NULL, NULL),
+((SELECT country_id FROM countries WHERE country_name = 'Australia'), 'Lamington', 0, NULL, NULL, NULL),
+
+((SELECT country_id FROM countries WHERE country_name = 'New Zealand'), 'Hangi', 1, '/images/dishes/hangi.jpg', 'Hangi är en traditionell maorisk matlagningsmetod där kött och grönsaker tillagas i en jordugn.', 'Rätten tillagas traditionellt i en jordugn.'),
+((SELECT country_id FROM countries WHERE country_name = 'New Zealand'), 'Pavlova', 0, NULL, NULL, NULL),
+((SELECT country_id FROM countries WHERE country_name = 'New Zealand'), 'Whitebait Fritters', 0, NULL, NULL, NULL),
+((SELECT country_id FROM countries WHERE country_name = 'New Zealand'), 'Lamb Roast', 0, NULL, NULL, NULL),
+
+((SELECT country_id FROM countries WHERE country_name = 'Fiji'), 'Kokoda', 1, '/images/dishes/kokoda.jpg', 'Kokoda är en fijiansk fiskrätt där rå fisk marineras i citrus och blandas med kokosmjölk.', 'Rå fisk med citrus och kokosmjölk.'),
+((SELECT country_id FROM countries WHERE country_name = 'Fiji'), 'Lovo', 0, NULL, NULL, NULL),
+((SELECT country_id FROM countries WHERE country_name = 'Fiji'), 'Rourou', 0, NULL, NULL, NULL),
+((SELECT country_id FROM countries WHERE country_name = 'Fiji'), 'Palusami', 0, NULL, NULL, NULL),
+
+((SELECT country_id FROM countries WHERE country_name = 'Papua New Guinea'), 'Mumu', 1, '/images/dishes/mumu.jpg', 'Mumu är en traditionell rätt från Papua Nya Guinea där kött, grönsaker och rotfrukter tillagas i jordugn.', 'Rätten tillagas ofta i jordugn med rotfrukter.'),
+((SELECT country_id FROM countries WHERE country_name = 'Papua New Guinea'), 'Saksak', 0, NULL, NULL, NULL),
+((SELECT country_id FROM countries WHERE country_name = 'Papua New Guinea'), 'Kaukau', 0, NULL, NULL, NULL),
+((SELECT country_id FROM countries WHERE country_name = 'Papua New Guinea'), 'Chicken Pot', 0, NULL, NULL, NULL),
+
+((SELECT country_id FROM countries WHERE country_name = 'Samoa'), 'Palusami', 1, '/images/dishes/palusami.jpg', 'Palusami är en samoansk rätt med taroblad, kokosgrädde och ibland kött eller fisk.', 'Taroblad fyllda eller tillagade med kokosgrädde.'),
+((SELECT country_id FROM countries WHERE country_name = 'Samoa'), 'Oka', 0, NULL, NULL, NULL),
+((SELECT country_id FROM countries WHERE country_name = 'Samoa'), 'Faiai Eleni', 0, NULL, NULL, NULL),
+((SELECT country_id FROM countries WHERE country_name = 'Samoa'), 'Sapasui', 0, NULL, NULL, NULL),
+
+((SELECT country_id FROM countries WHERE country_name = 'Tonga'), 'Lu Pulu', 1, '/images/dishes/lu-pulu.jpg', 'Lu pulu är en tongansk rätt med taroblad, kokosmjölk och ofta corned beef.', 'Taroblad med kokosmjölk och kött.'),
+((SELECT country_id FROM countries WHERE country_name = 'Tonga'), 'Ota Ika', 0, NULL, NULL, NULL),
+((SELECT country_id FROM countries WHERE country_name = 'Tonga'), 'Faikakai', 0, NULL, NULL, NULL),
+((SELECT country_id FROM countries WHERE country_name = 'Tonga'), 'Kapisi Pulu', 0, NULL, NULL, NULL),
+
+((SELECT country_id FROM countries WHERE country_name = 'Vanuatu'), 'Laplap', 1, '/images/dishes/laplap.jpg', 'Laplap är en traditionell rätt från Vanuatu gjord på riven rotfrukt, kokosmjölk och ibland kött eller fisk.', 'Riven rotfrukt med kokosmjölk.'),
+((SELECT country_id FROM countries WHERE country_name = 'Vanuatu'), 'Tuluk', 0, NULL, NULL, NULL),
+((SELECT country_id FROM countries WHERE country_name = 'Vanuatu'), 'Poulet Fish', 0, NULL, NULL, NULL),
+((SELECT country_id FROM countries WHERE country_name = 'Vanuatu'), 'Simboro', 0, NULL, NULL, NULL),
+
+((SELECT country_id FROM countries WHERE country_name = 'Solomon Islands'), 'Poi', 1, '/images/dishes/poi-solomon.jpg', 'Poi i Solomonöarna görs ofta av taro eller andra rotfrukter och äts som basmat.', 'En enkel basrätt gjord av rotfrukt.'),
+((SELECT country_id FROM countries WHERE country_name = 'Solomon Islands'), 'Cassava Pudding', 0, NULL, NULL, NULL),
+((SELECT country_id FROM countries WHERE country_name = 'Solomon Islands'), 'Taro Chips', 0, NULL, NULL, NULL),
+((SELECT country_id FROM countries WHERE country_name = 'Solomon Islands'), 'Grilled Fish', 0, NULL, NULL, NULL),
+
+((SELECT country_id FROM countries WHERE country_name = 'Kiribati'), 'Palusami', 1, '/images/dishes/palusami-kiribati.jpg', 'Palusami är vanligt i flera delar av Oceanien och görs med bladgrönsaker och kokosgrädde.', 'En rätt med bladgrönsaker och kokosgrädde.'),
+((SELECT country_id FROM countries WHERE country_name = 'Kiribati'), 'Te Bua Toro Ni Baukin', 0, NULL, NULL, NULL),
+((SELECT country_id FROM countries WHERE country_name = 'Kiribati'), 'Roasted Lobster', 0, NULL, NULL, NULL),
+((SELECT country_id FROM countries WHERE country_name = 'Kiribati'), 'Pumpkin Coconut Soup', 0, NULL, NULL, NULL),
+
+((SELECT country_id FROM countries WHERE country_name = 'Micronesia'), 'Kelaguen', 1, '/images/dishes/kelaguen.jpg', 'Kelaguen är en rätt från Mikronesien och Marianerna med kött eller fisk marinerad i citrus och kokos.', 'Marinerat kött eller fisk med citrus och kokos.'),
+((SELECT country_id FROM countries WHERE country_name = 'Micronesia'), 'Breadfruit', 0, NULL, NULL, NULL),
+((SELECT country_id FROM countries WHERE country_name = 'Micronesia'), 'Taro', 0, NULL, NULL, NULL),
+((SELECT country_id FROM countries WHERE country_name = 'Micronesia'), 'Pihlohlo', 0, NULL, NULL, NULL),
+
+((SELECT country_id FROM countries WHERE country_name = 'Marshall Islands'), 'Barramundi Cod', 1, '/images/dishes/barramundi-cod.jpg', 'Barramundi cod och andra fiskrätter är vanliga på Marshallöarna där fisk är central i matkulturen.', 'En fiskrätt från öarnas matkultur.'),
+((SELECT country_id FROM countries WHERE country_name = 'Marshall Islands'), 'Breadfruit', 0, NULL, NULL, NULL),
+((SELECT country_id FROM countries WHERE country_name = 'Marshall Islands'), 'Coconut Crab', 0, NULL, NULL, NULL),
+((SELECT country_id FROM countries WHERE country_name = 'Marshall Islands'), 'Rice Balls', 0, NULL, NULL, NULL),
+
+((SELECT country_id FROM countries WHERE country_name = 'Palau'), 'Tinola', 1, '/images/dishes/tinola.jpg', 'Tinola är en soppa eller gryta med kyckling, ingefära och grönsaker som är vanlig i Palau och regionen.', 'En soppa med kyckling och ingefära.'),
+((SELECT country_id FROM countries WHERE country_name = 'Palau'), 'Ulkoy', 0, NULL, NULL, NULL),
+((SELECT country_id FROM countries WHERE country_name = 'Palau'), 'Taro Rosti', 0, NULL, NULL, NULL),
+((SELECT country_id FROM countries WHERE country_name = 'Palau'), 'Fruit Bat Soup', 0, NULL, NULL, NULL),
+
+((SELECT country_id FROM countries WHERE country_name = 'Nauru'), 'Coconut Fish', 1, '/images/dishes/coconut-fish.jpg', 'Coconut fish är en enkel fiskrätt med kokos som passar Naurus öbaserade matkultur.', 'Fisk tillagad med kokos.'),
+((SELECT country_id FROM countries WHERE country_name = 'Nauru'), 'Coconut Crusted Fish', 0, NULL, NULL, NULL),
+((SELECT country_id FROM countries WHERE country_name = 'Nauru'), 'Banana Fritters', 0, NULL, NULL, NULL),
+((SELECT country_id FROM countries WHERE country_name = 'Nauru'), 'Taro with Coconut Cream', 0, NULL, NULL, NULL),
+
+((SELECT country_id FROM countries WHERE country_name = 'Tuvalu'), 'Pulaka', 1, '/images/dishes/pulaka.jpg', 'Pulaka är en viktig rotfrukt i Tuvalu och används i traditionella måltider med kokos och fisk.', 'En stärkelsebaserad rotfrukt som äts med kokos eller fisk.'),
+((SELECT country_id FROM countries WHERE country_name = 'Tuvalu'), 'Palusami', 0, NULL, NULL, NULL),
+((SELECT country_id FROM countries WHERE country_name = 'Tuvalu'), 'Tuna Coconut Curry', 0, NULL, NULL, NULL),
+((SELECT country_id FROM countries WHERE country_name = 'Tuvalu'), 'Fekei', 0, NULL, NULL, NULL);
