@@ -11,6 +11,7 @@ CREATE TABLE dishes (
     dish_id INTEGER PRIMARY KEY AUTOINCREMENT,
     country_id INTEGER NOT NULL,
     dish_name VARCHAR(100) NOT NULL,
+    is_correct BOOLEAN NOT NULL DEFAULT 0,
     dish_image_url TEXT NOT NULL,
     dish_history TEXT NOT NULL,
     hint TEXT NOT NULL,
