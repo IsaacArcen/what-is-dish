@@ -334,7 +334,7 @@ VALUES
 ((SELECT country_id FROM countries WHERE country_name = 'Mongolia'), 'Tsuivan', 0, NULL, NULL, NULL),
 ((SELECT country_id FROM countries WHERE country_name = 'Mongolia'), 'Bansh', 0, NULL, NULL, NULL),
 
-europeiska länder
+-- europeiska länder
 ((SELECT country_id FROM countries WHERE country_name = 'Italy'), 'Pizza', 1, '/images/dishes/pizza.jpg', 'Pizza är en italiensk maträtt som framför allt kopplas till Neapel och består ofta av deg, tomatsås och ost.', 'Rätten bakas i ugn och har ofta tomatsås och ost.'),
 ((SELECT country_id FROM countries WHERE country_name = 'Italy'), 'Pasta Carbonara', 0, NULL, NULL, NULL),
 ((SELECT country_id FROM countries WHERE country_name = 'Italy'), 'Risotto', 0, NULL, NULL, NULL),
@@ -435,7 +435,7 @@ europeiska länder
 ((SELECT country_id FROM countries WHERE country_name = 'Romania'), 'Ciorbă de Burtă', 0, NULL, NULL, NULL),
 ((SELECT country_id FROM countries WHERE country_name = 'Romania'), 'Mici', 0, NULL, NULL, NULL),
 
-Nordamerikanska länder
+-- Nordamerikanska länder
 ((SELECT country_id FROM countries WHERE country_name = 'United States'), 'Hamburger', 1, '/images/dishes/hamburger.jpg', 'Hamburgaren blev starkt förknippad med USA under 1900-talet och är idag en av landets mest kända maträtter.', 'En rund brödrätt med kött, sallad och sås.'),
 ((SELECT country_id FROM countries WHERE country_name = 'United States'), 'Mac and Cheese', 0, NULL, NULL, NULL),
 ((SELECT country_id FROM countries WHERE country_name = 'United States'), 'BBQ Ribs', 0, NULL, NULL, NULL),
@@ -536,7 +536,7 @@ Nordamerikanska länder
 ((SELECT country_id FROM countries WHERE country_name = 'Dominica'), 'Codfish and Bakes', 0, NULL, NULL, NULL),
 ((SELECT country_id FROM countries WHERE country_name = 'Dominica'), 'Sancocho', 0, NULL, NULL, NULL),
 
-sydamerikanska länder
+-- sydamerikanska länder
 ((SELECT country_id FROM countries WHERE country_name = 'Argentina'), 'Asado', 1, '/images/dishes/asado.jpg', 'Asado är argentinsk grilltradition med olika sorters kött som tillagas långsamt över eld eller glöd.', 'En rätt starkt kopplad till grillat kött.'),
 ((SELECT country_id FROM countries WHERE country_name = 'Argentina'), 'Empanadas', 0, NULL, NULL, NULL),
 ((SELECT country_id FROM countries WHERE country_name = 'Argentina'), 'Milanesa', 0, NULL, NULL, NULL),
