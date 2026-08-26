@@ -15,6 +15,6 @@ CREATE TABLE dishes (
     dish_image_url TEXT NOT NULL,
     dish_history TEXT NOT NULL,
     hint TEXT NOT NULL,
-    FOREIGN KEY (country_id) REFERENCES countries(country_id)
+    FOREIGN KEY (country_id) REFERENCES countries(country_id),
     UNIQUE (country_id, dish_name)
 );
