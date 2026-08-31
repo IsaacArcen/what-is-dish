@@ -1,0 +1,118 @@
+.main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 32px 24px 64px;
+  text-align: center;
+}
+
+.globe {
+  margin-bottom: 24px;
+  filter: drop-shadow(0 8px 24px rgba(0, 0, 0, 0.12));
+}
+
+.title {
+  font-size: clamp(42px, 7vw, 72px);
+  font-weight: 900;
+  color: var(--navy);
+  letter-spacing: -2px;
+  line-height: 1;
+  margin-bottom: 16px;
+}
+
+.titleAccent {
+  color: var(--orange);
+}
+
+.subtitle {
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--navy);
+  line-height: 1.6;
+  max-width: 340px;
+  margin-bottom: 36px;
+  opacity: 0.85;
+}
+
+.actions {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-bottom: 44px;
+}
+
+.btnPrimary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 14px 32px;
+  background: var(--red);
+  color: #fff;
+  font-size: 15px;
+  font-weight: 800;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: background 0.15s, transform 0.1s;
+  letter-spacing: 0.2px;
+}
+
+.btnPrimary:hover {
+  background: var(--red-hover);
+  transform: translateY(-1px);
+}
+
+.btnOutline {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 13px 28px;
+  background: transparent;
+  color: var(--navy);
+  font-size: 15px;
+  font-weight: 700;
+  border-radius: 8px;
+  border: 2px solid var(--navy);
+  text-decoration: none;
+  transition: background 0.15s, transform 0.1s;
+  letter-spacing: 0.2px;
+}
+
+.btnOutline:hover {
+  background: rgba(27, 42, 74, 0.06);
+  transform: translateY(-1px);
+}
+
+.stats {
+  display: flex;
+  gap: 0;
+  align-items: center;
+  justify-content: center;
+}
+
+.stat {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--navy);
+  padding: 0 20px;
+  opacity: 0.75;
+}
+
+.statOrange {
+  color: var(--orange);
+  opacity: 1;
+}
+
+.statGreen {
+  color: #3a7a3a;
+  opacity: 1;
+}
+
+.statDivider {
+  width: 1px;
+  height: 18px;
+  background: rgba(27, 42, 74, 0.25);
+}
