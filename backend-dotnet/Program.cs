@@ -62,7 +62,7 @@ app.MapGet("/api/quiz", async (AppDbContext db, string continent = "all", int li
     }
 
     var questions = await query
-        .OrderBy(d => Guid.NewGuid())
+        .OrderBy(d => EF.Functions.Random())
         .Take(limit)
         .Select(d => new
         {
