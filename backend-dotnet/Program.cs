@@ -1,5 +1,8 @@
 using Microsoft.EntityFrameworkCore;
 using WhatIsDish.Api.Data;
+using WhatIsDish.Api.BLL.Interfaces;
+using WhatIsDish.Api.BLL.Services;
+using WhatIsDish.Api.Data;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -7,6 +10,8 @@ builder.Services.AddOpenApi();
 
 builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseSqlite("Data Source=../database/what_is_dish.db"));
+
+builder.Services.AddScoped<IQuizSettingsService, QuizSettingsService>();
 
 builder.Services.AddCors(options =>
 {
