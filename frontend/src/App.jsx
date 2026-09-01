@@ -1,6 +1,7 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
-import HomePage from './HomePage'
-import Header from './Components/Header'  
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import HomePage from "./HomePage";
+import Header from "./Components/Header";
+import QuizSettings from "./QuizSettings";
 
 function App() {
   return (
@@ -8,9 +9,10 @@ function App() {
       <Header />
       <Routes>
         <Route path="/" element={<HomePage />} />
+        <Route path="/quiz" element={<QuizSettings />} />
       </Routes>
     </BrowserRouter>
-  )
+  );
 }
 
-export default App
+export default App;
