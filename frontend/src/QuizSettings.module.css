@@ -1,0 +1,146 @@
+.main {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  padding: 48px 24px 64px;
+}
+
+.card {
+  width: 100%;
+  max-width: 460px;
+}
+
+.title {
+  font-size: 28px;
+  font-weight: 900;
+  color: var(--navy);
+  letter-spacing: -0.5px;
+  text-align: center;
+  margin-bottom: 6px;
+}
+
+.subtitle {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-muted);
+  text-align: center;
+  margin-bottom: 32px;
+}
+
+.section {
+  margin-bottom: 28px;
+}
+
+.sectionLabel {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--navy);
+  margin-bottom: 10px;
+}
+
+/* Antal frågor */
+.optionRow {
+  display: flex;
+  gap: 8px;
+}
+
+.optionBtn {
+  flex: 1;
+  height: 40px;
+  border-radius: 8px;
+  border: 2px solid var(--navy);
+  background: transparent;
+  color: var(--navy);
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition:
+    background 0.15s,
+    color 0.15s,
+    border-color 0.15s;
+}
+
+.optionBtn:hover {
+  background: rgba(27, 42, 74, 0.06);
+}
+
+.optionBtnActive {
+  border: none;
+  background: var(--red);
+  color: #fff;
+  font-weight: 700;
+}
+
+.optionBtnActive:hover {
+  background: var(--red-hover);
+}
+
+/* Region */
+.pillRow {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.pill {
+  padding: 6px 14px;
+  border-radius: 20px;
+  border: 2px solid var(--navy);
+  background: transparent;
+  color: var(--navy);
+  font-size: 13px;
+  font-weight: 600;
+  opacity: 0.75;
+  cursor: pointer;
+  transition:
+    background 0.15s,
+    opacity 0.15s;
+}
+
+.pill:hover {
+  opacity: 1;
+}
+
+.pillActive {
+  border: none;
+  background: #3a7a3a;
+  color: #fff;
+  opacity: 1;
+  font-weight: 700;
+}
+
+/* Felmeddelande */
+.error {
+  color: var(--red);
+  font-size: 13px;
+  font-weight: 600;
+  text-align: center;
+  margin-bottom: 16px;
+}
+
+/* Starta quiz-knapp */
+.btnStart {
+  width: 100%;
+  height: 48px;
+  border-radius: 8px;
+  border: none;
+  background: var(--red);
+  color: #fff;
+  font-size: 15px;
+  font-weight: 800;
+  letter-spacing: 0.2px;
+  cursor: pointer;
+  transition:
+    background 0.15s,
+    transform 0.1s;
+}
+
+.btnStart:hover:not(:disabled) {
+  background: var(--red-hover);
+  transform: translateY(-1px);
+}
+
+.btnStart:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
