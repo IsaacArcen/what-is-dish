@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "4fBDTZfpwUU=",
+  "dgSpecHash": "E1yyWj/o2UU=",
   "success": true,
-  "projectFilePath": "C:\\Users\\marko\\OneDrive\\Desktop\\Skuel\\Dokumen&Bilder\\what-is-dish\\backend-dotnet\\WhatIsDish.Api.csproj",
+  "projectFilePath": "C:\\Users\\marko\\OneDrive\\Desktop\\Skuel\\DokumentBilder\\what-is-dish\\backend-dotnet\\WhatIsDish.Api.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\marko\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
     "C:\\Users\\marko\\.nuget\\packages\\microsoft.aspnetcore.openapi\\10.0.5\\microsoft.aspnetcore.openapi.10.0.5.nupkg.sha512",
@@ -43,9 +43,9 @@
       "code": "NU1903",
       "level": "Warning",
       "message": "Package 'Microsoft.OpenApi' 2.0.0 has a known high severity vulnerability, https://github.com/advisories/GHSA-v5pm-xwqc-g5wc",
-      "projectPath": "C:\\Users\\marko\\OneDrive\\Desktop\\Skuel\\Dokumen&Bilder\\what-is-dish\\backend-dotnet\\WhatIsDish.Api.csproj",
+      "projectPath": "C:\\Users\\marko\\OneDrive\\Desktop\\Skuel\\DokumentBilder\\what-is-dish\\backend-dotnet\\WhatIsDish.Api.csproj",
       "warningLevel": 1,
-      "filePath": "C:\\Users\\marko\\OneDrive\\Desktop\\Skuel\\Dokumen&Bilder\\what-is-dish\\backend-dotnet\\WhatIsDish.Api.csproj",
+      "filePath": "C:\\Users\\marko\\OneDrive\\Desktop\\Skuel\\DokumentBilder\\what-is-dish\\backend-dotnet\\WhatIsDish.Api.csproj",
       "libraryId": "Microsoft.OpenApi",
       "targetGraphs": [
         "net10.0"

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\marko\\OneDrive\\Desktop\\Skuel\\Dokumen&Bilder\\what-is-dish\\backend-dotnet\\WhatIsDish.Api.csproj": {}
+    "C:\\Users\\marko\\OneDrive\\Desktop\\Skuel\\DokumentBilder\\what-is-dish\\backend-dotnet\\WhatIsDish.Api.csproj": {}
   },
   "projects": {
-    "C:\\Users\\marko\\OneDrive\\Desktop\\Skuel\\Dokumen&Bilder\\what-is-dish\\backend-dotnet\\WhatIsDish.Api.csproj": {
+    "C:\\Users\\marko\\OneDrive\\Desktop\\Skuel\\DokumentBilder\\what-is-dish\\backend-dotnet\\WhatIsDish.Api.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\marko\\OneDrive\\Desktop\\Skuel\\Dokumen&Bilder\\what-is-dish\\backend-dotnet\\WhatIsDish.Api.csproj",
+        "projectUniqueName": "C:\\Users\\marko\\OneDrive\\Desktop\\Skuel\\DokumentBilder\\what-is-dish\\backend-dotnet\\WhatIsDish.Api.csproj",
         "projectName": "WhatIsDish.Api",
-        "projectPath": "C:\\Users\\marko\\OneDrive\\Desktop\\Skuel\\Dokumen&Bilder\\what-is-dish\\backend-dotnet\\WhatIsDish.Api.csproj",
+        "projectPath": "C:\\Users\\marko\\OneDrive\\Desktop\\Skuel\\DokumentBilder\\what-is-dish\\backend-dotnet\\WhatIsDish.Api.csproj",
         "packagesPath": "C:\\Users\\marko\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\marko\\OneDrive\\Desktop\\Skuel\\Dokumen&Bilder\\what-is-dish\\backend-dotnet\\obj\\",
+        "outputPath": "C:\\Users\\marko\\OneDrive\\Desktop\\Skuel\\DokumentBilder\\what-is-dish\\backend-dotnet\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
