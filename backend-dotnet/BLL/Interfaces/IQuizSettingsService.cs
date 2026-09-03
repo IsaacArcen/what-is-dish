@@ -10,3 +10,4 @@ public interface IQuizSettingsService
     Task<List<Country>> GetQuizCountriesAsync(
         QuizSettingsRequestDto settings);
 }
+
