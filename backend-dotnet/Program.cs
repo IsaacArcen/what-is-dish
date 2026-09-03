@@ -3,6 +3,7 @@ using WhatIsDish.Api.Data;
 using WhatIsDish.Api.BLL.DTOs;
 using WhatIsDish.Api.BLL.Interfaces;
 using WhatIsDish.Api.BLL.Services;
+using WhatIsDish.Api.BLL.DTOs;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -92,6 +93,30 @@ app.MapGet("/api/quiz", async (AppDbContext db, string continent = "all", int li
         .ToListAsync();
 
     return questions;
+});
+
+
+//endpoints for quiz settings
+app.MapGet("/api/quiz-settings/continents", async (IQuizSettingsService service) =>
+    await service.GetContinentsAsync());
+
+app.MapPost("/api/quiz-settings/countries", async (
+    QuizSettingsRequestDto settings,
+    IQuizSettingsService service) =>
+{
+    try
+    {
+        var countries = await service.GetQuizCountriesAsync(settings);
+        return Results.Ok(countries);
+    }
+    catch (ArgumentException ex)
+    {
+        return Results.BadRequest(ex.Message);
+    }
+    catch (InvalidOperationException ex)
+    {
+        return Results.BadRequest(ex.Message);
+    }
 });
 
 app.MapPost("/api/quiz/start", async (
