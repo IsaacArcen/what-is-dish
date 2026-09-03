@@ -6,3 +6,4 @@ public class QuizSettingsRequestDto
 
     public List<string> Continents { get; set; } = new();
 }
+
