@@ -1,0 +1,115 @@
+.main {
+  flex: 1;
+  padding: 48px 24px 72px;
+}
+
+.hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin-bottom: 48px;
+}
+
+.title {
+  font-size: 36px;
+  font-weight: 900;
+  color: #000;
+  margin-bottom: 22px;
+}
+
+.subtitle {
+  font-size: 13px;
+  font-weight: 700;
+  color: #000;
+  margin-bottom: 14px;
+}
+
+.search {
+  width: 100%;
+  max-width: 360px;
+  height: 44px;
+  border: none;
+  border-radius: 10px;
+  padding: 0 16px;
+  font-size: 13px;
+  background: #fff;
+  color: #111;
+  outline: none;
+}
+
+.search:focus {
+  box-shadow: 0 0 0 2px #2aa8ff;
+}
+
+.grid {
+  width: 100%;
+  max-width: 760px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 28px 44px;
+}
+
+.card {
+  min-height: 156px;
+  background: #fff;
+  border-radius: 12px;
+  padding: 18px 24px;
+}
+
+.cardHeader {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+
+.flag {
+  width: 58px;
+  height: 38px;
+  object-fit: cover;
+}
+
+.country {
+  font-size: 11px;
+  font-weight: 700;
+  color: #555;
+  text-transform: uppercase;
+}
+
+.dishName {
+  font-size: 20px;
+  font-weight: 900;
+  color: #111;
+  margin-bottom: 4px;
+}
+
+.description {
+  max-width: 260px;
+  font-size: 12px;
+  line-height: 1.35;
+  color: #222;
+}
+
+.error {
+  text-align: center;
+  color: var(--red);
+  font-weight: 700;
+  margin-bottom: 24px;
+}
+
+@media (max-width: 720px) {
+  .grid {
+    grid-template-columns: 1fr;
+    max-width: 420px;
+  }
+
+  .card {
+    min-height: auto;
+  }
+
+  .description {
+    max-width: none;
+  }
+}
