@@ -32,6 +32,7 @@ export default function QuizPlay() {
   const isLastQuestion = currentIndex === questions.length - 1;
   const [answeredQuestions, setAnsweredQuestions] = useState([]);
   const [currentAnswer, setCurrentAnswer] = useState(null);
+  const [currentGuesses, setCurrentGuesses] = useState([]);
 
   // om man hamnar här utan frågor (t.ex. via direktlänk): skicka tillbaka till inställningar
   if (questions.length === 0) {
@@ -74,12 +75,15 @@ export default function QuizPlay() {
       const data = await res.json();
       setResult(data);
 
+      const updatedCurrentGuesses = [...currentGuesses, dishId];
+        setCurrentGuesses(updatedCurrentGuesses);
+
       const finishedQuestion = data.correct || attempt >= 3;
 
       if (finishedQuestion) {
         setCurrentAnswer({
           CountryId: currentQuestion.countryId,
-          GuessedDishId: dishId,
+          GuessedDishIds: updatedCurrentGuesses,
           Points: data.points,
         });
       }
@@ -140,6 +144,7 @@ export default function QuizPlay() {
   setResult(null);
   setTriedIds([]);
   setCurrentAnswer(null);
+  setCurrentGuesses([]);
 };
 
   // Kan man gå vidare till nästa fråga just nu? Antingen om man svarat rätt, eller om man förbrukat alla tre försöken

@@ -17,7 +17,7 @@ export default function QuizOverviewPage() {
         </section>
       </main>
     );
-  }
+  }g
 
   return (
     <main className={styles.main}>
@@ -52,16 +52,25 @@ export default function QuizOverviewPage() {
 
               <div className={styles.answerGrid}>
                 <div>
-                  <p className={styles.label}>Ditt svar</p>
-                  <p className={isCorrect ? styles.correct : styles.wrong}>
-                    {question.guessedDishName}
-                  </p>
-                </div>
+                    <p className={styles.label}>Felgissningar</p>
+                    <p className={styles.wrong}>
+                      {question.wrongGuessNames.length > 0
+                        ? question.wrongGuessNames.join(", ")
+                        : "Inga felgissningar"}
+                    </p>
+                  </div>
 
-                <div>
-                  <p className={styles.label}>Rätt svar</p>
-                  <p className={styles.correct}>{question.correctDishName}</p>
-                </div>
+                  <div>
+                    <p className={styles.label}>Ditt slutliga svar</p>
+                    <p className={isCorrect ? styles.correct : styles.wrong}>
+                      {question.guessedDishName}
+                    </p>
+                  </div>
+
+                  <div>
+                    <p className={styles.label}>Rätt svar</p>
+                    <p className={styles.correct}>{question.correctDishName}</p>
+                  </div>
               </div>
             </article>
           );
