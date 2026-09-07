@@ -53,24 +53,37 @@ public class QuizSummaryService : IQuizSummaryService
                 .ToList();
 
             //Skapar DTO:n som frontend använder för frågan
-            var guessedDish = options.FirstOrDefault(o => o.DishId == result.GuessedDishId);
-var correctDish = options.First(o => o.IsCorrect);
+            var guessedDishes = result.GuessedDishIds
+                .Select(id => options.FirstOrDefault(o => o.DishId == id))
+                .Where(d => d is not null)
+                .Select(d => d!)
+                .ToList();
 
-return new QuizSummaryQuestionDto
-{
-    CountryId = country.CountryId,
-    CountryName = country.CountryName,
-    FlagUrl = country.FlagUrl,
-    Points = result.Points,
+            var guessedDish = guessedDishes.LastOrDefault();
+            var correctDish = options.First(o => o.IsCorrect);
+    
+            var wrongGuessNames = guessedDishes
+                .Where(d => !d.IsCorrect)
+                .Select(d => d.DishName)
+                .ToList();
 
-    GuessedDishId = guessedDish?.DishId,
-    GuessedDishName = guessedDish?.DishName ?? "Inget svar",
+            return new QuizSummaryQuestionDto
+            {
+                CountryId = country.CountryId,
+                CountryName = country.CountryName,
+                FlagUrl = country.FlagUrl,
+                Points = result.Points,
 
-    CorrectDishId = correctDish.DishId,
-    CorrectDishName = correctDish.DishName,
+                GuessedDishId = guessedDish?.DishId,
+                GuessedDishName = guessedDish?.DishName ?? "Inget svar",
 
-    Options = options
-};
+                CorrectDishId = correctDish.DishId,
+                CorrectDishName = correctDish.DishName,
+
+                WrongGuessNames = wrongGuessNames,
+                Options = options
+            };
+            }).ToList();
 
         //Returnerar alla frågor och räknar ut totalpoängen
         return new QuizSummaryDto

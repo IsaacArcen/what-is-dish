@@ -14,6 +14,7 @@ builder.Services.AddDbContext<AppDbContext>(options =>
 
 builder.Services.AddScoped<IQuizSettingsService, QuizSettingsService>();
 builder.Services.AddScoped<IQuizService, QuizService>();
+builder.Services.AddScoped<IQuizSummaryService, QuizSummaryService>();
 
 builder.Services.AddCors(options =>
 {
