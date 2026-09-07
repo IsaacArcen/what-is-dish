@@ -50,19 +50,16 @@ export default function QuizSettings() {
     setError(null);
 
     try {
-      const res = await fetch(
-        "http://localhost:5097/api/quiz-settings/countries",
-        {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          // OBS: nycklarna (NumberOfQuestions, Continents) måste matcha
-          // QuizSettingsRequestDto.cs exakt (pga C# är skiftlägeskänsligt vid JSON-bindning)
-          body: JSON.stringify({
-            NumberOfQuestions: questionCount,
-            Continents: selectedContinents,
-          }),
-        },
-      );
+      const res = await fetch("http://localhost:5097/api/quiz/start", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        // OBS: nycklarna (NumberOfQuestions, Continents) måste matcha
+        // QuizSettingsRequestDto.cs exakt (pga C# är skiftlägeskänsligt vid JSON-bindning)
+        body: JSON.stringify({
+          NumberOfQuestions: questionCount,
+          Continents: selectedContinents,
+        }),
+      });
 
       // backend svarar med 400 Bad Request om t.ex. för få länder finns i valda regioner
       if (!res.ok) {
@@ -70,7 +67,8 @@ export default function QuizSettings() {
         throw new Error(msg || "Kunde inte hämta quizfrågor");
       }
 
-      const countries = await res.json();
+      const questions = await res.json();
+      navigate("/quiz/spela", { state: { questions } });
 
       // skickar med länderna i navigationens "state" (tillgängligt på quiz-sidan)
       // via useLocation().state, utan att synas i URL:en
