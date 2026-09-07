@@ -117,3 +117,101 @@ export default function QuizPlay() {
   const progressPercent =
     ((currentIndex + (canGoNext ? 1 : 0)) / questions.length) * 100;
 
+  return (
+    <main className={styles.main}>
+      <div className={styles.card}>
+        {/* fråga X av Y + poäng */}
+        <div className={styles.topRow}>
+          <span className={styles.questionCounter}>
+            Fråga {currentIndex + 1} av {questions.length}
+          </span>
+          <span className={styles.scoreLabel}>Poäng: {totalPoints}</span>
+        </div>
+
+        {/* progressbar */}
+        <div className={styles.progressTrack}>
+          <div
+            className={styles.progressFill}
+            style={{ width: `${progressPercent}%` }}
+          />
+        </div>
+
+        {/* flaggan */}
+        <div className={styles.flagSection}>
+          <p className={styles.flagPrompt}>
+            Vilken rätt kommer från detta land?
+          </p>
+          <img
+            src={currentQuestion.flagUrl}
+            alt={`Flaggan för ${currentQuestion.countryName}`}
+            className={styles.flagImage}
+          />
+        </div>
+
+        {/* svarsalternativ */}
+        <div className={styles.optionsList}>
+          {currentQuestion.options.map((option) => {
+            const isTried = triedIds.includes(option.dishId);
+            const isCorrectAnswer =
+              result?.correct && result && option.dishId === undefined;
+            // ^ vi vet inte dishId på rätt svar direkt (backend avslöjar bara namn), se nedan för hantering
+
+            return (
+              <button
+                key={option.dishId}
+                className={
+                  isTried
+                    ? `${styles.optionBtn} ${styles.optionBtnWrong}`
+                    : styles.optionBtn
+                }
+                onClick={() => handleGuess(option.dishId)}
+                disabled={loading || isTried || canGoNext}
+              >
+                {option.dishName}
+              </button>
+            );
+          })}
+        </div>
+
+        {/* feedback-sektion beroende på resultat och försök */}
+        {result && !result.correct && (
+          <div className={styles.hintBox}>
+            {attempt <= 2 && result.imageHint && (
+              <>
+                <p className={styles.hintLabel}>Fel! Här är en ledtråd:</p>
+                <img
+                  src={result.imageHint}
+                  alt="Ledtråd"
+                  className={styles.hintImage}
+                />
+              </>
+            )}
+            {attempt === 3 && result.textHint && !result.correctDishName && (
+              <p className={styles.hintLabel}>
+                Fel igen! Ledtråd: {result.textHint}
+              </p>
+            )}
+            {result.correctDishName && (
+              <p className={styles.hintReveal}>
+                Rätt svar var: <strong>{result.correctDishName}</strong>
+              </p>
+            )}
+          </div>
+        )}
+
+        {result?.correct && (
+          <p className={styles.correctText}>
+            Rätt! Du fick {result.points} poäng 🎉
+          </p>
+        )}
+
+        {/* nästa fråga-knapp (visas bara när man kan gå vidare) */}
+        {canGoNext && (
+          <button className={styles.btnPrimary} onClick={handleNext}>
+            {isLastQuestion ? "Se resultat" : "Nästa fråga →"}
+          </button>
+        )}
+      </div>
+    </main>
+  );
+}
