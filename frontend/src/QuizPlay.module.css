@@ -1,0 +1,162 @@
+.main {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  padding: 32px 24px 64px;
+}
+
+.card {
+  width: 100%;
+  max-width: 520px;
+}
+
+.topRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.questionCounter {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--navy);
+}
+
+.scoreLabel {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--red);
+}
+
+.progressTrack {
+  width: 100%;
+  height: 8px;
+  background: var(--bg);
+  border-radius: 4px;
+  overflow: hidden;
+  margin-bottom: 32px;
+}
+
+.progressFill {
+  height: 100%;
+  background: var(--red);
+  border-radius: 4px;
+  transition: width 0.3s ease;
+}
+
+.flagSection {
+  text-align: center;
+  margin-bottom: 28px;
+}
+
+.flagPrompt {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-muted);
+  margin-bottom: 14px;
+}
+
+.flagImage {
+  width: 160px;
+  height: 110px;
+  object-fit: cover;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+}
+
+.optionsList {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.optionBtn {
+  height: 52px;
+  border-radius: 10px;
+  border: 2px solid var(--navy);
+  background: transparent;
+  color: var(--navy);
+  font-size: 15px;
+  font-weight: 600;
+  text-align: left;
+  padding: 0 20px;
+  cursor: pointer;
+  transition:
+    background 0.15s,
+    opacity 0.15s;
+}
+
+.optionBtn:hover:not(:disabled) {
+  background: rgba(27, 42, 74, 0.06);
+}
+
+.optionBtn:disabled {
+  cursor: not-allowed;
+}
+
+.optionBtnWrong {
+  border-color: var(--red);
+  color: var(--red);
+  opacity: 0.5;
+}
+
+.hintBox {
+  background: #f5efe0;
+  border-radius: 10px;
+  padding: 16px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.hintLabel {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--red);
+  margin-bottom: 10px;
+}
+
+.hintImage {
+  width: 100%;
+  max-width: 200px;
+  border-radius: 8px;
+  margin: 0 auto;
+}
+
+.hintReveal {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--navy);
+}
+
+.correctText {
+  text-align: center;
+  font-size: 14px;
+  font-weight: 700;
+  color: #3a7a3a;
+  margin-bottom: 20px;
+}
+
+.btnPrimary {
+  width: 100%;
+  height: 48px;
+  border-radius: 8px;
+  border: none;
+  background: var(--red);
+  color: #fff;
+  font-size: 15px;
+  font-weight: 800;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.btnPrimary:hover {
+  background: var(--red-hover);
+}
+
+.emptyText {
+  text-align: center;
+  color: var(--text-muted);
+  margin-bottom: 20px;
+}
