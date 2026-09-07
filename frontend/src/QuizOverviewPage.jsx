@@ -17,7 +17,7 @@ export default function QuizOverviewPage() {
         </section>
       </main>
     );
-  }g
+  }
 
   return (
     <main className={styles.main}>
