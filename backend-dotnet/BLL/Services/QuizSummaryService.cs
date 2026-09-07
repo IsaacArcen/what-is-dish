@@ -53,15 +53,24 @@ public class QuizSummaryService : IQuizSummaryService
                 .ToList();
 
             //Skapar DTO:n som frontend använder för frågan
-            return new QuizSummaryQuestionDto
-            {
-                CountryId = country.CountryId,
-                CountryName = country.CountryName,
-                FlagUrl = country.FlagUrl,
-                Points = result.Points,
-                Options = options
-            };
-        }).ToList();
+            var guessedDish = options.FirstOrDefault(o => o.DishId == result.GuessedDishId);
+var correctDish = options.First(o => o.IsCorrect);
+
+return new QuizSummaryQuestionDto
+{
+    CountryId = country.CountryId,
+    CountryName = country.CountryName,
+    FlagUrl = country.FlagUrl,
+    Points = result.Points,
+
+    GuessedDishId = guessedDish?.DishId,
+    GuessedDishName = guessedDish?.DishName ?? "Inget svar",
+
+    CorrectDishId = correctDish.DishId,
+    CorrectDishName = correctDish.DishName,
+
+    Options = options
+};
 
         //Returnerar alla frågor och räknar ut totalpoängen
         return new QuizSummaryDto
