@@ -137,4 +137,12 @@ app.MapPost("/api/quiz/answer", async (
     return Results.Ok(result);
 });
 
+app.MapPost("/api/quiz/summary", async (
+    QuizSummaryRequestDto request,
+    IQuizSummaryService summaryService) =>
+{
+    var summary = await summaryService.GetQuizSummaryAsync(request);
+    return Results.Ok(summary);
+});
+
 app.Run();
