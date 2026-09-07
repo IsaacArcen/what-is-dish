@@ -9,5 +9,11 @@ public class QuizSummaryQuestionDto
     public string FlagUrl { get; set; } = "";
     public int Points { get; set; }
 
+    public int? GuessDishId { get; set; }
+    public string GuessDishName { get; set; } = "";
+
+    public int CorrectDishId { get; set; }
+    public string CorrectDishName { get; set; } = "";
+
     public List<QuizSummaryDishOptionDto> Options { get; set; } = new();
 }

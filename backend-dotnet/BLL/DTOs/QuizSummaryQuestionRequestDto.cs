@@ -5,5 +5,6 @@
 public class QuizSummaryQuestionRequestDto
 {
     public int CountryId { get; set; }
+    public int GuessDishId { get; set; }
     public int Points { get; set; }
 }
