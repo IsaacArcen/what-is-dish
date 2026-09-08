@@ -14,6 +14,7 @@ builder.Services.AddDbContext<AppDbContext>(options =>
 
 builder.Services.AddScoped<IQuizSettingsService, QuizSettingsService>();
 builder.Services.AddScoped<IQuizService, QuizService>();
+builder.Services.AddScoped<IQuizSummaryService, QuizSummaryService>();
 
 builder.Services.AddCors(options =>
 {
@@ -135,6 +136,14 @@ app.MapPost("/api/quiz/answer", async (
 {
     var result = await quizService.EvaluateAnswerAsync(request);
     return Results.Ok(result);
+});
+
+app.MapPost("/api/quiz/summary", async (
+    QuizSummaryRequestDto request,
+    IQuizSummaryService summaryService) =>
+{
+    var summary = await summaryService.GetQuizSummaryAsync(request);
+    return Results.Ok(summary);
 });
 
 app.Run();

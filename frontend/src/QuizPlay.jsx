@@ -30,6 +30,9 @@ export default function QuizPlay() {
 
   const currentQuestion = questions[currentIndex];
   const isLastQuestion = currentIndex === questions.length - 1;
+  const [answeredQuestions, setAnsweredQuestions] = useState([]);
+  const [currentAnswer, setCurrentAnswer] = useState(null);
+  const [currentGuesses, setCurrentGuesses] = useState([]);
 
   // om man hamnar här utan frågor (t.ex. via direktlänk): skicka tillbaka till inställningar
   if (questions.length === 0) {
@@ -72,6 +75,19 @@ export default function QuizPlay() {
       const data = await res.json();
       setResult(data);
 
+      const updatedCurrentGuesses = [...currentGuesses, dishId];
+        setCurrentGuesses(updatedCurrentGuesses);
+
+      const finishedQuestion = data.correct || attempt >= 3;
+
+      if (finishedQuestion) {
+        setCurrentAnswer({
+          CountryId: currentQuestion.countryId,
+          GuessedDishIds: updatedCurrentGuesses,
+          Points: data.points,
+        });
+      }
+
       if (data.correct) {
         // rätt svar: lägg till poängen direkt
         setTotalPoints((prev) => prev + data.points);
@@ -95,18 +111,41 @@ export default function QuizPlay() {
   };
 
   // går vidare till nästa fråga, eller till en resultatsida om det var den sista
-  const handleNext = () => {
-    if (isLastQuestion) {
-      navigate("/quiz/resultat", {
-        state: { totalPoints, totalQuestions: questions.length },
-      });
-      return;
+  const handleNext = async () => {
+  const updatedAnswers = currentAnswer
+    ? [...answeredQuestions, currentAnswer]
+    : answeredQuestions;
+
+  if (isLastQuestion) {
+    const res = await fetch("http://localhost:5097/api/quiz/summary", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        Questions: updatedAnswers,
+      }),
+    });
+
+    if (!res.ok) {
+      throw new Error("Kunde inte hämta quizöversikt");
     }
-    setCurrentIndex((prev) => prev + 1);
-    setAttempt(1);
-    setResult(null);
-    setTriedIds([]);
-  };
+
+    const summary = await res.json();
+
+    navigate("/quiz/summary", {
+      state: { summary },
+    });
+
+    return;
+  }
+
+  setAnsweredQuestions(updatedAnswers);
+  setCurrentIndex((prev) => prev + 1);
+  setAttempt(1);
+  setResult(null);
+  setTriedIds([]);
+  setCurrentAnswer(null);
+  setCurrentGuesses([]);
+};
 
   // Kan man gå vidare till nästa fråga just nu? Antingen om man svarat rätt, eller om man förbrukat alla tre försöken
   const canGoNext =

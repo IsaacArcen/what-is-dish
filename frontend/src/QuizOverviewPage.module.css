@@ -1,0 +1,122 @@
+.main {
+  flex: 1;
+  padding: 32px 24px 64px;
+}
+
+.headerSection {
+  text-align: center;
+  margin-bottom: 32px;
+}
+
+.headerSection h1 {
+  margin-bottom: 8px;
+  color: var(--navy);
+}
+
+.headerSection p {
+  color: var(--text-muted);
+}
+
+.resultsList {
+  width: 100%;
+  max-width: 760px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.resultCard {
+  background: #fff;
+  border-radius: 10px;
+  padding: 20px;
+}
+
+.cardTop {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 16px;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--red);
+}
+
+.countryRow {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.countryRow h2 {
+  margin: 0;
+  color: var(--navy);
+}
+
+.flag {
+  width: 72px;
+  height: 48px;
+  object-fit: cover;
+  border-radius: 6px;
+}
+
+.answerGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+
+.label {
+  margin-bottom: 6px;
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--text-muted);
+}
+
+.correct {
+  color: #2f7d46;
+  font-weight: 800;
+}
+
+.wrong {
+  color: var(--red);
+  font-weight: 800;
+}
+
+.restartButton {
+  display: block;
+  width: 100%;
+  max-width: 320px;
+  height: 48px;
+  margin: 32px auto 0;
+  border: none;
+  border-radius: 8px;
+  background: var(--red);
+  color: #fff;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.emptyBox {
+  max-width: 520px;
+  margin: 60px auto;
+  text-align: center;
+}
+
+.emptyBox button {
+  height: 44px;
+  padding: 0 20px;
+  border: none;
+  border-radius: 8px;
+  background: var(--red);
+  color: #fff;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+@media (max-width: 640px) {
+  .answerGrid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+}
