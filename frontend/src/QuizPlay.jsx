@@ -76,7 +76,7 @@ export default function QuizPlay() {
       setResult(data);
 
       const updatedCurrentGuesses = [...currentGuesses, dishId];
-        setCurrentGuesses(updatedCurrentGuesses);
+      setCurrentGuesses(updatedCurrentGuesses);
 
       const finishedQuestion = data.correct || attempt >= 3;
 
@@ -112,40 +112,40 @@ export default function QuizPlay() {
 
   // går vidare till nästa fråga, eller till en resultatsida om det var den sista
   const handleNext = async () => {
-  const updatedAnswers = currentAnswer
-    ? [...answeredQuestions, currentAnswer]
-    : answeredQuestions;
+    const updatedAnswers = currentAnswer
+      ? [...answeredQuestions, currentAnswer]
+      : answeredQuestions;
 
-  if (isLastQuestion) {
-    const res = await fetch("http://localhost:5097/api/quiz/summary", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        Questions: updatedAnswers,
-      }),
-    });
+    if (isLastQuestion) {
+      const res = await fetch("http://localhost:5097/api/quiz/summary", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          Questions: updatedAnswers,
+        }),
+      });
 
-    if (!res.ok) {
-      throw new Error("Kunde inte hämta quizöversikt");
+      if (!res.ok) {
+        throw new Error("Kunde inte hämta quizöversikt");
+      }
+
+      const summary = await res.json();
+
+      navigate("/quiz/summary", {
+        state: { summary },
+      });
+
+      return;
     }
 
-    const summary = await res.json();
-
-    navigate("/quiz/summary", {
-      state: { summary },
-    });
-
-    return;
-  }
-
-  setAnsweredQuestions(updatedAnswers);
-  setCurrentIndex((prev) => prev + 1);
-  setAttempt(1);
-  setResult(null);
-  setTriedIds([]);
-  setCurrentAnswer(null);
-  setCurrentGuesses([]);
-};
+    setAnsweredQuestions(updatedAnswers);
+    setCurrentIndex((prev) => prev + 1);
+    setAttempt(1);
+    setResult(null);
+    setTriedIds([]);
+    setCurrentAnswer(null);
+    setCurrentGuesses([]);
+  };
 
   // Kan man gå vidare till nästa fråga just nu? Antingen om man svarat rätt, eller om man förbrukat alla tre försöken
   const canGoNext =
@@ -185,6 +185,7 @@ export default function QuizPlay() {
             alt={`Flaggan för ${currentQuestion.countryName}`}
             className={styles.flagImage}
           />
+          <p className={styles.countryName}>{currentQuestion.countryName}</p>
         </div>
 
         {/* svarsalternativ */}
