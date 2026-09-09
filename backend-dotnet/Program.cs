@@ -3,7 +3,6 @@ using WhatIsDish.Api.Data;
 using WhatIsDish.Api.BLL.DTOs;
 using WhatIsDish.Api.BLL.Interfaces;
 using WhatIsDish.Api.BLL.Services;
-using WhatIsDish.Api.BLL.DTOs;
 
 var builder = WebApplication.CreateBuilder(args);
 
