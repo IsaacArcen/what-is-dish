@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import GlobeIllustration from './Components/GlobeIllustration';
+import GlobeIllustration from '../Components/GlobeIllustration';
 import styles from './HomePage.module.css';
 
 export default function HomePage() {
