@@ -7,3 +7,4 @@ public class QuizSummaryDto
     public List<QuizSummaryQuestionDto> Questions { get; set; } = new();
     public int TotalScore { get; set; }
 }
+
