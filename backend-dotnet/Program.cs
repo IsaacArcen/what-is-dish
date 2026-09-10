@@ -3,6 +3,7 @@ using WhatIsDish.Api.Data;
 using WhatIsDish.Api.BLL.DTOs;
 using WhatIsDish.Api.BLL.Interfaces;
 using WhatIsDish.Api.BLL.Services;
+using WhatIsDish.Api.BLL.DTOs.Matching;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -14,6 +15,7 @@ builder.Services.AddDbContext<AppDbContext>(options =>
 builder.Services.AddScoped<IQuizSettingsService, QuizSettingsService>();
 builder.Services.AddScoped<IQuizService, QuizService>();
 builder.Services.AddScoped<IQuizSummaryService, QuizSummaryService>();
+builder.Services.AddScoped<IMatchingQuizService, MatchingQuizService>();
 
 builder.Services.AddCors(options =>
 {
@@ -143,6 +145,24 @@ app.MapPost("/api/quiz/summary", async (
 {
     var summary = await summaryService.GetQuizSummaryAsync(request);
     return Results.Ok(summary);
+});
+
+app.MapPost("/api/matching-quiz/start", async (
+    QuizSettingsRequestDto settings,
+    IQuizSettingsService settingsService,
+    IMatchingQuizService matchingService) =>
+{
+    var countries = await settingsService.GetQuizCountriesAsync(settings);
+    var board = await matchingService.GetMatchingBoardAsync(countries);
+    return Results.Ok(board);
+});
+
+app.MapPost("/api/matching-quiz/guess", async (
+    MatchingGuessRequestDto request,
+    IMatchingQuizService matchingService) =>
+{
+    var result = await matchingService.EvaluateMatchAsync(request);
+    return Results.Ok(result);
 });
 
 app.Run();
