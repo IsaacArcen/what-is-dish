@@ -11,6 +11,7 @@ public class AppDbContext : DbContext
     public DbSet<Dish> Dishes => Set<Dish>();
     public DbSet<User> Users => Set<User>();
     public DbSet<AuthToken> AuthTokens => Set<AuthToken>();
+    public DbSet<QuizScore> QuizScores => Set<QuizScore>();
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
@@ -48,6 +49,19 @@ public class AppDbContext : DbContext
             .HasOne(t => t.User)
             .WithMany(u => u.Tokens)
             .HasForeignKey(t => t.UserId)
+            .OnDelete(DeleteBehavior.Cascade);
+
+        modelBuilder.Entity<QuizScore>().ToTable("quiz_scores");
+        modelBuilder.Entity<QuizScore>().Property(s => s.Id).HasColumnName("id");
+        modelBuilder.Entity<QuizScore>().Property(s => s.UserId).HasColumnName("user_id");
+        modelBuilder.Entity<QuizScore>().Property(s => s.Score).HasColumnName("score");
+        modelBuilder.Entity<QuizScore>().Property(s => s.MaxScore).HasColumnName("max_score");
+        modelBuilder.Entity<QuizScore>().Property(s => s.Difficulty).HasColumnName("difficulty");
+        modelBuilder.Entity<QuizScore>().Property(s => s.CompletedAt).HasColumnName("completed_at");
+        modelBuilder.Entity<QuizScore>()
+            .HasOne(s => s.User)
+            .WithMany()
+            .HasForeignKey(s => s.UserId)
             .OnDelete(DeleteBehavior.Cascade);
     }
 }

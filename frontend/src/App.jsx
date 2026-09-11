@@ -6,6 +6,7 @@ import BloggPage from "./pages/BloggPage";
 import QuizPlay from "./pages/QuizPlay";
 import QuizOverviewPage from "./pages/QuizOverviewPage";
 import AuthPage from "./pages/AuthPage";
+import ProfilePage from "./pages/ProfilePage";
 import { AuthProvider } from "./auth/Auth.Context";
 
 function App() {
@@ -19,6 +20,7 @@ function App() {
         <Route path="/quiz/spela" element={<QuizPlay />} />
         <Route path="/blogg" element={<BloggPage />} />
         <Route path="/auth" element={<AuthPage />} />
+        <Route path="/profile" element={<ProfilePage />} />
         <Route path="/quiz/summary" element={<QuizOverviewPage />} />
       </Routes>
     </BrowserRouter>

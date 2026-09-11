@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using WhatIsDish.Api.Data;
 using WhatIsDish.Api.BLL.DTOs;
 using WhatIsDish.Api.BLL.Exceptions;
-using WhatIsDish.Api.BLL.Interfaces;
+using WhatIsDish.Api.BLL.Interfaces;                            
 using WhatIsDish.Api.BLL.Services;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -16,6 +16,7 @@ builder.Services.AddDbContext<AppDbContext>(options =>
 builder.Services.AddScoped<IQuizSettingsService, QuizSettingsService>();
 builder.Services.AddScoped<IQuizService, QuizService>();
 builder.Services.AddScoped<IQuizSummaryService, QuizSummaryService>();
+builder.Services.AddScoped<IQuizScoreService, QuizScoreService>();
 builder.Services.AddScoped<IAuthService, AuthService>();
 
 builder.Services.AddCors(options =>
@@ -27,6 +28,8 @@ builder.Services.AddCors(options =>
 });
 
 var app = builder.Build();
+
+await DatabaseInitializer.InitializeAsync(app.Services);
 
 if (app.Environment.IsDevelopment())
 {
@@ -141,11 +144,26 @@ app.MapPost("/api/quiz/answer", async (
 });
 
 app.MapPost("/api/quiz/summary", async (
-    QuizSummaryRequestDto request,
-    IQuizSummaryService summaryService) =>
+    HttpRequest request,
+    QuizSummaryRequestDto summaryRequest,
+    IQuizSummaryService summaryService,
+    IQuizScoreService scoreService) =>
 {
-    var summary = await summaryService.GetQuizSummaryAsync(request);
+    var summary = await summaryService.GetQuizSummaryAsync(summaryRequest);
+    await scoreService.SaveAsync(GetBearerToken(request), summary);
+
     return Results.Ok(summary);
+});
+
+app.MapGet("/api/scores/me", async (HttpRequest request, IQuizScoreService scoreService) =>
+{
+    var history = await scoreService.GetMineAsync(GetBearerToken(request));
+    if (history is null)
+    {
+        return Results.Json(new { error = "invalid or expired token" }, statusCode: StatusCodes.Status401Unauthorized);
+    }
+
+    return Results.Ok(history);
 });
 
 static string? GetBearerToken(HttpRequest request)

@@ -1,0 +1,367 @@
+.main {
+  position: relative;
+  isolation: isolate;
+  display: flex;
+  flex: 1;
+  align-items: flex-start;
+  justify-content: center;
+  width: 100%;
+  margin: 0 auto;
+  padding: 64px 24px 80px;
+}
+
+.main::before {
+  position: absolute;
+  z-index: -1;
+  inset: 18px 8% 36px;
+  border-radius: 40px;
+  background:
+    radial-gradient(circle at 15% 20%, rgba(232, 129, 26, 0.14), transparent 28%),
+    radial-gradient(circle at 85% 78%, rgba(139, 28, 28, 0.1), transparent 30%);
+  content: '';
+}
+
+.card {
+  width: min(100%, 760px);
+  margin: 0;
+  padding: 42px;
+  border: 1px solid rgba(27, 42, 74, 0.12);
+  border-top: 5px solid var(--orange);
+  border-radius: 18px;
+  background: rgba(250, 246, 238, 0.94);
+  box-shadow: 0 24px 60px rgba(27, 42, 74, 0.14);
+}
+
+.profileHeading {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.settingsLink {
+  display: inline-grid;
+  place-items: center;
+  width: 38px;
+  height: 38px;
+  border: 1px solid rgba(27, 42, 74, 0.2);
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.5);
+  color: var(--navy);
+  font-size: 21px;
+  line-height: 1;
+  text-decoration: none;
+}
+
+.settingsLink:hover,
+.settingsLink:focus-visible {
+  border-color: var(--orange);
+  color: var(--orange);
+  outline: none;
+}
+
+.badge {
+  display: inline-block;
+  background: var(--orange);
+  color: #fff;
+  border-radius: 999px;
+  padding: 5px 12px;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+
+.title {
+  max-width: 620px;
+  font-size: clamp(32px, 4vw, 48px);
+  letter-spacing: -0.5px;
+  margin-bottom: 10px;
+  line-height: 1.05;
+}
+
+.subtitle {
+  color: var(--text-muted);
+  margin-bottom: 24px;
+}
+
+.metaList {
+  border-top: 1px solid rgba(27, 42, 74, 0.15);
+  border-bottom: 1px solid rgba(27, 42, 74, 0.15);
+  margin-bottom: 24px;
+}
+
+.metaRow {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 14px 0;
+}
+
+.metaRow span {
+  color: var(--text-muted);
+}
+
+.metaRow strong {
+  color: var(--navy);
+}
+
+.quizSection {
+  margin-bottom: 24px;
+}
+
+.sectionTitle {
+  font-size: 20px;
+  margin-bottom: 12px;
+}
+
+.mutedText,
+.errorText {
+  color: var(--text-muted);
+  line-height: 1.5;
+}
+
+.errorText {
+  color: var(--red);
+  font-weight: 700;
+}
+
+.latestResult {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  padding: 16px;
+  background: #fff9f0;
+  border-left: 4px solid var(--orange);
+  margin-bottom: 14px;
+}
+
+.latestResult div {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.latestLabel,
+.latestResult div span:last-child {
+  color: var(--text-muted);
+  font-size: 13px;
+}
+
+.latestResult strong {
+  font-size: 19px;
+}
+
+.percent {
+  color: var(--red);
+  font-size: 28px;
+  font-weight: 900;
+}
+
+.statGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+.statItem {
+  min-width: 0;
+  padding: 12px 8px;
+  text-align: center;
+  border: 1px solid rgba(27, 42, 74, 0.14);
+  background: rgba(255, 255, 255, 0.45);
+}
+
+.statItem strong,
+.statItem span {
+  display: block;
+}
+
+.statItem strong {
+  font-size: 21px;
+}
+
+.statItem span {
+  margin-top: 3px;
+  color: var(--text-muted);
+  font-size: 12px;
+}
+
+.historyTitle {
+  font-size: 16px;
+  margin-bottom: 8px;
+}
+
+.historyList {
+  list-style: none;
+  border-top: 1px solid rgba(27, 42, 74, 0.14);
+}
+
+.historyRow {
+  display: grid;
+  grid-template-columns: 1fr auto auto;
+  gap: 12px;
+  padding: 10px 0;
+  border-bottom: 1px solid rgba(27, 42, 74, 0.14);
+  font-size: 14px;
+  text-transform: capitalize;
+}
+
+.settingsSection {
+  border-top: 1px solid rgba(27, 42, 74, 0.15);
+  padding-top: 22px;
+  margin-bottom: 24px;
+}
+
+.settingsForm {
+  display: grid;
+  gap: 14px;
+  max-width: 460px;
+}
+
+.label {
+  display: grid;
+  gap: 6px;
+  color: var(--navy);
+  font-size: 14px;
+  font-weight: 800;
+}
+
+.input {
+  width: 100%;
+  border: 1px solid rgba(27, 42, 74, 0.25);
+  border-radius: 8px;
+  background: #fff;
+  color: var(--navy);
+  font: inherit;
+  font-weight: 500;
+  padding: 11px 12px;
+}
+
+.input:focus {
+  border-color: var(--orange);
+  outline: 2px solid rgba(232, 129, 26, 0.28);
+}
+
+.formMessage {
+  color: var(--navy);
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.confirmLabel {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+.confirmLabel input {
+  margin-top: 3px;
+  accent-color: var(--red);
+}
+
+.dangerSection {
+  border: 1px solid rgba(139, 28, 28, 0.28);
+  background: rgba(248, 215, 218, 0.35);
+  padding: 20px;
+}
+
+.dangerSection .sectionTitle {
+  color: var(--red);
+}
+
+.deleteBtn {
+  width: fit-content;
+  border: none;
+  border-radius: 8px;
+  padding: 11px 18px;
+  background: var(--red);
+  color: #fff;
+  font: inherit;
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.deleteBtn:hover:not(:disabled) {
+  background: var(--red-hover);
+}
+
+.deleteBtn:disabled,
+.secondaryBtn:disabled {
+  cursor: default;
+  opacity: 0.6;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.primaryBtn,
+.secondaryBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  border-radius: 10px;
+  font-size: 15px;
+  font-weight: 700;
+  padding: 11px 18px;
+  cursor: pointer;
+}
+
+.primaryBtn {
+  border: none;
+  background: var(--red);
+  color: #fff;
+}
+
+.primaryBtn:hover {
+  background: var(--red-hover);
+}
+
+.secondaryBtn {
+  border: 1px solid rgba(27, 42, 74, 0.28);
+  color: var(--navy);
+  background: transparent;
+}
+
+.secondaryBtn:hover {
+  border-color: var(--navy);
+  background: rgba(27, 42, 74, 0.06);
+}
+
+@media (max-width: 640px) {
+  .main {
+    padding: 32px 14px 48px;
+  }
+
+  .main::before {
+    inset: 12px 0 20px;
+    border-radius: 24px;
+  }
+
+  .card {
+    padding: 28px 20px;
+  }
+
+  .metaRow {
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .statGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .dangerSection {
+    padding: 16px;
+  }
+}

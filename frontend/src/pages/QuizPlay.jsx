@@ -1,10 +1,12 @@
 import { useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
+import { useAuth } from "../auth/Auth.Context";
 import styles from "./QuizPlay.module.css";
 
 export default function QuizPlay() {
   const location = useLocation();
   const navigate = useNavigate();
+  const { token } = useAuth();
 
   // frågorna kommer från QuizSettings via navigate(..., { state: { questions } })
   // om sidan laddas direkt (utan state, t.ex. via reload) finns ingen data (då hanteras det)
@@ -119,7 +121,10 @@ export default function QuizPlay() {
   if (isLastQuestion) {
     const res = await fetch("http://localhost:5097/api/quiz/summary", {
       method: "POST",
-      headers: { "Content-Type": "application/json" },
+      headers: {
+        "Content-Type": "application/json",
+        ...(token ? { Authorization: `Bearer ${token}` } : {}),
+      },
       body: JSON.stringify({
         Questions: updatedAnswers,
       }),
