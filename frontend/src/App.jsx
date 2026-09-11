@@ -5,6 +5,7 @@ import QuizSettings from "./QuizSettings";
 import BloggPage from "./BloggPage";
 import QuizPlay from "./QuizPlay";
 import QuizOverviewPage from "./QuizOverviewPage";
+import MatchningsQuizPage from "./MatchningsQuizPage";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
         <Route path="/quiz/spela" element={<QuizPlay />} />
         <Route path="/blogg" element={<BloggPage />} />
         <Route path="/quiz/summary" element={<QuizOverviewPage />} />
+        <Route path="/quiz/matchning" element={<MatchningsQuizPage />} />
       </Routes>
     </BrowserRouter>
   );
