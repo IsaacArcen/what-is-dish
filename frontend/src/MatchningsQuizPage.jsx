@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
-import styles from "./MatchingQuizPage.module.css";
+import styles from "./MatchningsQuizPage.module.css";
 
 const STARTING_ATTEMPTS = 3;
 
@@ -115,10 +115,6 @@ export default function MatchingQuizPlay() {
           {matchedCountryIds.length} av {board.countries.length} par
         </span>
         <h1>Matcha flaggan med rätten</h1>
-        <p>
-          Välj en flagga till vänster och klicka sedan på rätt maträtt till
-          höger.
-        </p>
       </section>
 
       <section className={styles.statusRow}>
