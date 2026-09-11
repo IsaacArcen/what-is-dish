@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
-import styles from "./MatchingQuizPlay.module.css";
+import styles from "./MatchingQuizPage.module.css";
 
 const STARTING_ATTEMPTS = 3;
 
