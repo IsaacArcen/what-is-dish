@@ -1,9 +1,10 @@
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using WhatIsDish.Api.Data;
 using WhatIsDish.Api.BLL.DTOs;
+using WhatIsDish.Api.BLL.Exceptions;
 using WhatIsDish.Api.BLL.Interfaces;
 using WhatIsDish.Api.BLL.Services;
-using WhatIsDish.Api.BLL.DTOs;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -15,6 +16,7 @@ builder.Services.AddDbContext<AppDbContext>(options =>
 builder.Services.AddScoped<IQuizSettingsService, QuizSettingsService>();
 builder.Services.AddScoped<IQuizService, QuizService>();
 builder.Services.AddScoped<IQuizSummaryService, QuizSummaryService>();
+builder.Services.AddScoped<IAuthService, AuthService>();
 
 builder.Services.AddCors(options =>
 {
@@ -144,6 +146,113 @@ app.MapPost("/api/quiz/summary", async (
 {
     var summary = await summaryService.GetQuizSummaryAsync(request);
     return Results.Ok(summary);
+});
+
+static string? GetBearerToken(HttpRequest request)
+{
+    var header = request.Headers.Authorization.ToString();
+    if (!header.StartsWith("Bearer ", StringComparison.Ordinal)) return null;
+    var token = header["Bearer ".Length..].Trim();
+    return token.Length == 0 ? null : token;
+}
+
+app.MapPost("/api/auth/register", async (RegisterRequestDto request, IAuthService authService) =>
+{
+    try
+    {
+        var result = await authService.RegisterAsync(request);
+        return Results.Json(result, statusCode: StatusCodes.Status201Created);
+    }
+    catch (ArgumentException ex)
+    {
+        return Results.BadRequest(new { error = ex.Message });
+    }
+    catch (ConflictException ex)
+    {
+        return Results.Conflict(new { error = ex.Message });
+    }
+});
+
+app.MapPost("/api/auth/login", async (LoginRequestDto request, IAuthService authService) =>
+{
+    try
+    {
+        var result = await authService.LoginAsync(request);
+        return Results.Ok(result);
+    }
+    catch (ArgumentException ex)
+    {
+        return Results.BadRequest(new { error = ex.Message });
+    }
+    catch (UnauthorizedAccessException ex)
+    {
+        return Results.Json(new { error = ex.Message }, statusCode: StatusCodes.Status401Unauthorized);
+    }
+});
+
+app.MapGet("/api/auth/me", async (HttpRequest request, IAuthService authService) =>
+{
+    var user = await authService.GetMeAsync(GetBearerToken(request));
+    return user is null
+        ? Results.Json(new { error = "invalid or expired token" }, statusCode: StatusCodes.Status401Unauthorized)
+        : Results.Ok(new { user });
+});
+
+app.MapPut("/api/auth/me", async (HttpRequest request, UpdateProfileRequestDto body, IAuthService authService) =>
+{
+    try
+    {
+        var user = await authService.UpdateProfileAsync(GetBearerToken(request), body);
+        return Results.Ok(new { user });
+    }
+    catch (ArgumentException ex)
+    {
+        return Results.BadRequest(new { error = ex.Message });
+    }
+    catch (ConflictException ex)
+    {
+        return Results.Conflict(new { error = ex.Message });
+    }
+    catch (UnauthorizedAccessException ex)
+    {
+        return Results.Json(new { error = ex.Message }, statusCode: StatusCodes.Status401Unauthorized);
+    }
+});
+
+app.MapPut("/api/auth/me/password", async (HttpRequest request, ChangePasswordRequestDto body, IAuthService authService) =>
+{
+    try
+    {
+        await authService.ChangePasswordAsync(GetBearerToken(request), body);
+        return Results.NoContent();
+    }
+    catch (ArgumentException ex)
+    {
+        return Results.BadRequest(new { error = ex.Message });
+    }
+    catch (UnauthorizedAccessException ex)
+    {
+        return Results.Json(new { error = ex.Message }, statusCode: StatusCodes.Status401Unauthorized);
+    }
+});
+
+app.MapDelete("/api/auth/me", async (HttpRequest request, [FromBody] DeleteAccountRequestDto body, IAuthService authService) =>
+{
+    try
+    {
+        await authService.DeleteAccountAsync(GetBearerToken(request), body);
+        return Results.NoContent();
+    }
+    catch (UnauthorizedAccessException ex)
+    {
+        return Results.Json(new { error = ex.Message }, statusCode: StatusCodes.Status401Unauthorized);
+    }
+});
+
+app.MapPost("/api/auth/logout", async (HttpRequest request, IAuthService authService) =>
+{
+    await authService.LogoutAsync(GetBearerToken(request));
+    return Results.NoContent();
 });
 
 app.Run();

@@ -29,7 +29,7 @@ export default function HomePage() {
       </div>
 
       <div className={styles.stats}>
-        <span className={styles.stat}>40 länder</span>
+        <span className={styles.stat}>106 länder</span>
         <span className={styles.statDivider} />
         <span className={`${styles.stat} ${styles.statOrange}`}>3 nivåer</span>
         <span className={styles.statDivider} />

@@ -9,11 +9,15 @@ public class AppDbContext : DbContext
 
     public DbSet<Country> Countries => Set<Country>();
     public DbSet<Dish> Dishes => Set<Dish>();
+    public DbSet<User> Users => Set<User>();
+    public DbSet<AuthToken> AuthTokens => Set<AuthToken>();
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder.Entity<Country>().ToTable("countries");
         modelBuilder.Entity<Dish>().ToTable("dishes");
+        modelBuilder.Entity<User>().ToTable("users");
+        modelBuilder.Entity<AuthToken>().ToTable("auth_tokens");
 
         modelBuilder.Entity<Country>().Property(c => c.CountryId).HasColumnName("country_id");
         modelBuilder.Entity<Country>().Property(c => c.CountryName).HasColumnName("country_name");
@@ -27,5 +31,23 @@ public class AppDbContext : DbContext
         modelBuilder.Entity<Dish>().Property(d => d.DishImageUrl).HasColumnName("dish_image_url");
         modelBuilder.Entity<Dish>().Property(d => d.DishHistory).HasColumnName("dish_history");
         modelBuilder.Entity<Dish>().Property(d => d.Hint).HasColumnName("hint");
+
+        modelBuilder.Entity<User>().Property(u => u.Id).HasColumnName("id");
+        modelBuilder.Entity<User>().Property(u => u.Name).HasColumnName("name");
+        modelBuilder.Entity<User>().Property(u => u.Email).HasColumnName("email");
+        modelBuilder.Entity<User>().Property(u => u.PasswordHash).HasColumnName("password_hash");
+        modelBuilder.Entity<User>().Property(u => u.CreatedAt).HasColumnName("created_at");
+        modelBuilder.Entity<User>().HasIndex(u => u.Email).IsUnique();
+
+        modelBuilder.Entity<AuthToken>().Property(t => t.Id).HasColumnName("id");
+        modelBuilder.Entity<AuthToken>().Property(t => t.Token).HasColumnName("token");
+        modelBuilder.Entity<AuthToken>().Property(t => t.UserId).HasColumnName("user_id");
+        modelBuilder.Entity<AuthToken>().Property(t => t.ExpiresAt).HasColumnName("expires_at");
+        modelBuilder.Entity<AuthToken>().HasIndex(t => t.Token).IsUnique();
+        modelBuilder.Entity<AuthToken>()
+            .HasOne(t => t.User)
+            .WithMany(u => u.Tokens)
+            .HasForeignKey(t => t.UserId)
+            .OnDelete(DeleteBehavior.Cascade);
     }
 }

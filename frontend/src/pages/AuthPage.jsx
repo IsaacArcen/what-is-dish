@@ -43,7 +43,7 @@ export default function AuthPage() {
 
       navigate('/profile', { replace: true });
     } catch (err) {
-      setError(err.message || 'Nagot gick fel, forsok igen.');
+      setError(err.message || 'Något gick fel, försök igen.');
     } finally {
       setIsSubmitting(false);
     }
@@ -79,11 +79,11 @@ export default function AuthPage() {
           </button>
         </div>
 
-        <h1 className={styles.title}>{mode === 'register' ? 'Skapa konto' : 'älkommen tillbaka'}</h1>
+        <h1 className={styles.title}>{mode === 'register' ? 'Skapa konto' : 'Välkommen tillbaka'}</h1>
         <p className={styles.subtitle}>
           {mode === 'register'
-            ? 'Skapa ett konto for att spara din profil och komma igang.'
-            : 'Logga in for att se din profil.'}
+            ? 'Skapa ett konto för att spara din profil och komma igång.'
+            : 'Logga in för att se din profil.'}
         </p>
 
         <form className={styles.form} onSubmit={onSubmit}>
@@ -113,7 +113,7 @@ export default function AuthPage() {
           </label>
 
           <label className={styles.label}>
-            Losenord
+            Lösenord
             <input
               className={styles.input}
               type="password"
@@ -136,7 +136,7 @@ export default function AuthPage() {
         </form>
 
         <p className={styles.helperText}>
-          Du kan alltid ga tillbaka till <Link to="/">startsidan</Link>.
+          Du kan alltid gå tillbaka till <Link to="/">startsidan</Link>.
         </p>
       </section>
     </main>
