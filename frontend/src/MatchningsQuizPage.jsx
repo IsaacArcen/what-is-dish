@@ -107,7 +107,10 @@ export default function MatchningsQuizPage() {
       }
     } catch (err) {
       console.error(err);
-      setFeedback({ type: "wrong", text: "Något gick fel. Försök igen." });
+      setFeedback({
+        type: "wrong",
+        text: err instanceof Error ? err.message : "Något gick fel. Försök igen.",
+      });
     } finally {
       setLoading(false);
     }

@@ -23,19 +23,25 @@ public class MatchingQuizService : IMatchingQuizService
             .Where(d => countryIds.Contains(d.CountryId) && d.IsCorrect)
             .ToListAsync();
 
-        var matchingCountryIds = correctDishes
-            .Select(d => d.CountryId)
-            .ToHashSet();
+        var correctDishesByCountry = correctDishes
+            .GroupBy(d => d.CountryId)
+            .ToDictionary(group => group.Key, group => group.ToList());
 
         var playableCountries = countries
-            .Where(country => matchingCountryIds.Contains(country.CountryId))
+            .Where(country => correctDishesByCountry.ContainsKey(country.CountryId))
             .ToList();
 
-        if (playableCountries.Count != countries.Count || correctDishes.Count != playableCountries.Count)
+        if (playableCountries.Count != countries.Count)
         {
             throw new InvalidOperationException(
                 "Det finns inte tillräckligt många länder med korrekta rätter för matchningsquizet.");
         }
+
+        var playableDishes = playableCountries
+            .Select(country => correctDishesByCountry[country.CountryId]
+                .OrderBy(_ => Random.Shared.Next())
+                .First())
+            .ToList();
 
         return new MatchingBoardDto
         {
@@ -49,7 +55,7 @@ public class MatchingQuizService : IMatchingQuizService
                 .OrderBy(c => Random.Shared.Next())
                 .ToList(),
 
-            Dishes = correctDishes
+            Dishes = playableDishes
                 .Select(d => new MatchingDishDto
                 {
                     DishId = d.DishId,
