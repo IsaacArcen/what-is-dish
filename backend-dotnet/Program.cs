@@ -276,11 +276,11 @@ app.MapPost("/api/auth/logout", async (HttpRequest request, IAuthService authSer
 });
 
 app.MapPost("/api/matching-quiz/start", async (
-    QuizSettingsRequestDto settings,
-    IQuizSettingsService settingsService,
+    MatchingQuizSettingsRequestDto settings,
+    IMatchingQuizSettingsService settingsService,
     IMatchingQuizService matchingService) =>
 {
-    var countries = await settingsService.GetQuizCountriesAsync(settings);
+    var countries = await settingsService.GetMatchingQuizCountriesAsync(settings);
     var board = await matchingService.GetMatchingBoardAsync(countries);
     return Results.Ok(board);
 });

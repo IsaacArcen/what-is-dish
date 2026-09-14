@@ -23,9 +23,23 @@ public class MatchingQuizService : IMatchingQuizService
             .Where(d => countryIds.Contains(d.CountryId) && d.IsCorrect)
             .ToListAsync();
 
+        var matchingCountryIds = correctDishes
+            .Select(d => d.CountryId)
+            .ToHashSet();
+
+        var playableCountries = countries
+            .Where(country => matchingCountryIds.Contains(country.CountryId))
+            .ToList();
+
+        if (playableCountries.Count != countries.Count || correctDishes.Count != playableCountries.Count)
+        {
+            throw new InvalidOperationException(
+                "Det finns inte tillräckligt många länder med korrekta rätter för matchningsquizet.");
+        }
+
         return new MatchingBoardDto
         {
-            Countries = countries
+            Countries = playableCountries
                 .Select(c => new MatchingCountryDto
                 {
                     CountryId = c.CountryId,
