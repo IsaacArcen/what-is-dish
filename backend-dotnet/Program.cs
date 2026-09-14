@@ -16,6 +16,7 @@ builder.Services.AddScoped<IQuizSettingsService, QuizSettingsService>();
 builder.Services.AddScoped<IQuizService, QuizService>();
 builder.Services.AddScoped<IQuizSummaryService, QuizSummaryService>();
 builder.Services.AddScoped<IMatchingQuizService, MatchingQuizService>();
+builder.Services.AddScoped<IMatchingQuizSettingsService, MatchingQuizSettingsService>(); 
 
 builder.Services.AddCors(options =>
 {
