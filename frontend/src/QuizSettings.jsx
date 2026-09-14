@@ -4,6 +4,12 @@ import styles from "./QuizSettings.module.css";
 
 const QUESTION_COUNTS = [5, 10, 20];
 
+// de två quiz-typerna att välja mellan innan man startar
+const QUIZ_TYPES = [
+  { value: "classic", label: "Klassiskt quiz" },
+  { value: "matching", label: "Matchningsquiz" },
+];
+
 export default function QuizSettings() {
   // lista med kontinenter hämtad från backend
   const [continents, setContinents] = useState([]);
@@ -13,6 +19,9 @@ export default function QuizSettings() {
 
   // vilka kontinenter användaren valt att filtrera på (tom lista = alla)
   const [selectedContinents, setSelectedContinents] = useState([]);
+
+  // vilken quiz-typ användaren valt, styr vilken endpoint + sida vi går till
+  const [quizType, setQuizType] = useState("classic");
 
   // ant medan vi väntar på svar från backend (används för att disabla knappen + visa "Laddar...")
   const [loading, setLoading] = useState(false);
@@ -44,13 +53,22 @@ export default function QuizSettings() {
 
   // körs när användaren klickar "Starta quiz!"
   // skickar antal frågor + valda kontinenter som POST till backend
-  // navigerar sedan vidare till quiz-sidan med länderna som kom tillbaka
+  // navigerar sedan vidare till rätt sida beroende på vald quiz-typ
   const handleStart = async () => {
     setLoading(true);
     setError(null);
 
+    // OBS: /api/matching-quiz/start tar just nu emot samma form som
+    // /api/quiz/start (NumberOfQuestions, Continents), inte den nya
+    // MatchingQuizSettingsRequestDto (NumberOfCountries), eftersom
+    // Program.cs inte är kopplad mot den nya DTO:n än
+    const endpoint =
+      quizType === "matching"
+        ? "http://localhost:5097/api/matching-quiz/start"
+        : "http://localhost:5097/api/quiz/start";
+
     try {
-      const res = await fetch("http://localhost:5097/api/quiz/start", {
+      const res = await fetch(endpoint, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         // OBS: nycklarna (NumberOfQuestions, Continents) måste matcha
@@ -67,12 +85,15 @@ export default function QuizSettings() {
         throw new Error(msg || "Kunde inte hämta quizfrågor");
       }
 
-      const questions = await res.json();
-      navigate("/quiz/spela", { state: { questions } });
+      const data = await res.json();
 
-      // skickar med länderna i navigationens "state" (tillgängligt på quiz-sidan)
+      // skickar med datan i navigationens "state" (tillgängligt på nästa sida)
       // via useLocation().state, utan att synas i URL:en
-      navigate("/quiz/spela", { state: { countries } });
+      if (quizType === "matching") {
+        navigate("/quiz/matchning", { state: { board: data } });
+      } else {
+        navigate("/quiz/spela", { state: { questions: data } });
+      }
     } catch (err) {
       setError(err.message || "Något gick fel, försök igen.");
       console.error(err);
@@ -87,8 +108,29 @@ export default function QuizSettings() {
       <div className={styles.card}>
         <h1 className={styles.title}>Ställ in ditt quiz</h1>
         <p className={styles.subtitle}>
-          Anpassa antal frågor samt regioner innan du kör igång
+          Välj quiz-typ och anpassa antal frågor samt regioner innan du kör
+          igång
         </p>
+
+        {/* quiz-typ: klassiskt eller matchning */}
+        <section className={styles.section}>
+          <div className={styles.sectionLabel}>Quiz-typ</div>
+          <div className={styles.optionRow}>
+            {QUIZ_TYPES.map((type) => (
+              <button
+                key={type.value}
+                className={
+                  quizType === type.value
+                    ? `${styles.optionBtn} ${styles.optionBtnActive}`
+                    : styles.optionBtn
+                }
+                onClick={() => setQuizType(type.value)}
+              >
+                {type.label}
+              </button>
+            ))}
+          </div>
+        </section>
 
         {/* antal frågor: tre knappar, en alltid aktiv (röd) */}
         <section className={styles.section}>
