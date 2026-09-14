@@ -1,10 +1,11 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using WhatIsDish.Api.Data;
 using WhatIsDish.Api.BLL.DTOs;
+using WhatIsDish.Api.BLL.DTOs.Matching;
 using WhatIsDish.Api.BLL.Exceptions;
-using WhatIsDish.Api.BLL.Interfaces;                            
+using WhatIsDish.Api.BLL.Interfaces;
 using WhatIsDish.Api.BLL.Services;
+using WhatIsDish.Api.Data;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -18,6 +19,8 @@ builder.Services.AddScoped<IQuizService, QuizService>();
 builder.Services.AddScoped<IQuizSummaryService, QuizSummaryService>();
 builder.Services.AddScoped<IQuizScoreService, QuizScoreService>();
 builder.Services.AddScoped<IAuthService, AuthService>();
+builder.Services.AddScoped<IMatchingQuizService, MatchingQuizService>();
+builder.Services.AddScoped<IMatchingQuizSettingsService, MatchingQuizSettingsService>();
 
 builder.Services.AddCors(options =>
 {
@@ -100,7 +103,6 @@ app.MapGet("/api/quiz", async (AppDbContext db, string continent = "all", int li
 
     return questions;
 });
-
 
 //endpoints for quiz settings
 app.MapGet("/api/quiz-settings/continents", async (IQuizSettingsService service) =>
@@ -271,6 +273,24 @@ app.MapPost("/api/auth/logout", async (HttpRequest request, IAuthService authSer
 {
     await authService.LogoutAsync(GetBearerToken(request));
     return Results.NoContent();
+});
+
+app.MapPost("/api/matching-quiz/start", async (
+    QuizSettingsRequestDto settings,
+    IQuizSettingsService settingsService,
+    IMatchingQuizService matchingService) =>
+{
+    var countries = await settingsService.GetQuizCountriesAsync(settings);
+    var board = await matchingService.GetMatchingBoardAsync(countries);
+    return Results.Ok(board);
+});
+
+app.MapPost("/api/matching-quiz/guess", async (
+    MatchingGuessRequestDto request,
+    IMatchingQuizService matchingService) =>
+{
+    var result = await matchingService.EvaluateMatchAsync(request);
+    return Results.Ok(result);
 });
 
 app.Run();
