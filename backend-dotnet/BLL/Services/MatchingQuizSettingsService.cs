@@ -35,8 +35,10 @@ public class MatchingQuizSettingsService : IMatchingQuizSettingsService
                 "Antal matchningar måste vara 5, 10 eller 20.");
         }
 
-        //börjar med alla länder i databasen
-        var query = _context.Countries.AsQueryable();
+        //börjar med alla länder i databasen som har en korrekt rätt att matcha mot
+        var query = _context.Countries
+            .Where(c => c.Dishes.Any(d => d.IsCorrect))
+            .AsQueryable();
 
         //Om regioner är valda filtreras länderna
         if (settings.Continents.Count > 0)
