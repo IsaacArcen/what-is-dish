@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useAuth } from '../auth/Auth.Context';
-import styles from './ProfilePage.module.css';
+    import styles from './ProfilePage.module.css';
 
 function formatDate(sqliteDateTime) {
   if (!sqliteDateTime) return '-';
