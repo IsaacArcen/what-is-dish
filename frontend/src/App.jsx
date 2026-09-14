@@ -5,7 +5,7 @@ import QuizSettings from "./QuizSettings";
 import BloggPage from "./BloggPage";
 import QuizPlay from "./QuizPlay";
 import QuizOverviewPage from "./QuizOverviewPage";
-import MatchningsQuizPage from "./MatchningsQuizPage";
+import MatchningsQuizPage from "./MatchningsQuizPage.jsx";
 
 function App() {
   return (
