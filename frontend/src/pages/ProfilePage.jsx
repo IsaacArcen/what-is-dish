@@ -52,8 +52,8 @@ export default function ProfilePage() {
       <main className={styles.main}>
         <section className={styles.card}>
           <h1 className={styles.title}>Ingen aktiv inloggning</h1>
-          <p className={styles.subtitle}>Logga in eller skapa konto for att se din profil.</p>
-          <Link to="/auth" className={styles.primaryBtn}>Ga till inloggning</Link>
+          <p className={styles.subtitle}>Logga in eller skapa konto för att se din profil.</p>
+          <Link to="/auth" className={styles.primaryBtn}>Gå till inloggning</Link>
         </section>
       </main>
     );
@@ -64,12 +64,12 @@ export default function ProfilePage() {
       <section className={styles.card}>
         <div className={styles.profileHeading}>
           <p className={styles.badge}>Profil</p>
-          <Link to="/settings" className={styles.settingsLink} aria-label="Oppna kontoinstallningar" title="Kontoinstallningar">
+          <Link to="/settings" className={styles.settingsLink} aria-label="Öppna kontoinställningar" title="Kontoinställningar">
             &#9881;
           </Link>
         </div>
         <h1 className={styles.title}>{user.name}</h1>
-        <p className={styles.subtitle}>Din grundprofil ar nu skapad.</p>
+        <p className={styles.subtitle}>Din grundprofil är nu skapad.</p>
 
         <div className={styles.metaList}>
           <div className={styles.metaRow}>
@@ -85,9 +85,9 @@ export default function ProfilePage() {
         <section className={styles.quizSection}>
           <h2 className={styles.sectionTitle}>Din quizprogress</h2>
           {!quizHistory && !historyError && <p className={styles.mutedText}>Laddar din historik...</p>}
-          {historyError && <p className={styles.errorText}>Kunde inte hamta din quizhistorik.</p>}
+          {historyError && <p className={styles.errorText}>Kunde inte hämta din quizhistorik.</p>}
           {quizHistory && !quizHistory.latest && (
-            <p className={styles.mutedText}>Du har inte avslutat nagot quiz annu. Ditt forsta resultat visas har.</p>
+            <p className={styles.mutedText}>Du har inte avslutat något quiz ännu. Ditt första resultat visas här.</p>
           )}
           {quizHistory?.latest && (
             <>
@@ -111,7 +111,7 @@ export default function ProfilePage() {
                 </div>
                 <div className={styles.statItem}>
                   <strong>{quizHistory.summary.best_percent}%</strong>
-                  <span>Basta resultat</span>
+                  <span>Bästa resultat</span>
                 </div>
               </div>
 
@@ -120,7 +120,7 @@ export default function ProfilePage() {
                 {quizHistory.results.map(result => (
                   <li key={result.id} className={styles.historyRow}>
                     <span>{result.difficulty}</span>
-                    <span>{result.score}/{result.max_score} poang</span>
+                    <span>{result.score}/{result.max_score} poäng</span>
                     <strong>{Math.round((result.score / result.max_score) * 100)}%</strong>
                   </li>
                 ))}
