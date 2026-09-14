@@ -1,0 +1,190 @@
+/* frontend/src/MatchningsQuizPage.module.css */
+
+.main {
+  flex: 1;
+  padding: 32px 24px 64px;
+}
+
+.headerSection {
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+.counter {
+  display: inline-block;
+  margin-bottom: 8px;
+  font-size: 13px;
+  font-weight: 800;
+  color: var(--red);
+}
+
+.headerSection h1 {
+  color: var(--navy);
+  margin-bottom: 8px;
+}
+
+.headerSection p {
+  color: var(--text-muted);
+  font-weight: 600;
+}
+
+.statusRow {
+  max-width: 960px;
+  margin: 0 auto 16px;
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  font-size: 14px;
+  font-weight: 800;
+  color: var(--navy);
+}
+
+/* Två kolumner: flaggor till vänster, rätter till höger */
+.board {
+  max-width: 960px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 28px;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.column h2 {
+  font-size: 18px;
+  color: var(--navy);
+  margin-bottom: 4px;
+}
+
+/* Samma grundstil för både land-kort och rätt-kort */
+.countryCard,
+.dishCard {
+  width: 100%;
+  min-height: 88px;
+  border: 2px solid var(--navy);
+  border-radius: 8px;
+  background: #fff;
+  color: var(--navy);
+  display: grid;
+  align-items: center;
+  gap: 14px;
+  padding: 12px;
+  font-size: 15px;
+  font-weight: 800;
+  cursor: pointer;
+  transition: transform 0.12s, border-color 0.12s, opacity 0.12s;
+}
+
+.countryCard {
+  grid-template-columns: 92px 1fr;
+  text-align: left;
+}
+
+.dishCard {
+  grid-template-columns: 104px 1fr;
+  text-align: left;
+}
+
+.countryCard:hover:not(:disabled),
+.dishCard:hover:not(:disabled) {
+  transform: translateY(-1px);
+  border-color: var(--red);
+}
+
+.countryCard:disabled,
+.dishCard:disabled {
+  cursor: not-allowed;
+}
+
+.flag {
+  width: 92px;
+  height: 58px;
+  object-fit: cover;
+  border-radius: 6px;
+}
+
+.dishImage {
+  width: 104px;
+  height: 72px;
+  object-fit: cover;
+  border-radius: 6px;
+}
+
+/* Markerar landet som användaren valt */
+.selected {
+  border-color: var(--red);
+  box-shadow: 0 0 0 3px rgba(139, 28, 28, 0.16);
+}
+
+/* Rätta par tonas ner när de är klara */
+.matched {
+  opacity: 0.45;
+  border-color: #3a7a3a;
+}
+
+.correctText,
+.wrongText {
+  max-width: 960px;
+  margin: 0 auto 16px;
+  font-size: 14px;
+  font-weight: 800;
+  text-align: center;
+}
+
+.correctText {
+  color: #2f7d46;
+}
+
+.wrongText {
+  color: var(--red);
+}
+
+.endBox {
+  max-width: 420px;
+  margin: 28px auto 0;
+  text-align: center;
+}
+
+.endBox h2 {
+  color: var(--navy);
+  margin-bottom: 14px;
+}
+
+.endBox button,
+.emptyBox button {
+  height: 44px;
+  padding: 0 20px;
+  border: none;
+  border-radius: 8px;
+  background: var(--red);
+  color: #fff;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.emptyBox {
+  max-width: 520px;
+  margin: 60px auto;
+  text-align: center;
+}
+
+.emptyBox p {
+  margin-bottom: 18px;
+  color: var(--text-muted);
+  font-weight: 700;
+}
+
+/* På mobil staplas kolumnerna under varandra */
+@media (max-width: 760px) {
+  .board {
+    grid-template-columns: 1fr;
+  }
+
+  .statusRow {
+    flex-direction: column;
+  }
+}
