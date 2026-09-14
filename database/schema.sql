@@ -24,5 +24,5 @@ CREATE TABLE recipes (
     country_id INTEGER NOT NULL UNIQUE,
     ingredients TEXT NOT NULL,
     steps TEXT NOT NULL,
-    FOREIGN KEY (country_id) REFERENCES countries(country_id),
+    FOREIGN KEY (country_id) REFERENCES countries(country_id)
 );
