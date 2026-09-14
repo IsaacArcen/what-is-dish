@@ -20,12 +20,14 @@ public class QuizScoreService : IQuizScoreService
         var userId = await GetUserIdAsync(token);
         if (userId is null || summary.Questions.Count == 0) return;
 
+        const int maxPointsPerQuestion = 3; // full poäng ges vid rätt svar på första försöket
+
         _context.QuizScores.Add(new QuizScore
         {
             UserId = userId.Value,
             Score = summary.TotalScore,
-            MaxScore = summary.Questions.Count,
-            Difficulty = "Standard",
+            MaxScore = summary.Questions.Count * maxPointsPerQuestion,
+            Difficulty = summary.Region,
             CompletedAt = DateTime.UtcNow,
         });
         await _context.SaveChangesAsync();

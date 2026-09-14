@@ -85,11 +85,21 @@ public class QuizSummaryService : IQuizSummaryService
             };
             }).ToList();
 
+        //Avgör vilken region quizet spelades i utifrån de tillfrågade ländernas kontinenter
+        var continents = countries.Select(c => c.Continent).Distinct().ToList();
+        var region = continents.Count switch
+        {
+            0 => "Okänd region",
+            1 => continents[0],
+            _ => "Blandade regioner"
+        };
+
         //Returnerar alla frågor och räknar ut totalpoängen
         return new QuizSummaryDto
         {
             Questions = questions,
-            TotalScore = questions.Sum(q => q.Points)
+            TotalScore = questions.Sum(q => q.Points),
+            Region = region
         };
     }
 }
