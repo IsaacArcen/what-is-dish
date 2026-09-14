@@ -2,13 +2,15 @@
 
 import { useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
+import { useAuth } from "./auth/Auth.Context";
 import styles from "./MatchningsQuizPage.module.css";
 
 const STARTING_ATTEMPTS = 3;
 
-export default function MatchingQuizPlay() {
+export default function MatchningsQuizPage() {
   const location = useLocation();
   const navigate = useNavigate();
+  const { token } = useAuth();
 
   // Board kommer från QuizSettings via navigate("/quiz/matching", { state: { board } })
   const board = location.state?.board;
@@ -73,7 +75,10 @@ export default function MatchingQuizPlay() {
       // Backend avgör om landet och rätten hör ihop
       const res = await fetch("http://localhost:5097/api/matching-quiz/guess", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
+        headers: {
+          "Content-Type": "application/json",
+          ...(token ? { Authorization: "Bearer " + token } : {}),
+        },
         body: JSON.stringify({
           CountryId: selectedCountryId,
           GuessedDishId: dishId,
@@ -102,7 +107,10 @@ export default function MatchingQuizPlay() {
       }
     } catch (err) {
       console.error(err);
-      setFeedback({ type: "wrong", text: "Något gick fel. Försök igen." });
+      setFeedback({
+        type: "wrong",
+        text: err instanceof Error ? err.message : "Något gick fel. Försök igen.",
+      });
     } finally {
       setLoading(false);
     }

@@ -1,7 +1,10 @@
 import { Link, NavLink } from 'react-router-dom';
+import { useAuth } from '../auth/Auth.Context';
 import styles from './Header.module.css';
 
 export default function Header() {
+  const { isAuthenticated, user, logout } = useAuth();
+
   return (
     <header className={styles.header}>
       <Link to="/" className={styles.logo}>
@@ -36,6 +39,33 @@ export default function Header() {
         >
           Blogg
         </NavLink>
+
+        <NavLink
+          to="/profile"
+          className={({ isActive }) =>
+            isActive ? `${styles.navLink} ${styles.active}` : styles.navLink
+          }
+        >
+          Profil
+        </NavLink>
+
+        {isAuthenticated ? (
+          <>
+            <span className={styles.userBadge}>{user?.name}</span>
+            <button type="button" className={styles.logoutBtn} onClick={logout}>
+              Logga ut
+            </button>
+          </>
+        ) : (
+          <NavLink
+            to="/auth"
+            className={({ isActive }) =>
+              isActive ? `${styles.navLink} ${styles.active}` : styles.navLink
+            }
+          >
+            Logga in
+          </NavLink>
+        )}
       </nav>
     </header>
   );

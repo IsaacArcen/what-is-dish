@@ -55,3 +55,23 @@
   text-underline-offset: 4px;
   text-decoration-thickness: 2px;
 }
+
+.logoutBtn {
+  border: 1px solid var(--red);
+  border-radius: 8px;
+  padding: 8px 14px;
+  background: var(--red);
+  color: #fff;
+  font: inherit;
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.15s, border-color 0.15s;
+}
+
+.logoutBtn:hover,
+.logoutBtn:focus-visible {
+  border-color: var(--red-hover);
+  background: var(--red-hover);
+  outline: none;
+}
