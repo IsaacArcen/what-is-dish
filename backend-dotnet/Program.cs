@@ -293,4 +293,29 @@ app.MapPost("/api/matching-quiz/guess", async (
     return Results.Ok(result);
 });
 
+app.MapGet("/api/recipes/daily", async (AppDbContext db) =>
+{
+    var recipe = await db.Recipes
+        .Include(r => r.Country)
+        .OrderBy(r => EF.Functions.Random())
+        .Select(r => new
+        {
+            r.Country!.CountryName,
+            r.Country.FlagUrl,
+            DishName = db.Dishes
+                .Where(d => d.CountryId == r.CountryId && d.IsCorrect)
+                .Select(d => d.DishName)
+                .FirstOrDefault(),
+            DishImageUrl = db.Dishes
+                .Where(d => d.CountryId == r.CountryId && d.IsCorrect)
+                .Select(d => d.DishImageUrl)
+                .FirstOrDefault(),
+            r.Ingredients,
+            r.Steps
+        })
+        .FirstOrDefaultAsync();
+
+    return recipe is null ? Results.NotFound() : Results.Ok(recipe);
+});
+
 app.Run();
