@@ -19,6 +19,12 @@ CREATE TABLE dishes (
     UNIQUE (country_id, dish_name)
 );
 
+CREATE TABLE recipes (
+    recipe_id INTEGER PRIMARY KEY AUTOINCREMENT,
+    country_id INTEGER NOT NULL UNIQUE,
+    ingredients TEXT NOT NULL,
+    steps TEXT NOT NULL,
+    FOREIGN KEY (country_id) REFERENCES countries(country_id)
 CREATE TABLE users (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     name VARCHAR(80) NOT NULL,
