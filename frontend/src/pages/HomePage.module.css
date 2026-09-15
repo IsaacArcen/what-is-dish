@@ -116,3 +116,24 @@
   height: 18px;
   background: rgba(27, 42, 74, 0.25);
 }
+
+.heroRow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 48px;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.heroContent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.heroRecipe {
+  flex: 0 0 320px;
+  max-width: 320px;
+}
