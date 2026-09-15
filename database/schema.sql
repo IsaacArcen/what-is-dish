@@ -25,6 +25,8 @@ CREATE TABLE recipes (
     ingredients TEXT NOT NULL,
     steps TEXT NOT NULL,
     FOREIGN KEY (country_id) REFERENCES countries(country_id)
+);
+
 CREATE TABLE users (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     name VARCHAR(80) NOT NULL,
