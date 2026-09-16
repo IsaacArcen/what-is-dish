@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import styles from "../pages/BloggPage.module.css";
+import styles from "./DailyRecipeCard.module.css";
 import RecipeModal from "./RecipeModal";
 
 export default function DailyRecipeCard() {
@@ -17,9 +17,7 @@ export default function DailyRecipeCard() {
 
   return (
     <>
-      <h3 style={{ textAlign: "center", marginBottom: "12px" }}>
-        Dagens recept
-      </h3>
+      <h3 className={styles.heading}>Dagens recept</h3>
       <article className={styles.card}>
         <div className={styles.cardHeader}>
           <img
@@ -36,20 +34,11 @@ export default function DailyRecipeCard() {
           <img
             src={recipe.dishImageUrl}
             alt={recipe.dishName}
-            style={{ width: "100%", borderRadius: "8px" }}
+            className={styles.dishImage}
           />
         )}
 
-        <button
-          onClick={() => setShowModal(true)}
-          className={styles.description}
-          style={{
-            background: "none",
-            border: "none",
-            cursor: "pointer",
-            textDecoration: "underline",
-          }}
-        >
+        <button onClick={() => setShowModal(true)} className={styles.linkBtn}>
           Visa recept
         </button>
       </article>

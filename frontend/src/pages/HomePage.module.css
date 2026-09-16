@@ -1,10 +1,35 @@
-.main {
-  display: grid;
-  grid-template-columns: 1fr auto 1fr;
-  align-items: center;
+.pageWrap {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 24px;
   padding: 32px 24px 64px;
-  min-height: 100%;
+  flex-wrap: wrap;
 }
+
+.heroCard {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-card);
+  padding: 48px 40px;
+  flex: 2;
+  min-width: 340px;
+  max-width: 640px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.recipeSlot {
+  flex: 1;
+  min-width: 260px;
+  max-width: 320px;
+}
+
+/* --- allt nedanför är samma regler du redan hade, bara utan .main/.heroContent/.heroRecipe --- */
 
 .globe {
   margin-bottom: 24px;
@@ -12,7 +37,7 @@
 }
 
 .title {
-  font-size: clamp(42px, 7vw, 72px);
+  font-size: clamp(36px, 6vw, 56px);
   font-weight: 900;
   color: var(--navy);
   letter-spacing: -2px;
@@ -54,7 +79,9 @@
   font-weight: 800;
   border-radius: 8px;
   text-decoration: none;
-  transition: background 0.15s, transform 0.1s;
+  transition:
+    background 0.15s,
+    transform 0.1s;
   letter-spacing: 0.2px;
 }
 
@@ -75,7 +102,9 @@
   border-radius: 8px;
   border: 2px solid var(--navy);
   text-decoration: none;
-  transition: background 0.15s, transform 0.1s;
+  transition:
+    background 0.15s,
+    transform 0.1s;
   letter-spacing: 0.2px;
 }
 
@@ -105,7 +134,7 @@
 }
 
 .statGreen {
-  color: #3a7a3a;
+  color: var(--green);
   opacity: 1;
 }
 
@@ -115,38 +144,14 @@
   background: rgba(27, 42, 74, 0.25);
 }
 
-.heroRow {
-  display: grid;
-  grid-template-columns: 1fr auto 1fr;
-  align-items: start;
-  gap: 24px;
-  width: 100%;
-}
-
-.heroContent {
-  grid-column: 2;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-}
-
-.heroRecipe {
-  grid-column: 3;
-  justify-self: center;
-  margin-top: 80px;
-  width: 200px;
-  font-size: 0.75em;
-}
-
 @media (max-width: 900px) {
-  .main {
-    display: flex;
+  .pageWrap {
     flex-direction: column;
     align-items: center;
-    text-align: center;
   }
-  .heroRecipe {
-    margin-top: 32px;
+  .heroCard,
+  .recipeSlot {
+    max-width: 480px;
+    width: 100%;
   }
 }

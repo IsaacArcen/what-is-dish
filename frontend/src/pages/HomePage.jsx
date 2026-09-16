@@ -5,8 +5,8 @@ import styles from "./HomePage.module.css";
 
 export default function HomePage() {
   return (
-    <main className={styles.main}>
-      <div className={styles.heroContent}>
+    <div className={styles.pageWrap}>
+      <div className={styles.heroCard}>
         <div className={styles.globe}>
           <GlobeIllustration />
         </div>
@@ -43,9 +43,9 @@ export default function HomePage() {
         </div>
       </div>
 
-      <div className={styles.heroRecipe}>
+      <div className={styles.recipeSlot}>
         <DailyRecipeCard />
       </div>
-    </main>
+    </div>
   );
 }
