@@ -31,12 +31,14 @@ export default function MatchingQuizPlay() {
   if (!board) {
     return (
       <main className={styles.main}>
-        <section className={styles.emptyBox}>
-          <p>Inget matchningsquiz hittades. Starta ett nytt quiz.</p>
-          <button onClick={() => navigate("/quiz")}>
-            Till quiz-inställningar
-          </button>
-        </section>
+        <div className={styles.card}>
+          <section className={styles.emptyBox}>
+            <p>Inget matchningsquiz hittades. Starta ett nytt quiz.</p>
+            <button onClick={() => navigate("/quiz")}>
+              Till quiz-inställningar
+            </button>
+          </section>
+        </div>
       </main>
     );
   }
@@ -110,96 +112,100 @@ export default function MatchingQuizPlay() {
 
   return (
     <main className={styles.main}>
-      <section className={styles.headerSection}>
-        <span className={styles.counter}>
-          {matchedCountryIds.length} av {board.countries.length} par
-        </span>
-        <h1>Matcha flaggan med rätten</h1>
-      </section>
-
-      <section className={styles.statusRow}>
-        <span>Försök kvar: {attemptsRemaining}</span>
-        {selectedCountry && (
-          <span>Valt land: {selectedCountry.countryName}</span>
-        )}
-      </section>
-
-      {feedback && (
-        <p
-          className={
-            feedback.type === "correct" ? styles.correctText : styles.wrongText
-          }
-        >
-          {feedback.text}
-        </p>
-      )}
-
-      <section className={styles.board}>
-        <div className={styles.column}>
-          <h2>Flaggor</h2>
-
-          {board.countries.map((country) => {
-            const isSelected = selectedCountryId === country.countryId;
-            const isMatched = matchedCountryIds.includes(country.countryId);
-
-            return (
-              <button
-                key={country.countryId}
-                className={[
-                  styles.countryCard,
-                  isSelected ? styles.selected : "",
-                  isMatched ? styles.matched : "",
-                ].join(" ")}
-                onClick={() => handleCountryClick(country.countryId)}
-                disabled={isMatched || gameOver}
-              >
-                <img
-                  src={country.flagUrl}
-                  alt={`Flaggan för ${country.countryName}`}
-                  className={styles.flag}
-                />
-                <span>{country.countryName}</span>
-              </button>
-            );
-          })}
-        </div>
-
-        <div className={styles.column}>
-          <h2>Rätter</h2>
-
-          {board.dishes.map((dish) => {
-            const isMatched = matchedDishIds.includes(dish.dishId);
-
-            return (
-              <button
-                key={dish.dishId}
-                className={[
-                  styles.dishCard,
-                  isMatched ? styles.matched : "",
-                ].join(" ")}
-                onClick={() => handleDishClick(dish.dishId)}
-                disabled={isMatched || gameOver || selectedCountryId === null}
-              >
-                {dish.dishImageUrl && (
-                  <img
-                    src={dish.dishImageUrl}
-                    alt={dish.dishName}
-                    className={styles.dishImage}
-                  />
-                )}
-                <span>{dish.dishName}</span>
-              </button>
-            );
-          })}
-        </div>
-      </section>
-
-      {(completed || gameOver) && (
-        <section className={styles.endBox}>
-          <h2>{completed ? "Alla par är matchade!" : "Spelet är slut"}</h2>
-          <button onClick={() => navigate("/quiz")}>Starta nytt quiz</button>
+      <div className={styles.card}>
+        <section className={styles.headerSection}>
+          <span className={styles.counter}>
+            {matchedCountryIds.length} av {board.countries.length} par
+          </span>
+          <h1>Matcha flaggan med rätten</h1>
         </section>
-      )}
+
+        <section className={styles.statusRow}>
+          <span>Försök kvar: {attemptsRemaining}</span>
+          {selectedCountry && (
+            <span>Valt land: {selectedCountry.countryName}</span>
+          )}
+        </section>
+
+        {feedback && (
+          <p
+            className={
+              feedback.type === "correct"
+                ? styles.correctText
+                : styles.wrongText
+            }
+          >
+            {feedback.text}
+          </p>
+        )}
+
+        <section className={styles.board}>
+          <div className={styles.column}>
+            <h2>Flaggor</h2>
+
+            {board.countries.map((country) => {
+              const isSelected = selectedCountryId === country.countryId;
+              const isMatched = matchedCountryIds.includes(country.countryId);
+
+              return (
+                <button
+                  key={country.countryId}
+                  className={[
+                    styles.countryCard,
+                    isSelected ? styles.selected : "",
+                    isMatched ? styles.matched : "",
+                  ].join(" ")}
+                  onClick={() => handleCountryClick(country.countryId)}
+                  disabled={isMatched || gameOver}
+                >
+                  <img
+                    src={country.flagUrl}
+                    alt={`Flaggan för ${country.countryName}`}
+                    className={styles.flag}
+                  />
+                  <span>{country.countryName}</span>
+                </button>
+              );
+            })}
+          </div>
+
+          <div className={styles.column}>
+            <h2>Rätter</h2>
+
+            {board.dishes.map((dish) => {
+              const isMatched = matchedDishIds.includes(dish.dishId);
+
+              return (
+                <button
+                  key={dish.dishId}
+                  className={[
+                    styles.dishCard,
+                    isMatched ? styles.matched : "",
+                  ].join(" ")}
+                  onClick={() => handleDishClick(dish.dishId)}
+                  disabled={isMatched || gameOver || selectedCountryId === null}
+                >
+                  {dish.dishImageUrl && (
+                    <img
+                      src={dish.dishImageUrl}
+                      alt={dish.dishName}
+                      className={styles.dishImage}
+                    />
+                  )}
+                  <span>{dish.dishName}</span>
+                </button>
+              );
+            })}
+          </div>
+        </section>
+
+        {(completed || gameOver) && (
+          <section className={styles.endBox}>
+            <h2>{completed ? "Alla par är matchade!" : "Spelet är slut"}</h2>
+            <button onClick={() => navigate("/quiz")}>Starta nytt quiz</button>
+          </section>
+        )}
+      </div>
     </main>
   );
 }
