@@ -5,11 +5,11 @@ using WhatIsDish.Api.Data;
 
 namespace WhatIsDish.Api.BLL.Services;
 
-public class BlogService : IBlogService
+public class BloggService : IBloggService
 {
     private readonly AppDbContext _context;
 
-    public BlogService(AppDbContext context)
+    public BloggService(AppDbContext context)
     {
         _context = context;
     }

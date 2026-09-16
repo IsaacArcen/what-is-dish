@@ -20,7 +20,7 @@ builder.Services.AddScoped<IQuizSummaryService, QuizSummaryService>();
 builder.Services.AddScoped<IQuizScoreService, QuizScoreService>();
 builder.Services.AddScoped<IAuthService, AuthService>();
 builder.Services.AddScoped<IMatchingQuizService, MatchingQuizService>();
-builder.Services.AddScoped<IBlogService, BlogService>();
+builder.Services.AddScoped<IBloggService, BloggService>();
 builder.Services.AddScoped<IMatchingQuizSettingsService, MatchingQuizSettingsService>();
 
 builder.Services.AddCors(options =>
@@ -50,7 +50,7 @@ app.MapGet("/api/dishes", async (AppDbContext db) =>
 
 app.MapGet("/api/blog", async (
     [FromQuery] string[] continents,
-    IBlogService blogService) =>
+    IBloggService blogService) =>
 {
     var dishes = await blogService.GetBlogDishesAsync(continents.ToList());
     return Results.Ok(dishes);
