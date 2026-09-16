@@ -8,7 +8,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 18px 48px;
+  padding: 6px 48px;
   max-width: 1280px;
   margin: 0 auto;
   width: 100%;
@@ -23,7 +23,9 @@
 }
 
 .logoIcon {
-  font-size: 26px;
+  width: 50px;
+  height: 50px;
+  object-fit: contain;
 }
 
 .logoText {

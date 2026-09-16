@@ -1,15 +1,16 @@
 import { Link, NavLink } from "react-router-dom";
 import { useAuth } from "../auth/Auth.Context";
+import logoImage from "../assets/hero-dish.png";
 import styles from "./Header.module.css";
 
 export default function Header() {
   const { isAuthenticated, user, logout } = useAuth();
 
   return (
-    <header className={styles.header}>
+    <div className={styles.headerWrap}>
       <header className={styles.header}>
         <Link to="/" className={styles.logo}>
-          <span className={styles.logoIcon}>🌍</span>
+          <img src={logoImage} alt="" className={styles.logoIcon} />
           <span className={styles.logoText}>
             what is dish<span className={styles.logoAccent}>?!</span>
           </span>
@@ -73,6 +74,6 @@ export default function Header() {
           )}
         </nav>
       </header>
-    </header>
+    </div>
   );
 }

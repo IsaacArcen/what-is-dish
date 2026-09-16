@@ -29,8 +29,6 @@
   max-width: 320px;
 }
 
-/* --- allt nedanför är samma regler du redan hade, bara utan .main/.heroContent/.heroRecipe --- */
-
 .heroImage {
   width: 100%;
   max-width: 280px;

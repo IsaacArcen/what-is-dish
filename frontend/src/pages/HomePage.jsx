@@ -18,9 +18,8 @@ export default function HomePage() {
         </h1>
 
         <p className={styles.subtitle}>
-          Ett snabbt och lekfullt sätt att upptäcka världens
-          <br />
-          kök, ett land i taget.
+          Ett snabbt och lekfullt sätt att upptäcka världens kök, ett land i
+          taget.
         </p>
 
         <div className={styles.actions}>
