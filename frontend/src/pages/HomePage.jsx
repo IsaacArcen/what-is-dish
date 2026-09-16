@@ -1,15 +1,17 @@
 import { Link } from "react-router-dom";
-import GlobeIllustration from "../Components/GlobeIllustration";
 import DailyRecipeCard from "../Components/DailyRecipeCard";
+import heroImage from "../assets/hero-dish.png";
 import styles from "./HomePage.module.css";
 
 export default function HomePage() {
   return (
     <div className={styles.pageWrap}>
       <div className={styles.heroCard}>
-        <div className={styles.globe}>
-          <GlobeIllustration />
-        </div>
+        <img
+          src={heroImage}
+          alt="Jordglob med mat från olika länder"
+          className={styles.heroImage}
+        />
 
         <h1 className={styles.title}>
           what is dish<span className={styles.titleAccent}>?!</span>

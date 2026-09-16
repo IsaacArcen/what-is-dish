@@ -31,18 +31,12 @@
 
 /* --- allt nedanför är samma regler du redan hade, bara utan .main/.heroContent/.heroRecipe --- */
 
-.globe {
-  margin-bottom: 24px;
-  filter: drop-shadow(0 8px 24px rgba(0, 0, 0, 0.12));
-}
-
-.title {
-  font-size: clamp(36px, 6vw, 56px);
-  font-weight: 900;
-  color: var(--navy);
-  letter-spacing: -2px;
-  line-height: 1;
-  margin-bottom: 16px;
+.heroImage {
+  width: 100%;
+  max-width: 280px;
+  height: auto;
+  margin-bottom: 20px;
+  filter: drop-shadow(0 12px 30px rgba(27, 42, 74, 0.35));
 }
 
 .titleAccent {
