@@ -20,6 +20,7 @@ builder.Services.AddScoped<IQuizSummaryService, QuizSummaryService>();
 builder.Services.AddScoped<IQuizScoreService, QuizScoreService>();
 builder.Services.AddScoped<IAuthService, AuthService>();
 builder.Services.AddScoped<IMatchingQuizService, MatchingQuizService>();
+builder.Services.AddScoped<IBlogService, BlogService>();
 builder.Services.AddScoped<IMatchingQuizSettingsService, MatchingQuizSettingsService>();
 
 builder.Services.AddCors(options =>
