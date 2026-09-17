@@ -2,10 +2,15 @@ import { Link } from "react-router-dom";
 import GlobeIllustration from "../Components/GlobeIllustration";
 import DailyRecipeCard from "../Components/DailyRecipeCard";
 import styles from "./HomePage.module.css";
+import LeaderboardCard from "../Components/LeaderboardCard";
 
 export default function HomePage() {
   return (
     <main className={styles.main}>
+      <div className={styles.heroLeaderboard}>
+        <LeaderboardCard />
+      </div>
+
       <div className={styles.heroContent}>
         <div className={styles.globe}>
           <GlobeIllustration />
