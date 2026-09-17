@@ -159,6 +159,12 @@ app.MapGet("/api/scores/me", async (HttpRequest request, IQuizScoreService score
     return Results.Ok(history);
 });
 
+app.MapGet("/api/leaderboard", async (IQuizScoreService scoreService) =>
+{
+    var leaderboard = await scoreService.GetLeaderboardAsync();
+    return Results.Ok(leaderboard);
+});
+
 static string? GetBearerToken(HttpRequest request)
 {
     var header = request.Headers.Authorization.ToString();
