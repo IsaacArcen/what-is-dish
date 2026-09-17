@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import DailyRecipeCard from "../Components/DailyRecipeCard";
+import LeaderboardCard from "../Components/LeaderboardCard";
 import heroImage from "../assets/hero-dish.png";
 import styles from "./HomePage.module.css";
 
@@ -44,8 +45,9 @@ export default function HomePage() {
         </div>
       </div>
 
-      <div className={styles.recipeSlot}>
+      <div className={styles.sidebar}>
         <DailyRecipeCard />
+        <LeaderboardCard />
       </div>
     </div>
   );
