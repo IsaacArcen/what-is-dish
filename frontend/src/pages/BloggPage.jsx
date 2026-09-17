@@ -1,48 +1,91 @@
 import { useEffect, useMemo, useState } from "react";
+import RecipeModal from "../Components/RecipeModal";
 import styles from "./BloggPage.module.css";
 
 export default function BloggPage() {
-    const [dishes, setDishes] = useState([]);
-    const  [search, setSearch] = useState("");
-    const [error, setError] = useState(null);
+  const [dishes, setDishes] = useState([]);
+  const [continents, setContinents] = useState([]);
+  const [selectedContinents, setSelectedContinents] = useState([]);
+  const [selectedRecipe, setSelectedRecipe] = useState(null);
+  const [search, setSearch] = useState("");
+  const [error, setError] = useState(null);
 
-    useEffect(() => {
-        fetch("http://localhost:5097/api/blog")
-            .then((res) => {
-                if (!res.ok) {
-                    throw new Error("Failed to fetch dishes");
-                }
-                return res.json();
-            })
-            .then(setDishes)
-            .catch((err) => {
-                console.error(err);
-                setError("Något gick fel när bloggen skulle laddas.");
-            });
-    }, []);
+  useEffect(() => {
+    fetch("http://localhost:5097/api/quiz-settings/continents")
+      .then((res) => res.json())
+      .then(setContinents)
+      .catch((err) => console.error("Kunde inte hämta regioner", err));
+  }, []);
 
-    const filteredDishes = useMemo(() => {
-        const searchText = search.toLowerCase().trim();
+  useEffect(() => {
+    const params = new URLSearchParams();
 
-           if (!searchText) {
-            return dishes;
+    selectedContinents.forEach((continent) => {
+      params.append("continents", continent);
+    });
+
+    const url = params.toString()
+      ? `http://localhost:5097/api/blog?${params.toString()}`
+      : "http://localhost:5097/api/blog";
+
+    fetch(url)
+      .then((res) => {
+        if (!res.ok) {
+          throw new Error("Failed to fetch dishes");
         }
 
-        return dishes.filter((dish) => {
-            return (
-                dish.countryName.toLowerCase().includes(searchText) ||
-                dish.dishName.toLowerCase().includes(searchText) ||
-                dish.continent.toLowerCase().includes(searchText)
-            );
-        });
-    }, [dishes, search]);
+        return res.json();
+      })
+      .then(setDishes)
+      .catch((err) => {
+        console.error(err);
+        setError("Något gick fel när bloggen skulle laddas.");
+      });
+  }, [selectedContinents]);
 
-return (
+  const toggleContinent = (continent) => {
+    setSelectedContinents((prev) =>
+      prev.includes(continent)
+        ? prev.filter((item) => item !== continent)
+        : [...prev, continent],
+    );
+  };
+
+  const filteredDishes = useMemo(() => {
+    const searchText = search.toLowerCase().trim();
+
+    if (!searchText) {
+      return dishes;
+    }
+
+    return dishes.filter((dish) => {
+      return (
+        dish.countryName.toLowerCase().includes(searchText) ||
+        dish.dishName.toLowerCase().includes(searchText) ||
+        dish.continent.toLowerCase().includes(searchText)
+      );
+    });
+  }, [dishes, search]);
+
+  const openRecipe = (dish) => {
+    if (!dish.ingredients || !dish.steps) return;
+
+    setSelectedRecipe({
+      countryName: dish.countryName,
+      flagUrl: dish.flagUrl,
+      dishName: dish.dishName,
+      dishImageUrl: dish.dishImageUrl,
+      ingredients: dish.ingredients,
+      steps: dish.steps,
+    });
+  };
+
+  return (
     <main className={styles.main}>
       <section className={styles.hero}>
         <h1 className={styles.title}>Mat blogg</h1>
         <p className={styles.subtitle}>
-          {dishes.length} länder - nationella rätter och varför de är älskade
+          {filteredDishes.length} länder - nationella rätter och recept
         </p>
 
         <input
@@ -52,13 +95,35 @@ return (
           value={search}
           onChange={(event) => setSearch(event.target.value)}
         />
+
+        <div className={styles.filterRow}>
+          {continents.map((continent) => (
+            <button
+              key={continent}
+              className={
+                selectedContinents.includes(continent)
+                  ? `${styles.filterPill} ${styles.filterPillActive}`
+                  : styles.filterPill
+              }
+              onClick={() => toggleContinent(continent)}
+              type="button"
+            >
+              {continent}
+            </button>
+          ))}
+        </div>
       </section>
 
       {error && <p className={styles.error}>{error}</p>}
 
       <section className={styles.grid}>
         {filteredDishes.map((dish) => (
-          <article key={dish.dishId} className={styles.card}>
+          <button
+            key={dish.dishId}
+            className={styles.card}
+            onClick={() => openRecipe(dish)}
+            type="button"
+          >
             <div className={styles.cardHeader}>
               <img
                 className={styles.flag}
@@ -68,14 +133,29 @@ return (
               <span className={styles.country}>{dish.countryName}</span>
             </div>
 
+            {dish.dishImageUrl && (
+              <img
+                className={styles.dishImage}
+                src={dish.dishImageUrl}
+                alt={dish.dishName}
+              />
+            )}
+
             <h2 className={styles.dishName}>{dish.dishName}</h2>
 
             <p className={styles.description}>
               {dish.dishHistory || dish.hint}
             </p>
-          </article>
+          </button>
         ))}
       </section>
+
+      {selectedRecipe && (
+        <RecipeModal
+          recipe={selectedRecipe}
+          onClose={() => setSelectedRecipe(null)}
+        />
+      )}
     </main>
   );
 }
