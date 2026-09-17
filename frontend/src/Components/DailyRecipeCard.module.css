@@ -1,0 +1,59 @@
+.heading {
+  text-align: center;
+  font-size: 16px;
+  font-weight: 800;
+  color: var(--navy);
+  margin-bottom: 12px;
+}
+
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-card);
+  padding: 20px;
+}
+
+.cardHeader {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.flag {
+  width: 28px;
+  height: 20px;
+  object-fit: cover;
+  border-radius: 3px;
+}
+
+.country {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--text-muted);
+}
+
+.dishName {
+  font-size: 18px;
+  font-weight: 800;
+  color: var(--navy);
+  margin-bottom: 12px;
+}
+
+.dishImage {
+  width: 100%;
+  border-radius: 8px;
+  margin-bottom: 12px;
+}
+
+.linkBtn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--red);
+  font-size: 14px;
+  font-weight: 700;
+  text-decoration: underline;
+  padding: 0;
+}

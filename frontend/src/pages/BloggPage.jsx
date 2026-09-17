@@ -33,7 +33,6 @@ export default function BloggPage() {
         if (!res.ok) {
           throw new Error("Failed to fetch dishes");
         }
-
         return res.json();
       })
       .then(setDishes)
@@ -82,73 +81,75 @@ export default function BloggPage() {
 
   return (
     <main className={styles.main}>
-      <section className={styles.hero}>
-        <h1 className={styles.title}>Mat blogg</h1>
-        <p className={styles.subtitle}>
-          {filteredDishes.length} länder - nationella rätter och recept
-        </p>
+      <div className={styles.pageCard}>
+        <section className={styles.hero}>
+          <h1 className={styles.title}>Mat blogg</h1>
+          <p className={styles.subtitle}>
+            {filteredDishes.length} länder - nationella rätter och recept
+          </p>
 
-        <input
-          className={styles.search}
-          type="search"
-          placeholder="Sök efter land eller rätt..."
-          value={search}
-          onChange={(event) => setSearch(event.target.value)}
-        />
+          <input
+            className={styles.search}
+            type="search"
+            placeholder="Sök efter land eller rätt..."
+            value={search}
+            onChange={(event) => setSearch(event.target.value)}
+          />
 
-        <div className={styles.filterRow}>
-          {continents.map((continent) => (
+          <div className={styles.filterRow}>
+            {continents.map((continent) => (
+              <button
+                key={continent}
+                className={
+                  selectedContinents.includes(continent)
+                    ? `${styles.filterPill} ${styles.filterPillActive}`
+                    : styles.filterPill
+                }
+                onClick={() => toggleContinent(continent)}
+                type="button"
+              >
+                {continent}
+              </button>
+            ))}
+          </div>
+        </section>
+
+        {error && <p className={styles.error}>{error}</p>}
+
+        <section className={styles.grid}>
+          {filteredDishes.map((dish) => (
             <button
-              key={continent}
-              className={
-                selectedContinents.includes(continent)
-                  ? `${styles.filterPill} ${styles.filterPillActive}`
-                  : styles.filterPill
-              }
-              onClick={() => toggleContinent(continent)}
+              key={dish.dishId}
+              className={styles.dishCard}
+              onClick={() => openRecipe(dish)}
               type="button"
             >
-              {continent}
+              <div className={styles.cardHeader}>
+                <img
+                  className={styles.flag}
+                  src={dish.flagUrl}
+                  alt={`Flagga för ${dish.countryName}`}
+                />
+                <span className={styles.country}>{dish.countryName}</span>
+              </div>
+
+              {dish.dishImageUrl && (
+                <img
+                  className={styles.dishImage}
+                  src={dish.dishImageUrl}
+                  alt={dish.dishName}
+                />
+              )}
+
+              <h2 className={styles.dishName}>{dish.dishName}</h2>
+
+              <p className={styles.description}>
+                {dish.dishHistory || dish.hint}
+              </p>
             </button>
           ))}
-        </div>
-      </section>
-
-      {error && <p className={styles.error}>{error}</p>}
-
-      <section className={styles.grid}>
-        {filteredDishes.map((dish) => (
-          <button
-            key={dish.dishId}
-            className={styles.card}
-            onClick={() => openRecipe(dish)}
-            type="button"
-          >
-            <div className={styles.cardHeader}>
-              <img
-                className={styles.flag}
-                src={dish.flagUrl}
-                alt={`Flagga för ${dish.countryName}`}
-              />
-              <span className={styles.country}>{dish.countryName}</span>
-            </div>
-
-            {dish.dishImageUrl && (
-              <img
-                className={styles.dishImage}
-                src={dish.dishImageUrl}
-                alt={dish.dishName}
-              />
-            )}
-
-            <h2 className={styles.dishName}>{dish.dishName}</h2>
-
-            <p className={styles.description}>
-              {dish.dishHistory || dish.hint}
-            </p>
-          </button>
-        ))}
-      </section>
+        </section>
+      </div>
 
       {selectedRecipe && (
         <RecipeModal
