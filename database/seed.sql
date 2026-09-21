@@ -1,6 +1,7 @@
 PRAGMA foreign_keys = ON;
 
 DELETE FROM dishes;
+DELETE FROM recipes;
 DELETE FROM countries;
 
 INSERT INTO countries (country_name, continent, flag_url)
@@ -668,4 +669,1495 @@ VALUES
 ((SELECT country_id FROM countries WHERE country_name = 'Tuvalu'), 'Tonfisk- och kokoscurry', 0, NULL, NULL, NULL),
 ((SELECT country_id FROM countries WHERE country_name = 'Tuvalu'), 'Fekei', 0, NULL, NULL, NULL);
 
+
+INSERT INTO recipes (
+  country_id,
+  ingredients,
+  steps
+)
+VALUES
+(
+  (SELECT country_id FROM countries WHERE country_name = 'Nigeria'),
+  'Ris, tomater, tomatpuré, lök, vitlök, chili, buljong, olja, timjan och kyckling eller grönsaker.',
+  '1. Skölj riset.
+2. Mixa tomater, lök, vitlök och chili.
+3. Fräs tomatpuré i olja.
+4. Tillsätt tomatmixen.
+5. Krydda med buljong och timjan.
+6. Lägg i riset.
+7. Häll på lagom med vatten.
+8. Låt riset koka på låg värme.
+9. Rör försiktigt när riset är klart.
+10. Servera varmt med kyckling eller grönsaker.'
+),
+(
+  (SELECT country_id FROM countries WHERE country_name = 'Egypten'),
+  'Ris, makaroner, linser, kikärtor, tomatsås, lök, vitlök, vinäger, spiskummin och olja.',
+  '1. Koka riset.
+2. Koka makaronerna.
+3. Koka linserna mjuka.
+4. Värm kikärtorna.
+5. Fräs vitlök i olja.
+6. Tillsätt tomatsås och kryddor.
+7. Stek löken krispig.
+8. Lägg ris, pasta och linser i en skål.
+9. Toppa med kikärtor och sås.
+10. Servera med stekt lök.'
+),
+(
+  (SELECT country_id FROM countries WHERE country_name = 'Sydafrika'),
+  'Köttfärs, lök, curry, bröd, mjölk, ägg, russin, chutney, salt och peppar.',
+  '1. Blötlägg brödet i mjölk.
+2. Hacka löken.
+3. Fräs lök och curry.
+4. Lägg i köttfärsen.
+5. Blanda ner bröd och russin.
+6. Smaka av med salt och peppar.
+7. Lägg blandningen i en form.
+8. Vispa ägg med mjölk.
+9. Häll äggblandningen över.
+10. Grädda tills ytan är gyllene.'
+),
+(
+  (SELECT country_id FROM countries WHERE country_name = 'Marocko'),
+  'Kyckling eller lamm, lök, vitlök, morötter, kikärtor, tomat, citron, spiskummin, kanel och koriander.',
+  '1. Skär köttet i bitar.
+2. Hacka lök och vitlök.
+3. Fräs köttet i olja.
+4. Tillsätt lök och kryddor.
+5. Lägg i grönsaker och kikärtor.
+6. Tillsätt tomat och lite vatten.
+7. Låt grytan sjuda långsamt.
+8. Rör om då och då.
+9. Smaka av med citron.
+10. Servera med bröd eller couscous.'
+),
+(
+  (SELECT country_id FROM countries WHERE country_name = 'Etiopien'),
+  'Kyckling, lök, vitlök, ingefära, berberekrydda, smör, tomatpuré, ägg, salt och injera.',
+  '1. Hacka löken fint.
+2. Fräs löken långsamt.
+3. Tillsätt smör, vitlök och ingefära.
+4. Rör ner berberekrydda.
+5. Lägg i kycklingen.
+6. Tillsätt tomatpuré och vatten.
+7. Låt grytan koka långsamt.
+8. Koka äggen.
+9. Lägg äggen i grytan.
+10. Servera med injera.'
+),
+(
+  (SELECT country_id FROM countries WHERE country_name = 'Ghana'),
+  'Ris, svarta ögonbönor, vatten, salt, lök, tomat, chili, olja, ägg och stekt banan.',
+  '1. Skölj ris och bönor.
+2. Koka bönorna tills de mjuknar.
+3. Tillsätt ris och salt.
+4. Låt allt koka färdigt.
+5. Hacka lök och tomat.
+6. Gör en enkel chilisås.
+7. Stek ägg.
+8. Stek banan om du vill.
+9. Lägg upp ris och bönor.
+10. Servera med sås och tillbehör.'
+),
+(
+  (SELECT country_id FROM countries WHERE country_name = 'Kenya'),
+  'Getkött eller nötkött, salt, peppar, citron, vitlök, olja, tomat, lök, koriander och ugali.',
+  '1. Skär köttet i bitar.
+2. Krydda med salt och peppar.
+3. Gnid in med vitlök och citron.
+4. Låt köttet vila en stund.
+5. Grilla eller stek köttet.
+6. Vänd köttet flera gånger.
+7. Hacka tomat och lök.
+8. Blanda en enkel sallad.
+9. Låt köttet vila kort.
+10. Servera med ugali och sallad.'
+),
+(
+  (SELECT country_id FROM countries WHERE country_name = 'Algeriet'),
+  'Couscous, lamm eller kyckling, morötter, zucchini, kikärtor, lök, tomat, buljong, spiskummin och paprika.',
+  '1. Hacka grönsakerna.
+2. Fräs lök och kryddor.
+3. Lägg i köttet.
+4. Tillsätt tomat och buljong.
+5. Lägg i kikärtor och grönsaker.
+6. Låt grytan sjuda.
+7. Tillaga couscous enligt paketet.
+8. Fluffa couscousen med en gaffel.
+9. Lägg couscous på ett fat.
+10. Toppa med gryta och grönsaker.'
+),
+(
+  (SELECT country_id FROM countries WHERE country_name = 'Tunisien'),
+  'Filodeg, ägg, tonfisk, potatis, persilja, lök, kapris, salt, peppar och olja.',
+  '1. Koka potatisen.
+2. Mosa potatisen lätt.
+3. Hacka lök och persilja.
+4. Blanda potatis, tonfisk och kryddor.
+5. Lägg fyllning på filodeg.
+6. Knäck ett ägg ovanpå.
+7. Vik ihop degen.
+8. Hetta upp olja.
+9. Fritera tills briken är gyllene.
+10. Servera direkt.'
+),
+(
+  (SELECT country_id FROM countries WHERE country_name = 'Senegal'),
+  'Fisk, ris, tomatpuré, lök, vitlök, morötter, vitkål, chili, buljong och olja.',
+  '1. Rensa och krydda fisken.
+2. Hacka lök och vitlök.
+3. Fräs tomatpuré i olja.
+4. Tillsätt lök, kryddor och buljong.
+5. Lägg i grönsakerna.
+6. Lägg i fisken.
+7. Ta upp fisken när den är klar.
+8. Koka riset i såsen.
+9. Lägg upp ris och grönsaker.
+10. Servera med fisken ovanpå.'
+),
+(
+  (SELECT country_id FROM countries WHERE country_name = 'Tanzania'),
+  'Majsmjöl, vatten, salt, smör, grönsaker, tomat, lök, vitlök, olja och gryta eller sås.',
+  '1. Koka upp vatten.
+2. Tillsätt lite salt.
+3. Rör ner majsmjöl långsamt.
+4. Rör kraftigt så det inte klumpar sig.
+5. Låt ugali tjockna.
+6. Forma till en fast massa.
+7. Hacka grönsaker.
+8. Fräs grönsaker med lök.
+9. Gör en enkel sås.
+10. Servera ugali med såsen.'
+),
+(
+  (SELECT country_id FROM countries WHERE country_name = 'Uganda'),
+  'Gröna matbananer, lök, tomat, vitlök, olja, salt, peppar, jordnötssås, vatten och koriander.',
+  '1. Skala matbananerna.
+2. Skär dem i bitar.
+3. Koka eller ånga dem mjuka.
+4. Hacka lök och tomat.
+5. Fräs lök i olja.
+6. Tillsätt tomat och vitlök.
+7. Mosa bananerna lätt.
+8. Värm jordnötssåsen.
+9. Smaka av med salt.
+10. Servera matoke med sås.'
+),
+(
+  (SELECT country_id FROM countries WHERE country_name = 'Kamerun'),
+  'Bitterblad eller spenat, jordnötter, lök, vitlök, kött eller fisk, räkor, olja, chili, salt och buljong.',
+  '1. Skölj bladen.
+2. Hacka lök och vitlök.
+3. Koka kött eller fisk.
+4. Mixa jordnötter med lite vatten.
+5. Fräs lök och kryddor.
+6. Tillsätt jordnötssåsen.
+7. Lägg i bladen.
+8. Lägg i kött eller fisk.
+9. Låt grytan sjuda.
+10. Servera med ris eller kassava.'
+),
+(
+  (SELECT country_id FROM countries WHERE country_name = 'Elfenbenskusten'),
+  'Attieke, fisk, tomat, lök, gurka, citron, olja, chili, salt och peppar.',
+  '1. Värm attieke försiktigt.
+2. Krydda fisken med salt och citron.
+3. Stek eller grilla fisken.
+4. Hacka tomat och lök.
+5. Skiva gurka.
+6. Blanda en enkel sallad.
+7. Smaka av med chili.
+8. Lägg attieke på tallrik.
+9. Lägg fisken bredvid.
+10. Servera med salladen.'
+),
+(
+  (SELECT country_id FROM countries WHERE country_name = 'Angola'),
+  'Kyckling, palmolja, lök, vitlök, okra, pumpa, chili, citron, salt och ris.',
+  '1. Skär kycklingen i bitar.
+2. Krydda med salt och citron.
+3. Hacka lök och vitlök.
+4. Fräs kycklingen i olja.
+5. Tillsätt lök och vitlök.
+6. Lägg i pumpa och okra.
+7. Tillsätt palmolja och lite vatten.
+8. Låt grytan sjuda.
+9. Smaka av med chili.
+10. Servera med ris.'
+),
+(
+  (SELECT country_id FROM countries WHERE country_name = 'Zimbabwe'),
+  'Majsmjöl, vatten, salt, kött eller grönsaker, tomat, lök, olja, spenat, peppar och buljong.',
+  '1. Koka upp vatten.
+2. Rör ner majsmjöl.
+3. Fortsätt röra tills sadza blir fast.
+4. Salta lätt.
+5. Hacka lök och tomat.
+6. Fräs grönsaker eller kött.
+7. Tillsätt buljong.
+8. Låt såsen koka ihop.
+9. Forma sadzan.
+10. Servera med grytan.'
+),
+(
+  (SELECT country_id FROM countries WHERE country_name = 'Rwanda'),
+  'Kassavablad eller spenat, jordnötter, lök, vitlök, olja, salt, chili, vatten, ris och citron.',
+  '1. Skölj bladen noga.
+2. Hacka bladen.
+3. Hacka lök och vitlök.
+4. Fräs löken i olja.
+5. Tillsätt bladen.
+6. Mixa jordnötter med vatten.
+7. Häll såsen över bladen.
+8. Låt allt sjuda.
+9. Smaka av med salt och citron.
+10. Servera med ris.'
+),
+(
+  (SELECT country_id FROM countries WHERE country_name = 'Sudan'),
+  'Bondbönor, vitlök, citron, olivolja, spiskummin, salt, tomat, lök, persilja och bröd.',
+  '1. Blötlägg eller skölj bönorna.
+2. Koka bönorna mjuka.
+3. Mosa dem lätt.
+4. Hacka vitlök och lök.
+5. Blanda ner kryddor.
+6. Tillsätt citron och olivolja.
+7. Hacka tomat.
+8. Toppa med tomat och persilja.
+9. Smaka av med salt.
+10. Servera med bröd.'
+),
+(
+  (SELECT country_id FROM countries WHERE country_name = 'Somalia'),
+  'Ris, kött, lök, vitlök, kardemumma, kanel, spiskummin, russin, buljong och olja.',
+  '1. Skölj riset.
+2. Bryn köttet i olja.
+3. Hacka lök och vitlök.
+4. Fräs lök med kryddor.
+5. Tillsätt riset.
+6. Häll på buljong.
+7. Lägg i köttet.
+8. Låt riset koka klart.
+9. Toppa med russin.
+10. Servera varmt.'
+),
+(
+  (SELECT country_id FROM countries WHERE country_name = 'Madagaskar'),
+  'Nötkött, bladgrönsaker, tomat, lök, vitlök, ingefära, olja, salt, peppar och ris.',
+  '1. Skär köttet i bitar.
+2. Hacka lök och vitlök.
+3. Bryn köttet i olja.
+4. Tillsätt lök, vitlök och ingefära.
+5. Lägg i tomat.
+6. Tillsätt vatten.
+7. Låt köttet sjuda.
+8. Lägg i bladgrönsaker.
+9. Smaka av med salt.
+10. Servera med ris.'
+),
+(
+  (SELECT country_id FROM countries WHERE country_name = 'Japan'),
+  'Sushiris, risvinäger, socker, salt, nori, lax eller gurka, soja och wasabi.',
+  '1. Koka sushiriset.
+2. Blanda risvinäger, socker och salt.
+3. Vänd ner vinägerblandningen i riset.
+4. Låt riset svalna.
+5. Lägg nori på en bambumatta.
+6. Bred ut ris på noribladet.
+7. Lägg på lax eller gurka.
+8. Rulla ihop hårt.
+9. Skär rullen i bitar.
+10. Servera med soja och wasabi.'
+),
+(
+  (SELECT country_id FROM countries WHERE country_name = 'Kina'),
+  'Anka, hoisinsås, gurka, salladslök, tunna pannkakor, soja, honung, risvinäger, vitlök och ingefära.',
+  '1. Torka ankan noga.
+2. Gnid in med soja och honung.
+3. Krydda med vitlök och ingefära.
+4. Rosta ankan tills skinnet blir krispigt.
+5. Låt ankan vila.
+6. Skär köttet tunt.
+7. Skär gurka och salladslök.
+8. Värm pannkakorna.
+9. Lägg anka och grönsaker i pannkaka.
+10. Servera med hoisinsås.'
+),
+(
+  (SELECT country_id FROM countries WHERE country_name = 'Indien'),
+  'Ris, kyckling eller grönsaker, yoghurt, lök, vitlök, ingefära, garam masala, chili, saffran och koriander.',
+  '1. Skölj riset.
+2. Marinera kyckling eller grönsaker i yoghurt.
+3. Hacka lök, vitlök och ingefära.
+4. Fräs lök och kryddor.
+5. Lägg i marinaden.
+6. Förkoka riset lätt.
+7. Varva ris och fyllning i en gryta.
+8. Låt ånga på låg värme.
+9. Toppa med koriander.
+10. Servera varmt.'
+),
+(
+  (SELECT country_id FROM countries WHERE country_name = 'Sydkorea'),
+  'Kinakål, salt, chili, vitlök, ingefära, salladslök, morot, fisksås, socker och vatten.',
+  '1. Skär kålen i bitar.
+2. Salta kålen och låt den mjukna.
+3. Skölj kålen lätt.
+4. Blanda chili, vitlök och ingefära.
+5. Tillsätt fisksås och socker.
+6. Skär morot och salladslök.
+7. Blanda allt med kålen.
+8. Packa i en burk.
+9. Låt fermentera kort.
+10. Servera som tillbehör.'
+),
+(
+  (SELECT country_id FROM countries WHERE country_name = 'Thailand'),
+  'Risnudlar, ägg, tofu eller räkor, böngroddar, salladslök, jordnötter, tamarind, fisksås, socker och lime.',
+  '1. Blötlägg risnudlarna.
+2. Blanda tamarind, fisksås och socker.
+3. Hetta upp en wok.
+4. Stek tofu eller räkor.
+5. Knäck i ägg.
+6. Lägg i nudlarna.
+7. Häll på såsen.
+8. Tillsätt böngroddar.
+9. Toppa med jordnötter.
+10. Servera med lime.'
+),
+(
+  (SELECT country_id FROM countries WHERE country_name = 'Vietnam'),
+  'Risnudlar, nötkött eller kyckling, buljong, lök, ingefära, stjärnanis, kanel, koriander, böngroddar och lime.',
+  '1. Rosta lök och ingefära.
+2. Koka buljong med kryddor.
+3. Sila buljongen.
+4. Koka risnudlarna.
+5. Skär köttet tunt.
+6. Lägg nudlar i skål.
+7. Lägg köttet ovanpå.
+8. Häll över het buljong.
+9. Toppa med örter och böngroddar.
+10. Servera med lime.'
+),
+(
+  (SELECT country_id FROM countries WHERE country_name = 'Indonesien'),
+  'Kokt ris, ägg, vitlök, lök, chili, soja, kyckling eller grönsaker, olja, gurka och salladslök.',
+  '1. Använd gärna kallt kokt ris.
+2. Hacka lök och vitlök.
+3. Hetta upp olja i en panna.
+4. Fräs lök, vitlök och chili.
+5. Lägg i kyckling eller grönsaker.
+6. Tillsätt riset.
+7. Häll på soja.
+8. Stek ett ägg.
+9. Toppa riset med ägget.
+10. Servera med gurka.'
+),
+(
+  (SELECT country_id FROM countries WHERE country_name = 'Filippinerna'),
+  'Kyckling eller fläsk, soja, vinäger, vitlök, lagerblad, pepparkorn, lök, olja, vatten och ris.',
+  '1. Skär köttet i bitar.
+2. Marinera med soja, vinäger och vitlök.
+3. Bryn köttet i olja.
+4. Tillsätt marinaden.
+5. Lägg i lagerblad och peppar.
+6. Häll på lite vatten.
+7. Låt koka långsamt.
+8. Reducera såsen.
+9. Smaka av.
+10. Servera med ris.'
+),
+(
+  (SELECT country_id FROM countries WHERE country_name = 'Malaysia'),
+  'Ris, kokosmjölk, pandanblad, salt, sambal, ägg, jordnötter, gurka, ansjovis och kyckling.',
+  '1. Skölj riset.
+2. Koka riset med kokosmjölk och salt.
+3. Koka äggen.
+4. Rosta jordnötter.
+5. Stek ansjovis om du använder det.
+6. Skiva gurka.
+7. Värm sambal.
+8. Lägg upp kokosriset.
+9. Lägg till ägg och tillbehör.
+10. Servera med sambal.'
+),
+(
+  (SELECT country_id FROM countries WHERE country_name = 'Turkiet'),
+  'Lamm eller nötfärs, lök, vitlök, persilja, spiskummin, paprika, salt, peppar, bröd och yoghurt.',
+  '1. Riv löken.
+2. Blanda kött med lök och kryddor.
+3. Tillsätt persilja.
+4. Forma avlånga spett eller biffar.
+5. Hetta upp grill eller panna.
+6. Grilla kebaben.
+7. Vänd tills den är genomstekt.
+8. Värm bröd.
+9. Blanda yoghurt med lite salt.
+10. Servera med bröd och sås.'
+),
+(
+  (SELECT country_id FROM countries WHERE country_name = 'Iran'),
+  'Ris, lamm eller nötfärs, lök, saffran, smör, tomater, sumak, salt, peppar och yoghurt.',
+  '1. Koka riset luftigt.
+2. Riv löken.
+3. Blanda kött med lök och kryddor.
+4. Forma kebaber.
+5. Grilla eller stek dem.
+6. Grilla tomater.
+7. Smält smör med saffran.
+8. Ringla smöret över riset.
+9. Lägg kebab på riset.
+10. Servera med tomat och yoghurt.'
+),
+(
+  (SELECT country_id FROM countries WHERE country_name = 'Irak'),
+  'Hel fisk, citron, vitlök, tamarind eller tomat, olja, salt, peppar, koriander, ris och lök.',
+  '1. Rensa fisken.
+2. Krydda med salt, peppar och citron.
+3. Blanda vitlök, olja och kryddor.
+4. Gnid in fisken.
+5. Grilla fisken långsamt.
+6. Vänd försiktigt.
+7. Gör en enkel sås.
+8. Koka ris.
+9. Lägg fisken på fat.
+10. Servera med ris och citron.'
+),
+(
+  (SELECT country_id FROM countries WHERE country_name = 'Saudiarabien'),
+  'Ris, kyckling eller lamm, lök, tomat, vitlök, kardemumma, kanel, kryddnejlika, buljong och russin.',
+  '1. Skölj riset.
+2. Bryn köttet i en gryta.
+3. Hacka lök och vitlök.
+4. Fräs lök med kryddor.
+5. Tillsätt tomat och buljong.
+6. Koka köttet nästan klart.
+7. Lägg i riset.
+8. Låt allt ånga färdigt.
+9. Toppa med russin.
+10. Servera varmt.'
+),
+(
+  (SELECT country_id FROM countries WHERE country_name = 'Israel'),
+  'Kikärtor, lök, vitlök, persilja, koriander, spiskummin, salt, peppar, mjöl och olja.',
+  '1. Blötlägg kikärtor.
+2. Mixa kikärtor med lök och vitlök.
+3. Tillsätt örter och kryddor.
+4. Blanda till en fast smet.
+5. Forma små bollar.
+6. Hetta upp olja.
+7. Fritera falafeln gyllene.
+8. Låt rinna av.
+9. Värm bröd.
+10. Servera med sallad och sås.'
+),
+(
+  (SELECT country_id FROM countries WHERE country_name = 'Libanon'),
+  'Bulgur, nötfärs eller lammfärs, lök, mynta, kryddpeppar, kanel, salt, peppar, olja och yoghurt.',
+  '1. Blötlägg bulgur.
+2. Hacka löken fint.
+3. Blanda bulgur med kött och kryddor.
+4. Knåda till en jämn smet.
+5. Forma bollar eller en form.
+6. Fyll eventuellt med extra kött.
+7. Stek eller baka kibbeh.
+8. Låt vila kort.
+9. Skär i bitar om den är bakad.
+10. Servera med yoghurt.'
+),
+(
+  (SELECT country_id FROM countries WHERE country_name = 'Pakistan'),
+  'Nötkött eller lamm, lök, vitlök, ingefära, chili, vetemjöl, garam masala, buljong, olja och koriander.',
+  '1. Skär köttet i bitar.
+2. Bryn köttet i olja.
+3. Fräs lök, vitlök och ingefära.
+4. Tillsätt kryddor.
+5. Häll på buljong.
+6. Låt köttet långkoka.
+7. Red såsen med lite mjöl.
+8. Låt grytan tjockna.
+9. Toppa med koriander.
+10. Servera med bröd.'
+),
+(
+  (SELECT country_id FROM countries WHERE country_name = 'Bangladesh'),
+  'Hilsa eller annan fisk, senap, gurkmeja, chili, lök, vitlök, olja, salt, vatten och ris.',
+  '1. Skär fisken i bitar.
+2. Krydda med salt och gurkmeja.
+3. Mixa senap med lite vatten.
+4. Hacka lök och vitlök.
+5. Fräs lök i olja.
+6. Tillsätt senapssåsen.
+7. Lägg i fisken.
+8. Låt sjuda försiktigt.
+9. Smaka av med chili.
+10. Servera med ris.'
+),
+(
+  (SELECT country_id FROM countries WHERE country_name = 'Sri Lanka'),
+  'Ris, kokosmjölk, linser, curryblad, chili, lök, vitlök, gurkmeja, grönsaker och sambal.',
+  '1. Koka riset.
+2. Skölj linserna.
+3. Koka linser med gurkmeja.
+4. Fräs lök, vitlök och curryblad.
+5. Tillsätt kokosmjölk.
+6. Lägg i grönsaker.
+7. Låt curryn sjuda.
+8. Gör eller värm sambal.
+9. Lägg ris på tallrik.
+10. Servera med curry och sambal.'
+),
+(
+  (SELECT country_id FROM countries WHERE country_name = 'Nepal'),
+  'Ris, röda linser, gurkmeja, spiskummin, vitlök, ingefära, lök, grönsaker, salt och koriander.',
+  '1. Koka riset.
+2. Skölj linserna.
+3. Koka linser med gurkmeja.
+4. Hacka lök och vitlök.
+5. Fräs kryddor i olja.
+6. Häll kryddoljan i linserna.
+7. Koka grönsaker enkelt.
+8. Smaka av med salt.
+9. Lägg upp ris och dal.
+10. Servera med grönsaker.'
+),
+(
+  (SELECT country_id FROM countries WHERE country_name = 'Mongoliet'),
+  'Vetemjöl, vatten, nöt- eller lammfärs, lök, vitlök, salt, peppar, olja, soja och buljong.',
+  '1. Blanda mjöl och vatten till deg.
+2. Låt degen vila.
+3. Hacka löken fint.
+4. Blanda kött med lök och kryddor.
+5. Kavla ut små degcirklar.
+6. Lägg fyllning i mitten.
+7. Nyp ihop till dumplings.
+8. Ånga dem tills de är klara.
+9. Låt svalna kort.
+10. Servera med soja.'
+),
+(
+  (SELECT country_id FROM countries WHERE country_name = 'Italien'),
+  'Pizzadeg, tomatsås, mozzarella, basilika, olivolja och salt.',
+  '1. Värm ugnen högt.
+2. Kavla ut pizzadegen.
+3. Bred ut tomatsås.
+4. Lägg på mozzarella.
+5. Ringla över olivolja.
+6. Salta lätt.
+7. Grädda tills kanterna fått färg.
+8. Ta ut pizzan.
+9. Toppa med basilika.
+10. Servera direkt.'
+),
+(
+  (SELECT country_id FROM countries WHERE country_name = 'Frankrike'),
+  'Mjöl, mjölk, ägg, smör, salt, socker, ost eller sylt, grädde, citron och bär.',
+  '1. Vispa mjöl och mjölk slätt.
+2. Tillsätt ägg och lite salt.
+3. Låt smeten vila.
+4. Smält lite smör i en panna.
+5. Häll i ett tunt lager smet.
+6. Stek crêpen på båda sidor.
+7. Upprepa med resten av smeten.
+8. Lägg på valfri fyllning.
+9. Vik ihop crêpen.
+10. Servera varm.'
+),
+(
+  (SELECT country_id FROM countries WHERE country_name = 'Spanien'),
+  'Ris, saffran, kyckling eller skaldjur, paprika, ärtor, tomat, lök, vitlök, buljong och olivolja.',
+  '1. Hacka lök, vitlök och paprika.
+2. Fräs grönsaker i olivolja.
+3. Tillsätt ris och saffran.
+4. Häll på buljong.
+5. Lägg i kyckling eller skaldjur.
+6. Låt paellan sjuda utan att röra för mycket.
+7. Tillsätt ärtor.
+8. Låt riset bli klart.
+9. Vila några minuter.
+10. Servera med citron.'
+),
+(
+  (SELECT country_id FROM countries WHERE country_name = 'Tyskland'),
+  'Nötstek, vinäger, lök, morot, lagerblad, peppar, buljong, socker, mjöl, smör och potatis.',
+  '1. Marinera köttet i vinäger och kryddor.
+2. Låt det stå kallt.
+3. Ta upp och torka köttet.
+4. Bryn köttet i gryta.
+5. Tillsätt marinad och buljong.
+6. Låt köttet sjuda länge.
+7. Sila skyn.
+8. Red såsen med mjöl och smör.
+9. Skär köttet i skivor.
+10. Servera med sås och potatis.'
+),
+(
+  (SELECT country_id FROM countries WHERE country_name = 'Grekland'),
+  'Aubergine, köttfärs, lök, vitlök, tomat, kanel, potatis, mjölk, smör, mjöl och ost.',
+  '1. Skiva aubergine och potatis.
+2. Stek eller baka skivorna lätt.
+3. Fräs lök och köttfärs.
+4. Tillsätt tomat och kanel.
+5. Gör en enkel béchamelsås.
+6. Varva potatis, aubergine och köttsås.
+7. Häll béchamel överst.
+8. Toppa med ost.
+9. Grädda tills ytan fått färg.
+10. Låt vila innan servering.'
+),
+(
+  (SELECT country_id FROM countries WHERE country_name = 'Sverige'),
+  'Köttfärs, ströbröd, mjölk, ägg, lök, salt, peppar, smör, potatis, gräddsås och lingonsylt.',
+  '1. Blanda ströbröd och mjölk.
+2. Hacka löken fint.
+3. Blanda färs, ägg, lök och ströbröd.
+4. Krydda med salt och peppar.
+5. Forma små köttbullar.
+6. Stek dem i smör.
+7. Koka potatis.
+8. Värm gräddsås.
+9. Lägg upp köttbullar med potatis.
+10. Servera med gräddsås och lingonsylt.'
+),
+(
+  (SELECT country_id FROM countries WHERE country_name = 'Norge'),
+  'Fårkött, vitkål, hela pepparkorn, salt, vatten, potatis, smör, persilja, lagerblad och morot.',
+  '1. Skär köttet i bitar.
+2. Skär vitkålen i klyftor.
+3. Varva kött och kål i en gryta.
+4. Krydda med salt och pepparkorn.
+5. Häll på lite vatten.
+6. Lägg i lagerblad.
+7. Låt grytan sjuda långsamt.
+8. Koka potatis vid sidan av.
+9. Smaka av buljongen.
+10. Servera fårikål med potatis.'
+),
+(
+  (SELECT country_id FROM countries WHERE country_name = 'Danmark'),
+  'Rågbröd, smör, sill eller rostbiff, ägg, räkor, majonnäs, gurka, rödlök, dill och citron.',
+  '1. Skär rågbröd i skivor.
+2. Bred på smör.
+3. Lägg på valfritt pålägg.
+4. Skiva ägg och gurka.
+5. Lägg på rödlök.
+6. Toppa med majonnäs eller sås.
+7. Lägg på dill.
+8. Pressa lite citron.
+9. Bygg flera olika smörrebröd.
+10. Servera kalla.'
+),
+(
+  (SELECT country_id FROM countries WHERE country_name = 'Polen'),
+  'Vetemjöl, vatten, ägg, potatis, färskost, lök, smör, salt, peppar, gräddfil och dill.',
+  '1. Blanda mjöl, vatten och ägg till deg.
+2. Låt degen vila.
+3. Koka potatis.
+4. Mosa potatis med ost.
+5. Stek lök i smör.
+6. Kavla ut degen.
+7. Skär ut rundlar.
+8. Fyll och vik ihop pirogerna.
+9. Koka dem tills de flyter upp.
+10. Servera med gräddfil och lök.'
+),
+(
+  (SELECT country_id FROM countries WHERE country_name = 'Portugal'),
+  'Saltad torsk, potatis, lök, vitlök, olivolja, ägg, persilja, oliver, peppar och citron.',
+  '1. Blötlägg torsken om den är saltad.
+2. Koka torsken försiktigt.
+3. Koka potatis.
+4. Skiva lök och vitlök.
+5. Fräs lök i olivolja.
+6. Dela torsken i bitar.
+7. Blanda med potatis och lök.
+8. Lägg i kokt ägg.
+9. Toppa med persilja och oliver.
+10. Servera med citron.'
+),
+(
+  (SELECT country_id FROM countries WHERE country_name = 'Storbritannien'),
+  'Vit fisk, potatis, mjöl, öl eller vatten, bakpulver, salt, peppar, olja, ärtor och citron.',
+  '1. Skär potatis i stavar.
+2. Fritera eller ugnsbaka pommes.
+3. Blanda mjöl, vätska och bakpulver till smet.
+4. Krydda fisken.
+5. Doppa fisken i smeten.
+6. Hetta upp olja.
+7. Fritera fisken gyllene.
+8. Värm ärtor.
+9. Lägg upp fisk och pommes.
+10. Servera med citron.'
+),
+(
+  (SELECT country_id FROM countries WHERE country_name = 'Irland'),
+  'Lammkött, potatis, morötter, lök, selleri, buljong, timjan, salt, peppar och persilja.',
+  '1. Skär köttet i bitar.
+2. Skala potatis och morötter.
+3. Hacka lök och selleri.
+4. Bryn köttet lätt.
+5. Lägg allt i en gryta.
+6. Häll på buljong.
+7. Krydda med timjan.
+8. Låt grytan sjuda långsamt.
+9. Smaka av med salt och peppar.
+10. Toppa med persilja.'
+),
+(
+  (SELECT country_id FROM countries WHERE country_name = 'Nederländerna'),
+  'Potatis, grönkål eller morot, lök, smör, mjölk, salt, peppar, korv, senap och muskot.',
+  '1. Skala potatisen.
+2. Koka potatis med grönsaker.
+3. Värm korven.
+4. Häll av vattnet.
+5. Mosa potatis och grönsaker.
+6. Tillsätt smör och mjölk.
+7. Krydda med salt, peppar och muskot.
+8. Lägg upp moset.
+9. Lägg korven ovanpå.
+10. Servera med senap.'
+),
+(
+  (SELECT country_id FROM countries WHERE country_name = 'Belgien'),
+  'Musslor, potatis, lök, vitlök, selleri, vitt vin eller buljong, smör, persilja, salt och olja.',
+  '1. Skölj musslorna noga.
+2. Skär potatis till pommes.
+3. Tillaga pommes i olja eller ugn.
+4. Hacka lök, vitlök och selleri.
+5. Fräs grönsakerna i smör.
+6. Lägg i musslorna.
+7. Häll på vin eller buljong.
+8. Ånga tills musslorna öppnar sig.
+9. Toppa med persilja.
+10. Servera med pommes.'
+),
+(
+  (SELECT country_id FROM countries WHERE country_name = 'Österrike'),
+  'Kalvkött eller fläsk, mjöl, ägg, ströbröd, salt, peppar, citron, smör, potatis och lingon.',
+  '1. Banka köttet tunt.
+2. Krydda med salt och peppar.
+3. Vänd köttet i mjöl.
+4. Doppa i uppvispat ägg.
+5. Vänd i ströbröd.
+6. Hetta upp smör eller olja.
+7. Stek schnitzeln gyllene.
+8. Koka potatis.
+9. Lägg upp med citron.
+10. Servera med potatis och lingon.'
+),
+(
+  (SELECT country_id FROM countries WHERE country_name = 'Schweiz'),
+  'Gruyère, emmentaler, vitt vin, vitlök, majsstärkelse, citron, peppar, muskot, bröd och potatis.',
+  '1. Riv osten.
+2. Gnid grytan med vitlök.
+3. Värm vin försiktigt.
+4. Rör ner osten lite i taget.
+5. Blanda majsstärkelse med lite vätska.
+6. Rör ner redningen.
+7. Krydda med peppar och muskot.
+8. Skär bröd i bitar.
+9. Håll fonduen varm.
+10. Doppa bröd och potatis i osten.'
+),
+(
+  (SELECT country_id FROM countries WHERE country_name = 'Ungern'),
+  'Nötkött, lök, vitlök, paprika, tomat, potatis, morot, buljong, kummin och olja.',
+  '1. Skär köttet i bitar.
+2. Hacka lök och vitlök.
+3. Fräs löken i olja.
+4. Tillsätt paprika och kummin.
+5. Lägg i köttet.
+6. Tillsätt tomat och buljong.
+7. Låt köttet sjuda.
+8. Lägg i potatis och morot.
+9. Koka tills allt är mjukt.
+10. Servera varmt.'
+),
+(
+  (SELECT country_id FROM countries WHERE country_name = 'Tjeckien'),
+  'Nötkött, morot, selleri, lök, grädde, buljong, lagerblad, citron, mjöl och knödel.',
+  '1. Bryn köttet lätt.
+2. Hacka rotfrukter och lök.
+3. Fräs grönsakerna.
+4. Lägg kött och grönsaker i gryta.
+5. Häll på buljong.
+6. Lägg i lagerblad.
+7. Låt köttet sjuda mjukt.
+8. Mixa såsen med grädde.
+9. Smaka av med citron.
+10. Servera med knödel.'
+),
+(
+  (SELECT country_id FROM countries WHERE country_name = 'Ukraina'),
+  'Rödbetor, potatis, morot, vitkål, lök, vitlök, tomatpuré, buljong, gräddfil och dill.',
+  '1. Skala och riv rödbetor.
+2. Hacka lök och vitlök.
+3. Skär potatis och morot.
+4. Fräs lök och tomatpuré.
+5. Häll på buljong.
+6. Lägg i rödbetor och grönsaker.
+7. Koka tills allt är mjukt.
+8. Smaka av med salt.
+9. Lägg upp soppan.
+10. Servera med gräddfil och dill.'
+),
+(
+  (SELECT country_id FROM countries WHERE country_name = 'Rumänien'),
+  'Kålblad, blandfärs, ris, lök, tomatpuré, dill, salt, peppar, buljong, gräddfil och lagerblad.',
+  '1. Förväll kålbladen.
+2. Hacka löken.
+3. Blanda färs, ris, lök och kryddor.
+4. Lägg fyllning i varje kålblad.
+5. Rulla ihop dolmarna.
+6. Lägg dem i en gryta.
+7. Tillsätt tomatpuré och buljong.
+8. Låt sjuda långsamt.
+9. Kontrollera att riset är mjukt.
+10. Servera med gräddfil.'
+),
+(
+  (SELECT country_id FROM countries WHERE country_name = 'USA'),
+  'Hamburgerbröd, nötfärs, ost, sallad, tomat, lök, salt, peppar, ketchup och dressing.',
+  '1. Forma färsen till burgare.
+2. Krydda med salt och peppar.
+3. Stek eller grilla burgarna.
+4. Lägg på ost mot slutet.
+5. Rosta bröden lätt.
+6. Skiva sallad, tomat och lök.
+7. Bred dressing på bröden.
+8. Lägg i burgaren.
+9. Toppa med grönsaker.
+10. Servera med valfritt tillbehör.'
+),
+(
+  (SELECT country_id FROM countries WHERE country_name = 'Kanada'),
+  'Pommes frites, ostmassa, brun sås, smör, mjöl, buljong, peppar, salt, persilja och olja.',
+  '1. Tillaga pommes frites.
+2. Smält smör i en kastrull.
+3. Rör ner mjöl.
+4. Häll på buljong.
+5. Vispa till en brun sås.
+6. Smaka av med salt och peppar.
+7. Lägg pommes på ett fat.
+8. Strö över ostmassa.
+9. Häll varm sås över.
+10. Servera direkt.'
+),
+(
+  (SELECT country_id FROM countries WHERE country_name = 'Mexiko'),
+  'Tortillas, kött eller bönor, lök, vitlök, chili, tomat, koriander, lime, sallad och salsa.',
+  '1. Förbered fyllningen.
+2. Hacka lök och vitlök.
+3. Stek kött eller värm bönor.
+4. Krydda med chili och salt.
+5. Värm tortillorna.
+6. Hacka tomat och koriander.
+7. Lägg fyllning i tortillan.
+8. Toppa med grönsaker.
+9. Pressa över lime.
+10. Servera med salsa.'
+),
+(
+  (SELECT country_id FROM countries WHERE country_name = 'Kuba'),
+  'Nötkött, lök, paprika, vitlök, tomat, buljong, spiskummin, lagerblad, oliver och ris.',
+  '1. Koka köttet tills det är mört.
+2. Strimla köttet.
+3. Hacka lök, paprika och vitlök.
+4. Fräs grönsakerna.
+5. Tillsätt tomat och kryddor.
+6. Lägg i köttet.
+7. Häll på lite buljong.
+8. Låt såsen koka ihop.
+9. Smaka av med salt.
+10. Servera med ris.'
+),
+(
+  (SELECT country_id FROM countries WHERE country_name = 'Jamaica'),
+  'Kyckling, salladslök, vitlök, chili, kryddpeppar, timjan, soja, lime, socker och olja.',
+  '1. Mixa kryddor, lök, chili och lime.
+2. Gnid in kycklingen med marinaden.
+3. Låt kycklingen vila.
+4. Hetta upp grill eller ugn.
+5. Lägg kycklingen på värme.
+6. Vänd flera gånger.
+7. Pensla med marinad.
+8. Tillaga tills kycklingen är klar.
+9. Låt vila kort.
+10. Servera med ris eller sallad.'
+),
+(
+  (SELECT country_id FROM countries WHERE country_name = 'Haiti'),
+  'Fläskkött, apelsin eller lime, vitlök, chili, timjan, salt, peppar, olja, pikliz och ris.',
+  '1. Skär fläskköttet i bitar.
+2. Marinera med citrus och kryddor.
+3. Koka köttet tills det mjuknar.
+4. Ta upp köttet.
+5. Hetta upp olja.
+6. Stek eller fritera köttet krispigt.
+7. Låt rinna av.
+8. Förbered pikliz.
+9. Lägg upp köttet.
+10. Servera med ris och pikliz.'
+),
+(
+  (SELECT country_id FROM countries WHERE country_name = 'Dominikanska republiken'),
+  'Ris, bönor, kyckling eller nötkött, lök, vitlök, paprika, tomat, oregano, olja och sallad.',
+  '1. Koka riset.
+2. Koka eller värm bönor.
+3. Krydda köttet.
+4. Bryn köttet i olja.
+5. Hacka lök, vitlök och paprika.
+6. Fräs grönsakerna.
+7. Tillsätt tomat och oregano.
+8. Låt köttet sjuda i såsen.
+9. Lägg upp ris, bönor och kött.
+10. Servera med sallad.'
+),
+(
+  (SELECT country_id FROM countries WHERE country_name = 'Guatemala'),
+  'Kyckling, tomat, tomatillo, pumpafrön, sesamfrön, chili, lök, vitlök, potatis och ris.',
+  '1. Rosta frön och chili.
+2. Koka tomat och tomatillo.
+3. Mixa till en sås.
+4. Bryn kycklingen.
+5. Hacka lök och vitlök.
+6. Fräs lök och tillsätt såsen.
+7. Lägg i kycklingen.
+8. Tillsätt potatis.
+9. Låt grytan sjuda.
+10. Servera med ris.'
+),
+(
+  (SELECT country_id FROM countries WHERE country_name = 'Honduras'),
+  'Mjöltortillas, refried beans, ost, gräddfil, ägg, avokado, salt, peppar, lök och koriander.',
+  '1. Värm tortillorna.
+2. Värm bönorna.
+3. Bred bönor på tortillan.
+4. Strö över ost.
+5. Lägg på gräddfil.
+6. Stek ägg om du vill.
+7. Skiva avokado.
+8. Lägg på extra topping.
+9. Vik tortillan.
+10. Servera varm.'
+),
+(
+  (SELECT country_id FROM countries WHERE country_name = 'El Salvador'),
+  'Masa harina, vatten, salt, ost, bönor, fläsk eller grönsaker, olja, vitkål, vinäger och chili.',
+  '1. Blanda masa harina med vatten och salt.
+2. Knåda till en mjuk deg.
+3. Förbered fyllningen.
+4. Forma små degbollar.
+5. Fyll med ost eller bönor.
+6. Platta till försiktigt.
+7. Stek på het panna.
+8. Vänd tills båda sidor fått färg.
+9. Gör enkel kålsallad.
+10. Servera med kålsallad och sås.'
+),
+(
+  (SELECT country_id FROM countries WHERE country_name = 'Nicaragua'),
+  'Ris, svarta eller röda bönor, lök, paprika, vitlök, olja, salt, peppar, koriander och ägg.',
+  '1. Koka riset.
+2. Koka eller värm bönorna.
+3. Hacka lök, paprika och vitlök.
+4. Fräs grönsakerna i olja.
+5. Tillsätt bönorna.
+6. Lägg i riset.
+7. Rör ihop allt.
+8. Smaka av med salt.
+9. Toppa med koriander.
+10. Servera gärna med ägg.'
+),
+(
+  (SELECT country_id FROM countries WHERE country_name = 'Costa Rica'),
+  'Ris, bönor, kött eller fisk, sallad, matbanan, ägg, lök, vitlök, tomat och koriander.',
+  '1. Koka riset.
+2. Värm bönorna.
+3. Krydda kött eller fisk.
+4. Stek proteinet.
+5. Stek matbanan.
+6. Gör en enkel sallad.
+7. Stek ägg om du vill.
+8. Lägg ris och bönor på tallrik.
+9. Lägg på protein och tillbehör.
+10. Servera som en komplett tallrik.'
+),
+(
+  (SELECT country_id FROM countries WHERE country_name = 'Panama'),
+  'Kyckling, yuca eller potatis, majs, lök, vitlök, koriander, oregano, salt, peppar och buljong.',
+  '1. Lägg kyckling i en gryta.
+2. Häll på vatten eller buljong.
+3. Tillsätt lök och vitlök.
+4. Koka kycklingen.
+5. Lägg i yuca eller potatis.
+6. Tillsätt majs.
+7. Krydda med oregano.
+8. Låt soppan sjuda.
+9. Toppa med koriander.
+10. Servera varm.'
+),
+(
+  (SELECT country_id FROM countries WHERE country_name = 'Bahamas'),
+  'Snäcka eller skaldjur, lime, apelsin, tomat, paprika, lök, chili, salt, peppar och koriander.',
+  '1. Skär snäckan i små bitar.
+2. Pressa lime och apelsin.
+3. Hacka tomat, paprika och lök.
+4. Blanda allt i en skål.
+5. Tillsätt chili.
+6. Krydda med salt och peppar.
+7. Låt salladen vila kallt.
+8. Rör om före servering.
+9. Toppa med koriander.
+10. Servera friskt och kallt.'
+),
+(
+  (SELECT country_id FROM countries WHERE country_name = 'Barbados'),
+  'Majsmjöl, okra, vatten, smör, flygfisk eller vit fisk, lime, lök, vitlök, tomat och kryddor.',
+  '1. Koka okra i vatten.
+2. Rör ner majsmjöl.
+3. Tillsätt smör och salt.
+4. Rör tills cou-cou blir fast.
+5. Krydda fisken med lime.
+6. Fräs lök och vitlök.
+7. Lägg i tomat och kryddor.
+8. Lägg fisken i såsen.
+9. Låt fisken bli klar.
+10. Servera fisk med cou-cou.'
+),
+(
+  (SELECT country_id FROM countries WHERE country_name = 'Trinidad och Tobago'),
+  'Mjöl, bakpulver, kikärtor, curry, vitlök, chili, spiskummin, olja, salt och tamarindsås.',
+  '1. Blanda mjöl, bakpulver och vatten.
+2. Låt degen vila.
+3. Koka eller värm kikärtor.
+4. Fräs curry, vitlök och chili.
+5. Lägg i kikärtorna.
+6. Forma små bröd av degen.
+7. Fritera bröden.
+8. Fyll med kikärtor.
+9. Ringla över sås.
+10. Servera varmt.'
+),
+(
+  (SELECT country_id FROM countries WHERE country_name = 'Belize'),
+  'Ris, röda bönor, kokosmjölk, lök, vitlök, timjan, salt, peppar, kyckling och sallad.',
+  '1. Skölj ris och bönor.
+2. Koka bönorna nästan mjuka.
+3. Tillsätt kokosmjölk.
+4. Lägg i riset.
+5. Krydda med timjan.
+6. Låt ris och bönor koka klart.
+7. Stek eller grilla kyckling.
+8. Gör en enkel sallad.
+9. Lägg upp ris och bönor.
+10. Servera med kyckling.'
+),
+(
+  (SELECT country_id FROM countries WHERE country_name = 'Grenada'),
+  'Brödfrukt, kokosmjölk, kyckling eller fisk, callaloo eller spenat, morot, lök, vitlök, gurkmeja, salt och peppar.',
+  '1. Skala och skär brödfrukt.
+2. Hacka lök och vitlök.
+3. Lägg brödfrukt i en gryta.
+4. Tillsätt kokosmjölk.
+5. Lägg i kött eller fisk.
+6. Lägg i grönsaker.
+7. Krydda med gurkmeja.
+8. Låt grytan sjuda.
+9. Rör försiktigt.
+10. Servera när allt är mjukt.'
+),
+(
+  (SELECT country_id FROM countries WHERE country_name = 'Saint Lucia'),
+  'Gröna bananer, saltfisk, lök, vitlök, paprika, tomat, olja, timjan, peppar och lime.',
+  '1. Blötlägg saltfisken om den är mycket salt.
+2. Koka gröna bananer.
+3. Koka saltfisken kort.
+4. Dela fisken i bitar.
+5. Hacka lök, vitlök och paprika.
+6. Fräs grönsaker i olja.
+7. Lägg i saltfisken.
+8. Tillsätt tomat och timjan.
+9. Smaka av med lime.
+10. Servera med bananerna.'
+),
+(
+  (SELECT country_id FROM countries WHERE country_name = 'Dominica'),
+  'Callaloo eller spenat, kokosmjölk, lök, vitlök, chili, krabba eller kött, salt, peppar, timjan och vatten.',
+  '1. Skölj bladen.
+2. Hacka lök och vitlök.
+3. Fräs lök och kryddor.
+4. Lägg i bladen.
+5. Häll på kokosmjölk.
+6. Tillsätt krabba eller kött.
+7. Låt soppan sjuda.
+8. Mixa lätt om du vill.
+9. Smaka av med salt.
+10. Servera varm.'
+),
+(
+  (SELECT country_id FROM countries WHERE country_name = 'Argentina'),
+  'Nötkött, salt, peppar, chimichurri, persilja, vitlök, vinäger, olja, potatis och sallad.',
+  '1. Salta köttet ordentligt.
+2. Låt köttet vila kort.
+3. Förbered grillen.
+4. Grilla köttet långsamt.
+5. Vänd när det fått fin yta.
+6. Blanda chimichurri.
+7. Koka eller rosta potatis.
+8. Låt köttet vila.
+9. Skär upp köttet.
+10. Servera med chimichurri.'
+),
+(
+  (SELECT country_id FROM countries WHERE country_name = 'Bolivia'),
+  'Vetemjöl, smör, köttfärs, potatis, ägg, oliver, lök, chili, buljong och kryddor.',
+  '1. Gör en enkel deg med mjöl och smör.
+2. Koka potatis och ägg.
+3. Fräs lök och köttfärs.
+4. Tillsätt chili och buljong.
+5. Blanda ner potatis och oliver.
+6. Låt fyllningen svalna.
+7. Kavla ut degen.
+8. Fyll och vik ihop.
+9. Grädda tills de är gyllene.
+10. Servera varma.'
+),
+(
+  (SELECT country_id FROM countries WHERE country_name = 'Brasilien'),
+  'Svarta bönor, fläsk eller nötkött, korv, lök, vitlök, lagerblad, ris, apelsin, salt och peppar.',
+  '1. Blötlägg bönorna.
+2. Koka bönorna med lagerblad.
+3. Skär kött och korv.
+4. Bryn köttet.
+5. Fräs lök och vitlök.
+6. Lägg allt i bönorna.
+7. Låt grytan sjuda länge.
+8. Koka ris.
+9. Skiva apelsin.
+10. Servera feijoada med ris.'
+),
+(
+  (SELECT country_id FROM countries WHERE country_name = 'Chile'),
+  'Majs, köttfärs, kyckling, lök, ägg, oliver, mjölk, basilika, salt och peppar.',
+  '1. Mixa majs med lite mjölk.
+2. Hacka lök.
+3. Fräs lök och köttfärs.
+4. Krydda med salt och peppar.
+5. Koka ägg.
+6. Lägg köttfärs i en form.
+7. Lägg på kyckling, ägg och oliver.
+8. Bred majsblandningen över.
+9. Grädda tills ytan fått färg.
+10. Servera varm.'
+),
+(
+  (SELECT country_id FROM countries WHERE country_name = 'Colombia'),
+  'Bönor, ris, köttfärs, chicharrón eller bacon, ägg, avokado, matbanan, lök, tomat och koriander.',
+  '1. Koka bönorna.
+2. Koka riset.
+3. Stek köttfärs.
+4. Stek bacon eller chicharrón.
+5. Stek ägg.
+6. Stek matbanan.
+7. Hacka tomat och lök.
+8. Skiva avokado.
+9. Lägg allt på en stor tallrik.
+10. Servera direkt.'
+),
+(
+  (SELECT country_id FROM countries WHERE country_name = 'Ecuador'),
+  'Tonfisk eller annan fisk, yuca, rödlök, tomat, koriander, lime, spiskummin, salt, peppar och buljong.',
+  '1. Koka yuca mjuk.
+2. Koka fisken i buljong.
+3. Ta upp och dela fisken.
+4. Mixa lite yuca i buljongen.
+5. Skiva rödlök.
+6. Hacka tomat och koriander.
+7. Lägg tillbaka fisken.
+8. Smaka av med lime.
+9. Toppa med lök och tomat.
+10. Servera varm.'
+),
+(
+  (SELECT country_id FROM countries WHERE country_name = 'Guyana'),
+  'Nötkött eller fläsk, cassareep eller mörk sås, kanel, kryddnejlika, lök, vitlök, chili, salt, peppar och bröd.',
+  '1. Skär köttet i bitar.
+2. Hacka lök och vitlök.
+3. Bryn köttet.
+4. Tillsätt cassareep eller mörk sås.
+5. Lägg i kryddor.
+6. Häll på vatten.
+7. Låt grytan sjuda länge.
+8. Rör då och då.
+9. Smaka av med chili.
+10. Servera med bröd.'
+),
+(
+  (SELECT country_id FROM countries WHERE country_name = 'Paraguay'),
+  'Majsmjöl, lök, ost, ägg, mjölk, smör, salt, peppar, olja och färska örter.',
+  '1. Hacka löken.
+2. Fräs löken mjuk i smör.
+3. Blanda majsmjöl och mjölk.
+4. Tillsätt ägg.
+5. Smula ner ost.
+6. Blanda i löken.
+7. Krydda med salt och peppar.
+8. Häll i en form.
+9. Grädda tills kakan är fast.
+10. Servera i bitar.'
+),
+(
+  (SELECT country_id FROM countries WHERE country_name = 'Peru'),
+  'Vit fisk, lime, rödlök, chili, koriander, salt, peppar, sötpotatis, majs och sallad.',
+  '1. Skär fisken i små bitar.
+2. Pressa lime över fisken.
+3. Skiva rödlök tunt.
+4. Hacka chili och koriander.
+5. Blanda allt försiktigt.
+6. Låt stå kallt kort.
+7. Koka sötpotatis.
+8. Koka majs.
+9. Smaka av med salt.
+10. Servera ceviche med tillbehör.'
+),
+(
+  (SELECT country_id FROM countries WHERE country_name = 'Surinam'),
+  'Kyckling, pomtajer eller rotfrukt, citrusjuice, lök, vitlök, tomat, selleri, smör, salt och peppar.',
+  '1. Riv eller hacka rotfrukten.
+2. Krydda kycklingen.
+3. Hacka lök och vitlök.
+4. Fräs kyckling och lök.
+5. Tillsätt tomat och citrusjuice.
+6. Blanda med rotfrukten.
+7. Lägg allt i en form.
+8. Klicka över smör.
+9. Grädda tills rätten är fast.
+10. Servera varm.'
+),
+(
+  (SELECT country_id FROM countries WHERE country_name = 'Uruguay'),
+  'Bröd, nötkött, skinka, ost, ägg, sallad, tomat, majonnäs, bacon och salt.',
+  '1. Stek nötköttet tunt.
+2. Stek ägget.
+3. Rosta brödet.
+4. Bred majonnäs på brödet.
+5. Lägg på sallad och tomat.
+6. Lägg på kött.
+7. Lägg på skinka och ost.
+8. Toppa med ägg och bacon.
+9. Lägg på locket.
+10. Servera som smörgås.'
+),
+(
+  (SELECT country_id FROM countries WHERE country_name = 'Venezuela'),
+  'Ris, svarta bönor, nötkött, tomat, lök, vitlök, paprika, matbanan, salt och peppar.',
+  '1. Koka riset.
+2. Koka svarta bönor.
+3. Koka nötkött tills det går att strimla.
+4. Strimla köttet.
+5. Fräs lök, vitlök och paprika.
+6. Tillsätt tomat och kött.
+7. Stek matbanan.
+8. Smaka av bönorna.
+9. Lägg upp ris, bönor, kött och banan.
+10. Servera varmt.'
+),
+(
+  (SELECT country_id FROM countries WHERE country_name = 'Australien'),
+  'Pajdeg, nötfärs, lök, vitlök, buljong, worcestersås, mjöl, smör, salt och peppar.',
+  '1. Hacka lök och vitlök.
+2. Bryn färsen.
+3. Tillsätt lök och vitlök.
+4. Häll på buljong och sås.
+5. Red med lite mjöl.
+6. Låt fyllningen tjockna.
+7. Lägg pajdeg i formar.
+8. Fyll med köttfärs.
+9. Lägg deglock ovanpå.
+10. Grädda tills pajerna är gyllene.'
+),
+(
+  (SELECT country_id FROM countries WHERE country_name = 'Nya Zeeland'),
+  'Lamm eller kyckling, potatis, morötter, pumpa, kål, salt, peppar, örter, vatten och folie.',
+  '1. Skär kött och grönsaker i bitar.
+2. Krydda med salt och örter.
+3. Lägg allt i foliepaket eller gryta.
+4. Tillsätt lite vatten.
+5. Förslut paketet.
+6. Tillaga långsamt i ugn.
+7. Kontrollera att köttet är mört.
+8. Låt vila kort.
+9. Lägg upp grönsaker och kött.
+10. Servera varmt.'
+),
+(
+  (SELECT country_id FROM countries WHERE country_name = 'Fiji'),
+  'Vit fisk, lime, kokosmjölk, lök, tomat, gurka, chili, salt, peppar och koriander.',
+  '1. Skär fisken i små bitar.
+2. Pressa lime över fisken.
+3. Låt fisken marineras kallt.
+4. Hacka lök, tomat och gurka.
+5. Häll av lite lime om det behövs.
+6. Blanda i kokosmjölk.
+7. Tillsätt grönsaker.
+8. Krydda med salt och peppar.
+9. Toppa med koriander.
+10. Servera kallt.'
+),
+(
+  (SELECT country_id FROM countries WHERE country_name = 'Papua Nya Guinea'),
+  'Kyckling eller fläsk, sötpotatis, taro, bananblad eller folie, kokosmjölk, lök, salt, peppar, gröna blad och vatten.',
+  '1. Skär kött och rotfrukter.
+2. Krydda med salt och peppar.
+3. Lägg blad eller folie i en form.
+4. Lägg i kött och grönsaker.
+5. Häll över kokosmjölk.
+6. Täck ordentligt.
+7. Tillaga långsamt i ugn.
+8. Kontrollera att rotfrukterna är mjuka.
+9. Låt vila kort.
+10. Servera direkt.'
+),
+(
+  (SELECT country_id FROM countries WHERE country_name = 'Samoa'),
+  'Taroblad eller spenat, kokosgrädde, lök, vitlök, salt, peppar, corned beef eller fisk, folie, citron och ris.',
+  '1. Skölj bladen.
+2. Hacka lök och vitlök.
+3. Blanda kokosgrädde med lök.
+4. Krydda med salt och peppar.
+5. Lägg fyllning i bladen.
+6. Vik ihop till paket.
+7. Slå in i folie.
+8. Baka tills bladen är mjuka.
+9. Pressa över lite citron.
+10. Servera med ris.'
+),
+(
+  (SELECT country_id FROM countries WHERE country_name = 'Tonga'),
+  'Taroblad eller spenat, kokosmjölk, corned beef, lök, vitlök, salt, peppar, folie, citron och ris.',
+  '1. Skölj tarobladen.
+2. Hacka lök och vitlök.
+3. Blanda kokosmjölk med lök.
+4. Lägg corned beef på bladen.
+5. Häll över kokosblandningen.
+6. Vik ihop bladen.
+7. Slå in i folie.
+8. Baka tills allt är varmt.
+9. Låt vila kort.
+10. Servera med ris.'
+),
+(
+  (SELECT country_id FROM countries WHERE country_name = 'Vanuatu'),
+  'Riven kassava eller taro, kokosmjölk, kyckling eller fisk, lök, salt, peppar, bananblad eller folie, spenat och citron.',
+  '1. Riv rotfrukten.
+2. Hacka lök.
+3. Blanda rotfrukt med kokosmjölk.
+4. Krydda med salt och peppar.
+5. Lägg blandningen i blad eller folie.
+6. Lägg på kyckling eller fisk.
+7. Täck med mer rotfrukt.
+8. Baka långsamt i ugn.
+9. Låt vila.
+10. Servera med citron.'
+),
+(
+  (SELECT country_id FROM countries WHERE country_name = 'Salomonöarna'),
+  'Taro eller annan rotfrukt, kokosmjölk, salt, vatten, fisk, lök, citron, peppar, gröna blad och olja.',
+  '1. Skala rotfrukten.
+2. Koka den mjuk.
+3. Mosa rotfrukten.
+4. Blanda med kokosmjölk.
+5. Krydda med salt.
+6. Krydda fisken med citron.
+7. Stek eller grilla fisken.
+8. Fräs gröna blad lätt.
+9. Lägg upp poi med fisk.
+10. Servera varmt.'
+),
+(
+  (SELECT country_id FROM countries WHERE country_name = 'Kiribati'),
+  'Taroblad eller spenat, kokosgrädde, lök, fisk eller corned beef, salt, peppar, folie, citron, ris och chili.',
+  '1. Skölj bladen.
+2. Hacka löken.
+3. Blanda kokosgrädde med salt.
+4. Lägg blad i folie.
+5. Lägg på fisk eller corned beef.
+6. Häll över kokosgrädde.
+7. Vik ihop paketet.
+8. Baka tills bladen är mjuka.
+9. Smaka av med citron.
+10. Servera med ris.'
+),
+(
+  (SELECT country_id FROM countries WHERE country_name = 'Mikronesien'),
+  'Kyckling eller fisk, citron eller lime, kokos, salladslök, chili, salt, peppar, lök, koriander och ris.',
+  '1. Skär kött eller fisk i små bitar.
+2. Marinera med citrus.
+3. Riv eller tillsätt kokos.
+4. Hacka salladslök och chili.
+5. Blanda allt i en skål.
+6. Krydda med salt och peppar.
+7. Låt vila kallt.
+8. Koka ris.
+9. Toppa med koriander.
+10. Servera med ris.'
+),
+(
+  (SELECT country_id FROM countries WHERE country_name = 'Marshallöarna'),
+  'Vit fisk, kokosmjölk, lime, lök, vitlök, salt, peppar, ris, gröna blad och chili.',
+  '1. Krydda fisken med salt och lime.
+2. Hacka lök och vitlök.
+3. Fräs löken lätt.
+4. Lägg fisken i en form.
+5. Häll över kokosmjölk.
+6. Tillsätt chili om du vill.
+7. Baka tills fisken är klar.
+8. Koka ris.
+9. Lägg upp fisken med sås.
+10. Servera med ris och grönt.'
+),
+(
+  (SELECT country_id FROM countries WHERE country_name = 'Palau'),
+  'Kyckling, ingefära, vitlök, lök, grön papaya eller grönsaker, buljong, salt, peppar, ris och salladslök.',
+  '1. Skär kycklingen i bitar.
+2. Hacka ingefära och vitlök.
+3. Fräs lök, vitlök och ingefära.
+4. Lägg i kycklingen.
+5. Häll på buljong.
+6. Lägg i papaya eller grönsaker.
+7. Låt soppan sjuda.
+8. Smaka av med salt.
+9. Toppa med salladslök.
+10. Servera med ris.'
+),
+(
+  (SELECT country_id FROM countries WHERE country_name = 'Nauru'),
+  'Vit fisk, kokosmjölk, lime, vitlök, lök, salt, peppar, chili, ris och koriander.',
+  '1. Skär fisken i portionsbitar.
+2. Krydda med salt och lime.
+3. Hacka lök och vitlök.
+4. Lägg fisken i en form.
+5. Häll över kokosmjölk.
+6. Tillsätt lök och chili.
+7. Baka tills fisken är klar.
+8. Koka ris.
+9. Toppa fisken med koriander.
+10. Servera med ris.'
+),
+(
+  (SELECT country_id FROM countries WHERE country_name = 'Tuvalu'),
+  'Pulaka eller taro, kokosmjölk, fisk, lök, salt, peppar, gröna blad, citron, vatten och chili.',
+  '1. Skala pulaka eller taro.
+2. Skär i bitar.
+3. Koka rotfrukten mjuk.
+4. Krydda fisken.
+5. Baka eller stek fisken.
+6. Värm kokosmjölk med lök.
+7. Lägg rotfrukten i såsen.
+8. Lägg till gröna blad.
+9. Smaka av med citron.
+10. Servera med fisken.'
+);
 

@@ -12,6 +12,7 @@ public class AppDbContext : DbContext
     public DbSet<User> Users => Set<User>();
     public DbSet<AuthToken> AuthTokens => Set<AuthToken>();
     public DbSet<QuizScore> QuizScores => Set<QuizScore>();
+    public DbSet<Recipe> Recipes => Set<Recipe>();
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
@@ -19,6 +20,8 @@ public class AppDbContext : DbContext
         modelBuilder.Entity<Dish>().ToTable("dishes");
         modelBuilder.Entity<User>().ToTable("users");
         modelBuilder.Entity<AuthToken>().ToTable("auth_tokens");
+        modelBuilder.Entity<QuizScore>().ToTable("quiz_scores");
+        modelBuilder.Entity<Recipe>().ToTable("recipes");
 
         modelBuilder.Entity<Country>().Property(c => c.CountryId).HasColumnName("country_id");
         modelBuilder.Entity<Country>().Property(c => c.CountryName).HasColumnName("country_name");
@@ -51,7 +54,6 @@ public class AppDbContext : DbContext
             .HasForeignKey(t => t.UserId)
             .OnDelete(DeleteBehavior.Cascade);
 
-        modelBuilder.Entity<QuizScore>().ToTable("quiz_scores");
         modelBuilder.Entity<QuizScore>().Property(s => s.Id).HasColumnName("id");
         modelBuilder.Entity<QuizScore>().Property(s => s.UserId).HasColumnName("user_id");
         modelBuilder.Entity<QuizScore>().Property(s => s.Score).HasColumnName("score");
@@ -63,5 +65,10 @@ public class AppDbContext : DbContext
             .WithMany()
             .HasForeignKey(s => s.UserId)
             .OnDelete(DeleteBehavior.Cascade);
+
+        modelBuilder.Entity<Recipe>().Property(r => r.RecipeId).HasColumnName("recipe_id");
+        modelBuilder.Entity<Recipe>().Property(r => r.CountryId).HasColumnName("country_id");
+        modelBuilder.Entity<Recipe>().Property(r => r.Ingredients).HasColumnName("ingredients");
+        modelBuilder.Entity<Recipe>().Property(r => r.Steps).HasColumnName("steps");
     }
 }

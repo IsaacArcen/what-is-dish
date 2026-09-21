@@ -8,6 +8,11 @@
 .card {
   width: 100%;
   max-width: 520px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-card);
+  padding: 32px;
 }
 
 .topRow {
@@ -62,7 +67,7 @@
   height: 110px;
   object-fit: cover;
   border-radius: 10px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+  box-shadow: 0 2px 8px rgba(27, 42, 74, 0.15);
 }
 
 .countryName {
@@ -110,7 +115,8 @@
 }
 
 .hintBox {
-  background: #f5efe0;
+  background: var(--bg);
+  border: 1px solid var(--border);
   border-radius: 10px;
   padding: 16px;
   margin-bottom: 20px;
@@ -141,7 +147,7 @@
   text-align: center;
   font-size: 14px;
   font-weight: 700;
-  color: #3a7a3a;
+  color: var(--green);
   margin-bottom: 20px;
 }
 
