@@ -6,6 +6,7 @@ import AuthPage from "./pages/AuthPage";
 import BloggPage from "./pages/BloggPage";
 import HomePage from "./pages/HomePage";
 import ProfilePage from "./pages/ProfilePage";
+import ProfileSettingsPage from "./pages/ProfileSettingsPage";
 import QuizOverviewPage from "./pages/QuizOverviewPage";
 import QuizPlay from "./pages/QuizPlay";
 import QuizSettings from "./pages/QuizSettings";
@@ -22,6 +23,7 @@ function App() {
           <Route path="/blogg" element={<BloggPage />} />
           <Route path="/auth" element={<AuthPage />} />
           <Route path="/profile" element={<ProfilePage />} />
+          <Route path="/settings" element={<ProfileSettingsPage />} />
           <Route path="/quiz/summary" element={<QuizOverviewPage />} />
           <Route path="/quiz/matchning" element={<MatchningsQuizPage />} />
         </Routes>
