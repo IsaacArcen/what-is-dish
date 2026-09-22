@@ -83,7 +83,7 @@ export default function BloggPage() {
     <main className={styles.main}>
       <div className={styles.pageCard}>
         <section className={styles.hero}>
-          <h1 className={styles.title}>Mat blogg</h1>
+          <h1 className={styles.title}>Matblogg</h1>
           <p className={styles.subtitle}>
             {filteredDishes.length} länder - nationella rätter och recept
           </p>
