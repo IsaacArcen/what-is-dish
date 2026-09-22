@@ -7,7 +7,7 @@
   justify-content: center;
   width: 100%;
   margin: 0 auto;
-  padding: 64px 24px 80px;
+  padding: 48px 24px 80px;
 }
 
 .main::before {
@@ -16,20 +16,24 @@
   inset: 18px 8% 36px;
   border-radius: 40px;
   background:
-    radial-gradient(circle at 15% 20%, rgba(232, 129, 26, 0.14), transparent 28%),
+    radial-gradient(
+      circle at 15% 20%,
+      rgba(232, 129, 26, 0.14),
+      transparent 28%
+    ),
     radial-gradient(circle at 85% 78%, rgba(139, 28, 28, 0.1), transparent 30%);
-  content: '';
+  content: "";
 }
 
 .card {
   width: min(100%, 760px);
   margin: 0;
-  padding: 42px;
-  border: 1px solid rgba(27, 42, 74, 0.12);
+  padding: 40px;
+  border: 1px solid var(--border);
   border-top: 5px solid var(--orange);
-  border-radius: 18px;
-  background: rgba(250, 246, 238, 0.94);
-  box-shadow: 0 24px 60px rgba(27, 42, 74, 0.14);
+  border-radius: var(--radius);
+  background: var(--surface);
+  box-shadow: var(--shadow-card);
 }
 
 .backLink {
@@ -49,6 +53,7 @@
 .title {
   max-width: 620px;
   font-size: clamp(28px, 4vw, 40px);
+  color: var(--navy);
   letter-spacing: -0.5px;
   margin-bottom: 10px;
   line-height: 1.05;
@@ -61,7 +66,7 @@
 
 .settingsSection {
   padding-top: 24px;
-  border-top: 1px solid rgba(27, 42, 74, 0.15);
+  border-top: 1px solid var(--border);
   margin-bottom: 24px;
 }
 
@@ -71,12 +76,17 @@
 }
 
 .dangerSection {
-  border-top: 1px solid rgba(139, 28, 28, 0.25);
+  border-top: 1px solid var(--red);
 }
 
 .sectionTitle {
   font-size: 20px;
+  color: var(--navy);
   margin-bottom: 16px;
+}
+
+.dangerSection .sectionTitle {
+  color: var(--red);
 }
 
 .settingsForm {
@@ -95,18 +105,19 @@
 }
 
 .input {
-  border: 1px solid rgba(27, 42, 74, 0.2);
-  border-radius: 10px;
-  background: #fff9f0;
+  border: 2px solid var(--border);
+  border-radius: 8px;
+  background: var(--bg);
   color: var(--navy);
   font-size: 15px;
   font-weight: 400;
   padding: 11px;
+  outline: none;
+  transition: border-color 0.15s;
 }
 
 .input:focus-visible {
-  border-color: var(--orange);
-  outline: none;
+  border-color: var(--red);
 }
 
 .confirmLabel {
@@ -115,6 +126,10 @@
   gap: 8px;
   color: var(--navy);
   font-size: 14px;
+}
+
+.confirmLabel input {
+  accent-color: var(--red);
 }
 
 .formMessage {
@@ -133,17 +148,22 @@
 .deleteBtn {
   align-self: flex-start;
   border: none;
-  border-radius: 10px;
+  border-radius: 8px;
   padding: 12px 22px;
   font-weight: 800;
   font-size: 14px;
   cursor: pointer;
   text-decoration: none;
+  transition: background 0.15s;
 }
 
 .primaryBtn {
-  background: var(--orange);
+  background: var(--red);
   color: #fff;
+}
+
+.primaryBtn:hover:not(:disabled) {
+  background: var(--red-hover);
 }
 
 .secondaryBtn {
@@ -151,9 +171,17 @@
   color: #fff;
 }
 
+.secondaryBtn:hover:not(:disabled) {
+  background: rgba(27, 42, 74, 0.85);
+}
+
 .deleteBtn {
   background: var(--red);
   color: #fff;
+}
+
+.deleteBtn:hover:not(:disabled) {
+  background: var(--red-hover);
 }
 
 .primaryBtn:disabled,
@@ -161,4 +189,19 @@
 .deleteBtn:disabled {
   opacity: 0.6;
   cursor: not-allowed;
+}
+
+@media (max-width: 640px) {
+  .main {
+    padding: 32px 14px 48px;
+  }
+
+  .main::before {
+    inset: 12px 0 20px;
+    border-radius: 24px;
+  }
+
+  .card {
+    padding: 28px 20px;
+  }
 }
