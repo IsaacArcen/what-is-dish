@@ -8,6 +8,11 @@
 .card {
   width: 100%;
   max-width: 460px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-card);
+  padding: 40px 32px;
 }
 
 .title {
@@ -38,7 +43,7 @@
   margin-bottom: 10px;
 }
 
-/* Antal frågor */
+/* Antal frågor / quiz-typ */
 .optionRow {
   display: flex;
   gap: 8px;
@@ -103,7 +108,7 @@
 
 .pillActive {
   border: none;
-  background: #3a7a3a;
+  background: var(--green);
   color: #fff;
   opacity: 1;
   font-weight: 700;

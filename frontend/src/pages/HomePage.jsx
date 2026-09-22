@@ -1,29 +1,26 @@
 import { Link } from "react-router-dom";
-import GlobeIllustration from "../Components/GlobeIllustration";
 import DailyRecipeCard from "../Components/DailyRecipeCard";
-import styles from "./HomePage.module.css";
 import LeaderboardCard from "../Components/LeaderboardCard";
+import heroImage from "../assets/hero-dish.png";
+import styles from "./HomePage.module.css";
 
 export default function HomePage() {
   return (
-    <main className={styles.main}>
-      <div className={styles.heroLeaderboard}>
-        <LeaderboardCard />
-      </div>
-
-      <div className={styles.heroContent}>
-        <div className={styles.globe}>
-          <GlobeIllustration />
-        </div>
+    <div className={styles.pageWrap}>
+      <div className={styles.heroCard}>
+        <img
+          src={heroImage}
+          alt="Jordglob med mat från olika länder"
+          className={styles.heroImage}
+        />
 
         <h1 className={styles.title}>
           what is dish<span className={styles.titleAccent}>?!</span>
         </h1>
 
         <p className={styles.subtitle}>
-          Ett snabbt och lekfullt sätt att upptäcka världens
-          <br />
-          kök, ett land i taget.
+          Ett snabbt och lekfullt sätt att upptäcka världens kök, ett land i
+          taget.
         </p>
 
         <div className={styles.actions}>
@@ -48,9 +45,10 @@ export default function HomePage() {
         </div>
       </div>
 
-      <div className={styles.heroRecipe}>
+      <div className={styles.sidebar}>
         <DailyRecipeCard />
+        <LeaderboardCard />
       </div>
-    </main>
+    </div>
   );
 }

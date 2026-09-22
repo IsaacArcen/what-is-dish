@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import styles from "../pages/BloggPage.module.css";
+import styles from "./LeaderboardCard.module.css";
 
 export default function LeaderboardCard() {
   const [leaderboard, setLeaderboard] = useState([]);
@@ -13,21 +13,22 @@ export default function LeaderboardCard() {
 
   return (
     <article className={styles.card}>
-      <div className={styles.cardHeader}>
-        <span style={{ fontSize: "1.5rem" }}>🏆</span>
-        <span className={styles.country}>Highscore</span>
+      <div className={styles.header}>
+        <span className={styles.trophy}>🏆</span>
+        <span className={styles.heading}>Highscore</span>
       </div>
 
-      <ol style={{ paddingLeft: "1.2rem", margin: 0 }}>
-        {leaderboard.map((entry, i) => (
-          <li key={i} style={{ marginBottom: "4px" }}>
-            {entry.userName} — {entry.totalScore}p
-          </li>
-        ))}
-      </ol>
-
-      {leaderboard.length === 0 && (
-        <p className={styles.description}>Ingen har spelat än.</p>
+      {leaderboard.length === 0 ? (
+        <p className={styles.empty}>Ingen har spelat än.</p>
+      ) : (
+        <ol className={styles.list}>
+          {leaderboard.map((entry, i) => (
+            <li key={i} className={styles.entry}>
+              <span>{entry.userName}</span>
+              <span className={styles.score}>{entry.totalScore}p</span>
+            </li>
+          ))}
+        </ol>
       )}
     </article>
   );
