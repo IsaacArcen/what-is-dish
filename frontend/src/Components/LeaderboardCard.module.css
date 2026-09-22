@@ -1,0 +1,51 @@
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-card);
+  padding: 20px;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 14px;
+}
+
+.trophy {
+  font-size: 20px;
+}
+
+.heading {
+  font-size: 13px;
+  font-weight: 800;
+  color: var(--navy);
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.entry {
+  display: flex;
+  justify-content: space-between;
+  font-size: 14px;
+  color: var(--navy);
+  font-weight: 600;
+}
+
+.score {
+  color: var(--red);
+  font-weight: 800;
+}
+
+.empty {
+  font-size: 13px;
+  color: var(--text-muted);
+}

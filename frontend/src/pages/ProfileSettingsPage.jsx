@@ -1,32 +1,12 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../auth/Auth.Context';
 import styles from './ProfileSettingsPage.module.css';
 
-export default function ProfileSettingsPage() {
-  const navigate = useNavigate();
-  const {
-    user,
-    isAuthenticated,
-    isBooting,
-    updateAccount,
-    changePassword,
-    deleteAccount,
-  } = useAuth();
-  const [accountForm, setAccountForm] = useState({ name: '', email: '' });
-  const [passwordForm, setPasswordForm] = useState({ currentPassword: '', newPassword: '', confirmPassword: '' });
-  const [deletePassword, setDeletePassword] = useState('');
-  const [deleteConfirmed, setDeleteConfirmed] = useState(false);
+function AccountSettingsForm({ user, updateAccount }) {
+  const [accountForm, setAccountForm] = useState({ name: user.name, email: user.email });
   const [accountMessage, setAccountMessage] = useState('');
-  const [passwordMessage, setPasswordMessage] = useState('');
-  const [deleteMessage, setDeleteMessage] = useState('');
   const [isSavingAccount, setIsSavingAccount] = useState(false);
-  const [isSavingPassword, setIsSavingPassword] = useState(false);
-  const [isDeleting, setIsDeleting] = useState(false);
-
-  useEffect(() => {
-    if (user) setAccountForm({ name: user.name, email: user.email });
-  }, [user]);
 
   async function submitAccount(e) {
     e.preventDefault();
@@ -42,6 +22,41 @@ export default function ProfileSettingsPage() {
       setIsSavingAccount(false);
     }
   }
+
+  return (
+    <section className={styles.settingsSection}>
+      <h2 className={styles.sectionTitle}>Kontouppgifter</h2>
+      <form className={styles.settingsForm} onSubmit={submitAccount}>
+        <label className={styles.label}>Namn
+          <input className={styles.input} value={accountForm.name} onChange={e => setAccountForm(prev => ({ ...prev, name: e.target.value }))} minLength={2} required />
+        </label>
+        <label className={styles.label}>E-post
+          <input className={styles.input} type="email" value={accountForm.email} onChange={e => setAccountForm(prev => ({ ...prev, email: e.target.value }))} required />
+        </label>
+        {accountMessage && <p className={styles.formMessage}>{accountMessage}</p>}
+        <button className={styles.secondaryBtn} type="submit" disabled={isSavingAccount}>{isSavingAccount ? 'Sparar...' : 'Spara ändringar'}</button>
+      </form>
+    </section>
+  );
+}
+
+export default function ProfileSettingsPage() {
+  const navigate = useNavigate();
+  const {
+    user,
+    isAuthenticated,
+    isBooting,
+    updateAccount,
+    changePassword,
+    deleteAccount,
+  } = useAuth();
+  const [passwordForm, setPasswordForm] = useState({ currentPassword: '', newPassword: '', confirmPassword: '' });
+  const [deletePassword, setDeletePassword] = useState('');
+  const [deleteConfirmed, setDeleteConfirmed] = useState(false);
+  const [passwordMessage, setPasswordMessage] = useState('');
+  const [deleteMessage, setDeleteMessage] = useState('');
+  const [isSavingPassword, setIsSavingPassword] = useState(false);
+  const [isDeleting, setIsDeleting] = useState(false);
 
   async function submitPassword(e) {
     e.preventDefault();
@@ -106,19 +121,11 @@ export default function ProfileSettingsPage() {
         <h1 className={styles.title}>Kontoinställningar</h1>
         <p className={styles.subtitle}>Hantera dina uppgifter och säkerhet.</p>
 
-        <section className={styles.settingsSection}>
-          <h2 className={styles.sectionTitle}>Kontouppgifter</h2>
-          <form className={styles.settingsForm} onSubmit={submitAccount}>
-            <label className={styles.label}>Namn
-              <input className={styles.input} value={accountForm.name} onChange={e => setAccountForm(prev => ({ ...prev, name: e.target.value }))} minLength={2} required />
-            </label>
-            <label className={styles.label}>E-post
-              <input className={styles.input} type="email" value={accountForm.email} onChange={e => setAccountForm(prev => ({ ...prev, email: e.target.value }))} required />
-            </label>
-            {accountMessage && <p className={styles.formMessage}>{accountMessage}</p>}
-            <button className={styles.secondaryBtn} type="submit" disabled={isSavingAccount}>{isSavingAccount ? 'Sparar...' : 'Spara ändringar'}</button>
-          </form>
-        </section>
+        <AccountSettingsForm
+          key={`${user.email}:${user.name}`}
+          user={user}
+          updateAccount={updateAccount}
+        />
 
         <section className={styles.settingsSection}>
           <h2 className={styles.sectionTitle}>Lösenord</h2>

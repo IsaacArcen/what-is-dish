@@ -2,7 +2,19 @@
 
 .main {
   flex: 1;
+  display: flex;
+  justify-content: center;
   padding: 32px 24px 64px;
+}
+
+.card {
+  width: 100%;
+  max-width: 1000px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-card);
+  padding: 32px;
 }
 
 .headerSection {
@@ -60,33 +72,53 @@
   margin-bottom: 4px;
 }
 
-/* Samma grundstil för både land-kort och rätt-kort */
 .countryCard,
 .dishCard {
   width: 100%;
-  min-height: 88px;
+  height: 88px;
   border: 2px solid var(--navy);
   border-radius: 8px;
-  background: #fff;
+  background: var(--bg);
   color: var(--navy);
-  display: grid;
+  display: flex;
   align-items: center;
   gap: 14px;
   padding: 12px;
   font-size: 15px;
   font-weight: 800;
   cursor: pointer;
-  transition: transform 0.12s, border-color 0.12s, opacity 0.12s;
+  transition:
+    transform 0.12s,
+    border-color 0.12s,
+    opacity 0.12s;
+  text-align: left;
+  overflow: hidden;
 }
 
-.countryCard {
-  grid-template-columns: 92px 1fr;
-  text-align: left;
+.flag,
+.dishImage {
+  width: 96px;
+  height: 64px;
+  min-width: 96px;
+  min-height: 64px;
+  max-height: 64px;
+  object-fit: cover;
+  border-radius: 6px;
+  display: block;
+  flex-shrink: 0;
+  align-self: center;
 }
 
-.dishCard {
-  grid-template-columns: 104px 1fr;
-  text-align: left;
+.countryCard span,
+.dishCard span {
+  flex: 1;
+  min-width: 0;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  line-height: 1.3;
 }
 
 .countryCard:hover:not(:disabled),
@@ -100,20 +132,6 @@
   cursor: not-allowed;
 }
 
-.flag {
-  width: 92px;
-  height: 58px;
-  object-fit: cover;
-  border-radius: 6px;
-}
-
-.dishImage {
-  width: 104px;
-  height: 72px;
-  object-fit: cover;
-  border-radius: 6px;
-}
-
 /* Markerar landet som användaren valt */
 .selected {
   border-color: var(--red);
@@ -123,7 +141,7 @@
 /* Rätta par tonas ner när de är klara */
 .matched {
   opacity: 0.45;
-  border-color: #3a7a3a;
+  border-color: var(--green);
 }
 
 .correctText,
@@ -136,7 +154,7 @@
 }
 
 .correctText {
-  color: #2f7d46;
+  color: var(--green);
 }
 
 .wrongText {
@@ -164,11 +182,17 @@
   color: #fff;
   font-weight: 800;
   cursor: pointer;
+  transition: background 0.15s;
+}
+
+.endBox button:hover,
+.emptyBox button:hover {
+  background: var(--red-hover);
 }
 
 .emptyBox {
   max-width: 520px;
-  margin: 60px auto;
+  margin: 0 auto;
   text-align: center;
 }
 

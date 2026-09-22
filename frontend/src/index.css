@@ -1,13 +1,26 @@
 :root {
-  --bg: #e8dece;
+  /* bakgrund */
+  --bg: #f3e5c8;
+  --surface: #faf1dc; /* cards */
+  --border: #e8d8b0;
+
+  /* brand */
   --navy: #1b2a4a;
-  --orange: #e8811a;
   --red: #8b1c1c;
   --red-hover: #7a1818;
+  --orange: #e8811a;
+  --green: #3a7a3a;
+  --brown: #5c3d24;
+
   --text-muted: #5a5a5a;
+
+  --radius: 12px;
+  --shadow-card: 0 2px 10px rgba(27, 42, 74, 0.08);
 }
 
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
@@ -15,7 +28,7 @@
 
 body {
   background-color: var(--bg);
-  font-family: 'Nunito', 'Segoe UI', sans-serif;
+  font-family: "Nunito", "Segoe UI", sans-serif;
   color: var(--navy);
   min-height: 100vh;
   -webkit-font-smoothing: antialiased;
@@ -25,4 +38,13 @@ body {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+}
+
+/* återanvändbar kort-yta (ska använda använd denna klass i alla sidors .module.css
+   via "composes: card from global;") */
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-card);
 }

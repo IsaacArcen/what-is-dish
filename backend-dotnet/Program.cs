@@ -20,6 +20,7 @@ builder.Services.AddScoped<IQuizSummaryService, QuizSummaryService>();
 builder.Services.AddScoped<IQuizScoreService, QuizScoreService>();
 builder.Services.AddScoped<IAuthService, AuthService>();
 builder.Services.AddScoped<IMatchingQuizService, MatchingQuizService>();
+builder.Services.AddScoped<IBloggService, BloggService>();
 builder.Services.AddScoped<IMatchingQuizSettingsService, MatchingQuizSettingsService>();
 
 builder.Services.AddCors(options =>
@@ -47,23 +48,13 @@ app.MapGet("/api/countries", async (AppDbContext db) =>
 app.MapGet("/api/dishes", async (AppDbContext db) =>
     await db.Dishes.ToListAsync());
 
-app.MapGet("/api/blog", async (AppDbContext db) =>
-    await db.Dishes
-        .Where(d => d.IsCorrect)
-        .Include(d => d.Country)
-        .Select(d => new
-        {
-            d.CountryId,
-            d.Country!.CountryName,
-            d.Country.Continent,
-            d.Country.FlagUrl,
-            d.DishId,
-            d.DishName,
-            d.DishImageUrl,
-            d.DishHistory,
-            d.Hint
-        })
-        .ToListAsync());
+app.MapGet("/api/blog", async (
+    [FromQuery] string[] continents,
+    IBloggService blogService) =>
+{
+    var dishes = await blogService.GetBlogDishesAsync(continents.ToList());
+    return Results.Ok(dishes);
+});
 
 // Gammal quiz-endpoint - kan tas bort nu när /api/quiz/start finns
 app.MapGet("/api/quiz", async (AppDbContext db, string continent = "all", int limit = 5) =>
@@ -166,6 +157,12 @@ app.MapGet("/api/scores/me", async (HttpRequest request, IQuizScoreService score
     }
 
     return Results.Ok(history);
+});
+
+app.MapGet("/api/leaderboard", async (IQuizScoreService scoreService) =>
+{
+    var leaderboard = await scoreService.GetLeaderboardAsync();
+    return Results.Ok(leaderboard);
 });
 
 static string? GetBearerToken(HttpRequest request)
@@ -291,6 +288,31 @@ app.MapPost("/api/matching-quiz/guess", async (
 {
     var result = await matchingService.EvaluateMatchAsync(request);
     return Results.Ok(result);
+});
+
+app.MapGet("/api/recipes/daily", async (AppDbContext db) =>
+{
+    var recipe = await db.Recipes
+        .Include(r => r.Country)
+        .OrderBy(r => EF.Functions.Random())
+        .Select(r => new
+        {
+            r.Country!.CountryName,
+            r.Country.FlagUrl,
+            DishName = db.Dishes
+                .Where(d => d.CountryId == r.CountryId && d.IsCorrect)
+                .Select(d => d.DishName)
+                .FirstOrDefault(),
+            DishImageUrl = db.Dishes
+                .Where(d => d.CountryId == r.CountryId && d.IsCorrect)
+                .Select(d => d.DishImageUrl)
+                .FirstOrDefault(),
+            r.Ingredients,
+            r.Steps
+        })
+        .FirstOrDefaultAsync();
+
+    return recipe is null ? Results.NotFound() : Results.Ok(recipe);
 });
 
 app.Run();

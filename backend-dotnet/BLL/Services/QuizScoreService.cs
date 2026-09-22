@@ -3,6 +3,7 @@ using WhatIsDish.Api.BLL.DTOs;
 using WhatIsDish.Api.BLL.Interfaces;
 using WhatIsDish.Api.Data;
 using WhatIsDish.Api.Models;
+using WhatIsDish.Api.BLL.DTOs.Leaderboard;
 
 namespace WhatIsDish.Api.BLL.Services;
 
@@ -69,6 +70,19 @@ public class QuizScoreService : IQuizScoreService
             Results = results,
         };
     }
+
+    public async Task<List<LeaderboardEntryDto>> GetLeaderboardAsync()
+{
+    return await _context.QuizScores
+        .GroupBy(score => score.UserId)
+        .Select(group => new LeaderboardEntryDto
+        {
+            UserName = group.First().User.Name,
+            TotalScore = group.Sum(score => score.Score)
+        })
+        .OrderByDescending(entry => entry.TotalScore)
+        .ToListAsync();
+}
 
     private async Task<int?> GetUserIdAsync(string? token)
     {
